@@ -1,0 +1,103 @@
+.control-container {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 5px;
+    padding-bottom: 30px;
+  }
+  
+  .control {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .input-control {
+    width: 90%;
+    height: 45px;
+    border: 1px solid black;
+    font-size: 25px;
+  }
+  
+  .button-container {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .submit-button {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(87, 87, 87);
+  }
+  
+  .array-container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .watch-container {
+    border: 1px solid black;
+    display: inline-block;
+    margin: 5px 15px;
+    width: 20%;
+    padding: 10px;
+    background-color: white;
+  }
+
+  .watch-container p{
+    color: black;
+  }
+  
+  .validate-form {
+    width: 90%;
+    margin: 0 auto;
+    color: tomato;
+  }
+  
+  .button-delete--wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .button-delete {
+    color: tomato;
+    background: transparent;
+    font-weight: 900;
+  }
+  
+  .button-edit--wrapper{
+    display: flex;
+    justify-content: center;
+    color: black;
+  }
+  
+  .button-edit{
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .sort-items{
+    background-color: black;  
+  }
+  
+  .filter-container{
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .filter-button{
+    margin-right: 10px;
+    height: 52px;
+    border: none;
+  }
