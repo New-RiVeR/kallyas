@@ -1,0 +1,11 @@
+<div class="main">
+    <div class="main-container" *ngFor="let item of description">
+        <h1>{{item.title}}</h1>
+    </div>
+    <div class="main-photo" *ngFor="let photo of photos">
+        <img [src]="photo.path" alt="sad_photo">
+    </div>
+    <div class="main-link" *ngFor="let link of links">
+        <a [routerLink]="link.link">{{link.title}}</a>
+    </div>
+</div>

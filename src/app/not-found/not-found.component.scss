@@ -1,0 +1,46 @@
+h1{
+    font-size: 100px;
+    color: black;
+}
+
+.main{
+    background-color: #ab8e69;
+    }
+
+.main-container{
+    width: 80%;
+    margin: 0 auto;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-photo,
+.main-link{
+    margin: 0 auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-photo img{
+    height: 350px;
+    width: 350px;
+}
+
+.main-link a{
+    color: black;
+    margin: 20px 0px;
+    font-size: 30px;
+    font-weight: 600;
+    padding: 10px;
+}
+
+.main-link a:hover{
+    text-decoration: none;
+    background-color: black;
+    color: #ab8e69;
+    border-radius: 5px;
+    transition: .5s;
+}
