@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemsHeader, NAVMENU } from './header.constants';
+import { ITEMS_HEADER, NAV_MENU, PHOTOS } from './header.constants';
 
 @Component({
   selector: 'app-header',
@@ -8,8 +8,9 @@ import { ItemsHeader, NAVMENU } from './header.constants';
 })
 export class HeaderComponent implements OnInit {
 
-  navMenu = NAVMENU;
-  items = ItemsHeader;
+  navMenu = NAV_MENU;
+  items = ITEMS_HEADER;
+  photos = PHOTOS
 
   constructor() { }
 
