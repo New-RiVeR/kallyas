@@ -1,8 +1,11 @@
 <div class="header">
   <div class="header-top">
-    <div>
-      <!-- <button>inst</button> -->
+    <div class="header-top--left">
+      <div *ngFor="let photo of photos">
+        <img [src]="photo.path" alt="q">
+      </div>
     </div>
+
     <div class="header-top--right">
 
       <ul *ngFor="let i of items">

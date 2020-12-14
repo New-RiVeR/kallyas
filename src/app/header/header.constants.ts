@@ -1,4 +1,4 @@
-export const NAVMENU = [
+export const NAV_MENU = [
     {
         title: 'Home',
         link: ''
@@ -17,7 +17,7 @@ export const NAVMENU = [
     }
 ]
 
-export const ItemsHeader = [
+export const ITEMS_HEADER = [
     {
         title: 'customer support'
     },
@@ -29,5 +29,20 @@ export const ItemsHeader = [
     },
     {
         title: 'info'
+    }
+]
+
+export const PHOTOS = [
+    {
+        path: '../../assets/image/facebook.svg'
+    },
+    {
+        path: '../../assets/image/instagram.svg'
+    },
+    {
+        path: '../../assets/image/tiktok.svg'
+    },
+    {
+        path: '../../assets/image/twitter.svg'
     }
 ]
