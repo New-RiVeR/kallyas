@@ -1,11 +1,18 @@
 <div class="container">
-    <div class="watches-container">
-      <div class="watches" *ngFor="let watch of watches">
-        <p class="item">{{ watch.name }}</p>
-        <p class="item">{{ watch.description }}</p>
-        <p class="item">{{ watch.price }}</p>
-        <button>buy</button>
+  <div class="watches-container">
+    <div class="watches" *ngFor="let watch of watches" (mouseover)="mouseOver(watch.id)" (mouseout)="mouseOut(watch.id)" (click)="clickMoreInfoBtn()">
+      <img class="clock-image" [src]="watch.image">
+      <p class="watch-title">{{ watch.name }}</p>
+      <p class="watch-descr">{{ watch.description }}</p>
+      <p class="watch-price">{{ watch.price }}</p>
+      <div class="watch-button--container">
+        <button class="watch-btn btn-info">More info</button>
+        <button class="watch-btn">Buy</button>
       </div>
     </div>
   </div>
-  
+</div>
+
+
+<!-- <button mat-button (click)="openDialog()">Open dialog</button> -->
+

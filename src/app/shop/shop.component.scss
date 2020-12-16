@@ -1,5 +1,5 @@
 .container{
-    padding-top: 50px;
+    padding: 20px 0;
 }
 
 .watches-container{
@@ -10,8 +10,48 @@
 
 .watches{
     width: 30%;
+    height: 100%;
     text-align: center;
-    margin-top: 50px;
-    border: 1px solid;
+    margin-top: 20px;
     background-color: white;
+    box-shadow: 0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12);
+    border: none;
+    overflow: hidden;
+    border-radius: 5px;
 }
+
+.clock-image{
+    height: 333px;
+    width: 100%;
+}
+
+.watch-title{
+    font-family: "Oswald",Helvetica,Arial,sans-serif;
+}
+
+.watch-button--container{
+    min-height: 40px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: .5s;
+    opacity: 0;
+}
+
+.watch-btn{
+    pointer-events: none;
+    padding: 5px 10px;
+    box-shadow: 0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12);
+    border-radius: 5px;
+    background-color: #ab8e69;
+    border: none;
+    color: white;
+}
+
+.watches:hover .watch-button--container{
+    opacity: 1;
+}
+
+.btn-info{
+    margin-right: 10px;
+}
+
