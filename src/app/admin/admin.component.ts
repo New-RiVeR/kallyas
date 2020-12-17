@@ -74,29 +74,6 @@ export class AdminComponent implements OnInit {
     })
   }
 
-  /////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!???????????
-  // sortBy(e) {
-  //   console.log('e: ', e);
-  //   switch(e.value){
-  //     case typeof(e) === 'string':
-  //       this.watchesArray.sort((a, b) => {
-  //         if (a[e.value] > b[e.value]) {
-  //           return 1
-  //         }
-  //         return -1
-  //       })
-  //       break;
-  //     case typeof(e) === 'number':
-  //       this.watchesArray.sort((a, b) => {
-  //         if (a[e.value] > b[e.value]) {
-  //           return 1
-  //         }
-  //         return -1
-  //       })
-  //       break;
-  //   }
-  // }
-
   editWatch(watch) {
     this.selectedWatch = watch;
     this.watchForm.patchValue(watch);

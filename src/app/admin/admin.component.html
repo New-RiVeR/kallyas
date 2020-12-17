@@ -1,38 +1,42 @@
-<form [formGroup]="watchForm">
+<div class="admin-page--container">
+  <form [formGroup]="watchForm">
     <div class="control-container">
       <div class="control">
-        <input class="input-control" type="text" formControlName="name">
+        <input class="input-control" type="text" value placeholder="name" formControlName="name">
       </div>
       <div class="control">
-        <input class="input-control" type="text" formControlName="description">
+        <input class="input-control" type="text" value placeholder="description" formControlName="description">
       </div>
       <div class="control">
-        <input class="input-control" type="number" formControlName="price">
+        <input class="input-control" type="number" value placeholder="price" formControlName="price">
       </div>
     </div>
     <div class="button-container">
       <button *ngIf="formIsEditing" class="submit-button" (click)="edit()">Save</button>
-      <button *ngIf="!formIsEditing" class="submit-button" (click)="submit()" [disabled]="!watchForm.value">Submit Form</button>
+      <button *ngIf="!formIsEditing" class="submit-button" (click)="submit()" [disabled]="!watchForm.value">Submit
+        Form</button>
     </div>
   </form>
-  
+
   <div class="filter-container">
-    <button class="filter-button" (click)="filter()">Filter</button>
-    <mat-form-field appearance="fill" class="sort-items">
-      <mat-label>Sort by</mat-label>
-      <mat-select (selectionChange)="sortBy($event)">
-        <mat-option *ngFor="let item of arrayItems" [value]="item.value">
-          {{item.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+    <div>
+      <button class="filter-button" (click)="filter()">Filter</button>
+      <mat-form-field appearance="fill" class="sort-items">
+        <mat-label>Sort by</mat-label>
+        <mat-select (selectionChange)="sortBy($event)">
+          <mat-option *ngFor="let item of arrayItems" [value]="item.value">
+            {{item.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
   </div>
 
-  
+
   <div class="array-container">
     <div class="watch-container" *ngFor="let watch of watchesArray">
       <div class="button-delete--wrapper">
-        <button class="button-delete" (click)="deleteItem(watch.id)">X</button>
+        <button class="button-delete" (click)="deleteItem(watch.id)"></button>
       </div>
       <div>
         <p>name: {{watch.name }} </p>
@@ -44,4 +48,5 @@
       </div>
     </div>
   </div>
-  
+
+</div>
