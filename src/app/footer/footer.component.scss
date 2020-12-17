@@ -41,6 +41,12 @@ button{
     border-radius: 3px;
 }
 
+button:hover{
+    background-color: #fff;
+    color: #ab8e69;
+    transition: .5s;
+}
+
 .footer-main {
   height: 530px;
   background-color: #0e0e0e;
