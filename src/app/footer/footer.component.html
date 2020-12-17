@@ -1,1 +1,42 @@
-<p>footer works!</p>
+<div class="footer-main">
+  <div class="footer-container">
+    <div class="footer-container--left">
+      <h4>NEWSLETTER</h4>
+      <p>Stay updated with our latest offers.</p>
+      <input type="text" value placeholder="your.address@email.com">
+      <button>Subscribe</button>
+    </div>
+    <div class="footer-container--middle">
+      <div>
+        <h4>Customer</h4>
+        <ul *ngFor="let item of customer">
+          <li> <a href="#">{{item.title}}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul *ngFor="let item of customer">
+          <li> <a href="#">{{item.title}}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-container--right">
+      <div>
+        <h4>Feedback</h4>
+        <ul *ngFor="let item of customer">
+          <li> <a href="#">{{item.title}}</a></li>
+        </ul>
+      </div>
+      <div class="social-network--block">
+        <h4>Follow us</h4>
+        <ul *ngFor="let item of followBlock">
+          <img class="footer-icons" [src]="item.path">
+          <li> <a href="#">{{item.title}}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-container--bottom">
+    © 2016 Kallyas.net | All rights reserved.
+  </div>
+</div>

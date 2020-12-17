@@ -17,4 +17,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  basketClick(){
+    console.log('you clicked on basket icon')
+  }
+
 }
