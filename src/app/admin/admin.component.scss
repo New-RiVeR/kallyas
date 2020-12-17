@@ -1,3 +1,7 @@
+.admin-page--container{
+  margin-bottom: 30px;
+}
+
 .control-container {
     width: 50%;
     margin: 0 auto;
@@ -15,8 +19,11 @@
   .input-control {
     width: 90%;
     height: 45px;
-    border: 1px solid black;
     font-size: 25px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
+    border: none;
   }
   
   .button-container {
@@ -27,11 +34,15 @@
   }
   
   .submit-button {
-    padding: 12px 15px;
+    height: 50px;
+    width: 150px;
+    font-size: 15px;
+    font-weight: 600;
+    background-color: #ab8e69;
+    color: #fff;
     border: none;
-    border-radius: 10px;
-    color: white;
-    background-color: rgb(87, 87, 87);
+    border-radius: 3px;
+    box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
   }
   
   .array-container {
@@ -44,12 +55,16 @@
   }
   
   .watch-container {
-    border: 1px solid black;
-    display: inline-block;
-    margin: 5px 15px;
-    width: 20%;
-    padding: 10px;
+    width: 30%;
+    min-height: 170px;
+    margin: 20px;
+    text-align: center;
+    margin-top: 20px;
     background-color: white;
+    box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
+    border: none;
+    overflow: hidden;
+    border-radius: 5px;
   }
 
   .watch-container p{
@@ -68,10 +83,15 @@
   }
   
   .button-delete {
-    color: tomato;
-    background: transparent;
-    font-weight: 900;
+    background-image: url(../../assets/image/cancel.png);
+    background-color: transparent;
+    border: none;
+    margin-right: 5px;
+    margin-top: 5px;
+    width: 16px;
+    height: 16px;
   }
+
   
   .button-edit--wrapper{
     display: flex;
@@ -80,9 +100,13 @@
   }
   
   .button-edit{
-    background-color: white;
+    background: white;
     border: none;
     border-radius: 5px;
+  }
+
+  .button-edit:hover{
+    // background-image: url(../../assets/image/cancel.png);
   }
 
   .sort-items{
