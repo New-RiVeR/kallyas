@@ -36,7 +36,7 @@ const appRoutes: Routes = [
     NotFoundComponent,
     HeaderComponent,
     FooterComponent,
-    AdminComponent
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
