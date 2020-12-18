@@ -60,4 +60,56 @@
       </div>
     </div>
   </div>
+
+
+
+  <form [formGroup]='contactPageForm'>
+    <div class="container-send">
+      <div class="container-send--inner">
+        <h4 class="container-send--title">Send us a message</h4>
+        <div class="send-form--top">
+          <input type="text" placeholder="First Name" name="name" class="firstNamee" id="firstName" required>
+          <input type="text" placeholder="Last Name" name="name" class="lastNamee" id="lastName" required>
+        </div>
+        <div class="send-form--middle">
+          <input type="email" placeholder="Email" name="email" class="email" id="email" required>
+        </div>
+        <div class="send-form--bottom">
+          <textarea id="message" placeholder="Message" rows="6" cols="40" name="message" class="form-control"></textarea>
+        </div>
+        <div class="confirm-container">
+          <div class="confirm">
+            <input type="checkbox" class="confirmSbs" id="confirmSubs" name="subs" checked>
+            <label for="scales" class="confirm-label">Subscribe to our newsletter</label>
+          </div>
+          <div class="send-button">
+            <input type="submit" class="btn-send" value="Send">
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>
