@@ -100,28 +100,50 @@
   }
   
   .button-edit{
-    background: white;
+    background-color: #ab8e69;
     border: none;
     border-radius: 5px;
   }
-
-  .button-edit:hover{
-    // background-image: url(../../assets/image/cancel.png);
-  }
-
   .sort-items{
     background-color: black;  
   }
   
   .filter-container{
-    margin: 0 auto;
-    width: 50%;
+    margin-top: 30px;
     display: flex;
-    justify-content: flex-end;
+    align-items: stretch;
+    justify-content: space-around;
+    
   }
   
   .filter-button{
-    margin-right: 10px;
-    height: 52px;
+    margin-right: 20px;
+    height: 40px;
     border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #ab8e69;
+    box-shadow: 0 8px 8 px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
   }
+
+.mat-form-field {
+  height: 40px;
+  width: 120px;
+  
+  text-align: center;
+  border-radius: 5px;
+  background-color: #ab8e69;
+  box-shadow: 0 8px 8 px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
+}
+.filter-buttons-container {
+  display: flex;
+}
+
+.mat-form-field-infix-flex{
+  align-items: center;
+  
+}
+
+.qqq{
+  padding: 0;
+}

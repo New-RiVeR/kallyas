@@ -19,8 +19,9 @@
   </form>
 
   <div class="filter-container">
-    <div>
+    <div class="filter-buttons-container">
       <button class="filter-button" (click)="filter()">Filter</button>
+      <div>
       <mat-form-field appearance="fill" class="sort-items">
         <mat-label>Sort by</mat-label>
         <mat-select (selectionChange)="sortBy($event)">
@@ -29,6 +30,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+    </div>
     </div>
   </div>
 
