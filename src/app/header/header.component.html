@@ -21,7 +21,7 @@
     <div class="navigation-menu--inner">
       <nav class="navigation-menu--inner nav">
         <div class="navigation-menu--routes" *ngFor="let item of navMenu">
-          <a [routerLink]="item.link">{{item.title}}</a>
+          <div class="navigation-links" (click)="navigate(item)" [class.active]="item.active">{{item.title}}</div>
         </div>
       </nav>
       <button class="admin-button">

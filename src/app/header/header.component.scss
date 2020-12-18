@@ -83,6 +83,19 @@
     text-transform:uppercase ;
 }
 
+.navigation-links{
+    font-size: 11px;
+    padding: 6px 12px;
+    color: white;
+    font-family: "Oswald",Helvetica,Arial,sans-serif;
+    line-height: 14px;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 5px;
+    text-transform:uppercase;
+    cursor: pointer;
+}
+
 .navigation-menu a:hover{
     text-decoration: none;
     color: #ab8e69;
@@ -120,5 +133,9 @@
 .basket-btn{
     background: transparent;
     border: none;
+}
+
+.active{
+    color: #ab8e69;
 }
 

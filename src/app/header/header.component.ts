@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ITEMS_HEADER, NAV_MENU, PHOTOS } from './header.constants';
 
 @Component({
@@ -12,9 +13,14 @@ export class HeaderComponent implements OnInit {
   items = ITEMS_HEADER;
   photos = PHOTOS
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  navigate(item): void {
+    this.router.navigate([item.link])
+    item.active = true;
   }
 
   basketClick(){
