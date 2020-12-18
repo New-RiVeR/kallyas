@@ -8,7 +8,6 @@ import { MAIN_HEADER_BLOCK } from './about.constants';
 })
 export class AboutComponent implements OnInit {
 
-  // header_block = ABOUT_HEADER_BLOCK;
   main_block = MAIN_HEADER_BLOCK;
   changeBlockDirection = false;
 
