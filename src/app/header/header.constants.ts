@@ -1,34 +1,38 @@
 export const NAV_MENU = [
     {
         title: 'Home',
-        link: ''
+        link: '',
+        active: false
     },
     {
         title: 'About',
-        link: '/about'
+        link: '/about',
+        active: false
     },
     {
         title: 'Shop',
-        link: '/shop'
+        link: '/shop',
+        active: false
     },
     {
         title: 'Contacts',
-        link: '/contact'
+        link: '/contact',
+        active: false
     }
 ]
 
 export const ITEMS_HEADER = [
     {
-        title: 'customer support'
+        title: 'Customer support'
     },
     {
-        title: 'shipping'
+        title: 'Shipping'
     },
     {
-        title: 'login'
+        title: 'LogIn'
     },
     {
-        title: 'info'
+        title: 'Info'
     }
 ]
 

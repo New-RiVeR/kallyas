@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MAIN_HEADER_BLOCK } from './about.constants';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  main_block = MAIN_HEADER_BLOCK;
+  changeBlockDirection = false;
+
+  constructor() { 
+    this.main_block.find((obj) => {
+      if (obj.id % 2){
+        console.log(obj);
+        this.changeBlockDirection = true;
+      }
+    })
+   }
+   
 
   ngOnInit(): void {
+    
   }
 
-}
+    
+
+
+  }
+
