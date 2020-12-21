@@ -19,12 +19,17 @@ export class HeaderComponent implements OnInit {
   }
 
   navigate(item): void {
-    this.router.navigate([item.link])
+    this.router.navigate([item.link]);
+    // this.makeAllNavItemsInActive();
     item.active = true;
   }
 
   basketClick(){
     console.log('you clicked on basket icon')
   }
+
+  // makeAllNavItemsInActive(): void {
+  //   this.navMenu.map(menuItem => menuItem.active = false);
+  // }
 
 }

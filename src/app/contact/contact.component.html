@@ -36,7 +36,7 @@
     </div>
   </div>
 
-  <div class="container-send">
+  <!-- <div class="container-send">
     <div class="container-send--inner">
       <h4 class="container-send--title">Send us a message</h4>
       <div class="send-form--top">
@@ -59,7 +59,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 
@@ -83,7 +83,7 @@
             <label for="scales" class="confirm-label">Subscribe to our newsletter</label>
           </div>
           <div class="send-button">
-            <input type="submit" class="btn-send" value="Send">
+            <button class="btn-send" (click)="send()" [disabled]="!contactPageForm.value">Send</button>
           </div>
         </div>
       </div>
