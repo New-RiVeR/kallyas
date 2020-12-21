@@ -21,7 +21,7 @@
     <div class="navigation-menu--inner">
       <nav class="navigation-menu--inner nav">
         <div class="navigation-menu--routes" *ngFor="let item of navMenu">
-          <div class="navigation-links" (click)="navigate(item)" [class.active]="item.active">{{item.title}}</div>
+          <a [routerLink]="item.link" routerLinkActive="active">{{item.title}}</a>
         </div>
       </nav>
       <button class="admin-button">
@@ -34,4 +34,3 @@
   </div>
 </div>
 <router-outlet></router-outlet>
-

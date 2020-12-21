@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -9,9 +9,25 @@ import { FormGroup } from '@angular/forms';
 export class ContactComponent implements OnInit {
   contactPageForm: FormGroup;
 
-  constructor() { }
+  constructor( private fb: FormBuilder  ) {}
 
   ngOnInit(): void {
   }
+
+  initContactForm(){
+    this.contactPageForm = this.fb.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      email: ['', Validators.required]
+    })
+  }
+
+  send(){
+    if(this.contactPageForm.invalid){
+      return;
+    }
+    console.log('qqqqqqqqqqqqqq')
+  }
+
 
 }
