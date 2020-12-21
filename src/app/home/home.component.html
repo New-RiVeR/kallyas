@@ -1,1 +1,58 @@
-<p>home works!</p>
+<ngb-carousel>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../../assets/image/clock-hand-1.jpg" alt="Angular Carousel 1">
+    </div>
+    <div class="carousel-caption">
+      <h3>PERFECT WITH YOUR SUIT</h3>
+      <h2 class="picsum-img-wrapper-p">Check out the new collection of Luxury Watches</h2>
+      <button>SHOP NOW</button>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img src="../../assets/image/slide_01.jpg" alt="Angular Carousel 2">
+    </div>
+    <div class="carousel-caption">
+      <h3>THE RETURN OF GOLD WATCHES</h3>
+      <button>SHOP NOW</button>
+    </div>
+  </ng-template>
+</ngb-carousel>
+<div class="about-container">
+  <div class="about-container--wrapper" *ngFor="let item of main_block">
+    <div class="about-container--left" [class.block-order]="item.orderImg === 1">
+      <div class="container-left--inner">
+        <div class="container-left--content" >        
+          <h3 class="main-title h3">{{item?.description}}</h3>
+          <p class="paragraph-style">{{item.paragraph}}</p>
+          <button class="container-content--button">{{item?.button}}</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="about-container--right">
+      <img [src]="item.photo_path" alt="first_photo">
+    </div>
+  </div>
+</div>
+<div class="watch-box-hugoBoss">
+  <h2 class="watch-box-hugoBoss-title">WEAR IT LIKE A BOSS</h2>
+  <p class="watch-box-hugoBoss-content">The new Hugo Boss collection</p>
+  <button class="watch-box-hugoBoss-link">SHOP NOW</button>
+</div>
+<div class="container">
+  <h2 class="container-title">FEATURED PRODUCTS</h2>
+  <div class="watches-container">
+    <div class="watches" *ngFor="let watch of watches" (mouseover)="mouseOver(watch.id)" (mouseout)="mouseOut(watch.id)" (click)="clickMoreInfoBtn()">
+      <img class="clock-image" [src]="watch.image">
+      <p class="watch-title">{{ watch.name }}</p>
+      <p class="watch-descr">{{ watch.description }}</p>
+      <p class="watch-price">{{ watch.price }}</p>
+      <div class="watch-button--container">
+        <button class="watch-btn btn-info">More info</button>
+        <button class="watch-btn">Buy</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,251 @@
+.picsum-img-wrapper {
+  height: 600px;
+}
+.picsum-img-wrapper-p{
+
+  line-height: 22px;
+  letter-spacing: 0px;
+  font-weight: 300;
+  font-size: 20px;
+  border-color: rgb(83, 83, 83);
+  border-style: none;
+  color: rgb(178, 178, 178);
+  text-decoration: none;
+  opacity: 1;
+ 
+}
+.carousel-caption button{
+   background-color: transparent;
+    font-family: "Open Sans";
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    visibility: visible;
+    text-align: center;
+    line-height: 24px;
+    letter-spacing: 0px;
+    font-weight: 600;
+    font-size: 14px;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-width: 3px;
+    
+    padding: 12px 35px;
+    color: rgb(255, 255, 255);
+   
+    width: 210px;
+   
+
+}
+
+.about-container{
+  height: 100%;
+  margin: 30px 0px;
+}
+
+.about-container--wrapper{
+  min-height: 600px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+}
+
+.about-container--left,
+.about-container--right{
+  width: 50%;
+}
+
+.about-container--left{
+  display: flex;
+  box-shadow: 0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12);
+}
+
+.container-left--inner{
+  width: 70%;
+  margin: auto;
+  align-self: center;
+}
+
+.container-left--content{
+  text-align: center;
+}
+
+.container-content--button{
+  font-family: "Oswald",Helvetica,Arial,sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: #0a0a0a;
+  letter-spacing: 14px;
+  margin-bottom: 5px;
+  margin-top: 130px;
+  border: 2px solid;
+  cursor: pointer;
+}
+.container-content--button:hover{
+color: #ab8e69;
+}
+.paragraph-style{
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  width: 90%;
+}
+
+.about-container--right img{
+  height: 100%;
+  width: 100%;
+}
+
+
+.main-title.h3{
+  font-family: "Open Sans",Helvetica,Arial,sans-serif;
+  font-size: 30px;
+  line-height: 56px;
+  font-weight: 900;
+  color: #ab8e69;
+  margin-bottom: 25px;
+}
+.main-title.h3::after {
+  content: " ";
+  display: inherit;
+  width: 150px;
+  height: 3px;
+  background-color: #ccc;
+  margin-top: 30px;
+  margin-left: 150px;
+}
+.main-paragraph{
+  font-family: "Oswald",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 600;
+  color: #0a0a0a;
+  letter-spacing: 10px;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
+
+.block-order {
+  order: 1;
+}
+.watch-box-hugoBoss {
+  background-image: url(https://demo.kallyas.net/watchshop/wp-content/uploads/sites/21/2016/09/bg01.jpg);
+  background-repeat: repeat;
+  background-position: center bottom;
+  background-size: cover;
+  background-attachment: scroll;
+  
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+.watch-box-hugoBoss-title{
+  text-align: center;
+  font-family: "Oswald",Helvetica,Arial,sans-serif;
+  font-size: 38px;
+  line-height: 58px;
+  font-weight: 400;
+  color: white;
+  letter-spacing: 20px;
+  margin-top: 240px;
+}
+.watch-box-hugoBoss-content {
+  text-align: center;
+  font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 100;
+    color: rgba(255,255,255,.68);
+}
+.watch-box-hugoBoss-link{
+  text-align: center;
+  font-family: "Open Sans",Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    line-height: 40px;
+    font-weight: 100;
+    color: white;
+    background: transparent;
+    border: none;
+    justify-content: center;
+    align-self: center;
+    margin-left: 45%;
+    border-bottom: 1px solid currentColor;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+    cursor: pointer;
+    letter-spacing: 6px;
+   
+  }
+  .watch-box-hugoBoss-link:hover{
+    color: #ab8e69;
+  }
+.qqq {
+height: 500px;
+}
+.container{
+  padding: 20px 0 40px;
+}
+
+.watches-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.watches{
+  width: 24%;
+  height: 100%;
+  text-align: center;
+  margin-top: 20px;
+  margin-right: 10px;
+  background-color: white;
+  box-shadow: 0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12);
+  border: none;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.clock-image{
+  height: 250px;
+  width: 100%;
+}
+
+.watch-title{
+  font-family: "Oswald",Helvetica,Arial,sans-serif;
+}
+
+.watch-button--container{
+  min-height: 40px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: .5s;
+  opacity: 0;
+}
+
+.watch-btn{
+  pointer-events: none;
+  padding: 5px 10px;
+  box-shadow: 0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12);
+  border-radius: 5px;
+  background-color: #ab8e69;
+  border: none;
+  color: white;
+}
+
+.watches:hover .watch-button--container{
+  opacity: 1;
+}
+
+.btn-info{
+  margin-right: 10px;
+}
+.container-title {
+  display: flex;
+  justify-content: center;
+}
