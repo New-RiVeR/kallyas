@@ -1,57 +1,101 @@
-.container{
-    padding: 20px 0 40px;
+.container {
+  padding: 20px 0 40px;
 }
 
-.watches-container{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.sort-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-.watches{
-    width: 30%;
-    height: 100%;
-    text-align: center;
-    margin-top: 20px;
-    background-color: white;
-    box-shadow: 0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12);
-    border: none;
-    overflow: hidden;
-    border-radius: 5px;
+.sort-items {
+  background-color: #0a0a0a;
+  width: 49%;
+  border-radius: 5px;
 }
 
-.clock-image{
-    height: 333px;
-    width: 100%;
+.watches-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.watch-title{
-    font-family: "Oswald",Helvetica,Arial,sans-serif;
+.watches {
+  width: 30%;
+  height: 540px;
+  text-align: center;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 6px 6px rgba(10, 16, 20, .15), 0 0 52px rgba(10, 16, 20, .12);
+  border: none;
+  overflow: hidden;
+  border-radius: 5px;
 }
 
-.watch-button--container{
-    min-height: 40px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: .5s;
-    opacity: 0;
+.clock-image {
+  min-height: 333px;
+  width: 100%;
 }
 
-.watch-btn{
-    pointer-events: none;
-    padding: 5px 10px;
-    box-shadow: 0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12);
-    border-radius: 5px;
-    background-color: #ab8e69;
-    border: none;
-    color: white;
+.watch-title,
+.watch-descr,
+.watch-price {
+  padding: 0 20px;
+  margin-bottom: 10px;
 }
 
-.watches:hover .watch-button--container{
-    opacity: 1;
+.watch-title {
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  height: 24px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn-info{
-    margin-right: 10px;
+.watch-descr {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  height: 50px;
+  font-size: 14px;
+  color: #939393;
+  line-height: 1.4;
 }
 
+.watch-price{
+  line-height: 40px;
+  font-size: 25px;
+    font-weight: 500;
+}
+
+.watch-button--container {
+  min-height: 40px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  cursor: pointer;
+  transition: .5s;
+  opacity: 0;
+}
+
+.watch-btn {
+  pointer-events: none;
+  padding: 5px 10px;
+  box-shadow: 0 6px 6px rgba(10, 16, 20, .15), 0 0 52px rgba(10, 16, 20, .12);
+  border-radius: 5px;
+  background-color: #ab8e69;
+  border: none;
+  color: white;
+}
+
+.watches:hover .watch-button--container {
+  opacity: 1;
+}
+
+.watches:hover .watch-price{
+  font-size: 30px;
+  color: #613700;
+}
+
+.btn-info {
+  margin-right: 10px;
+}

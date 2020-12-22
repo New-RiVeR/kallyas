@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { WATCHES } from './shop.constants';
+import { FILTER_ITEMS, SORT_ITEMS, WATCHES } from './shop.constants';
 
 @Component({
   selector: 'app-shop',
@@ -8,6 +8,8 @@ import { WATCHES } from './shop.constants';
 })
 export class ShopComponent implements OnInit {
   watches = WATCHES;
+  sort_items = SORT_ITEMS;
+  filter_items = FILTER_ITEMS;
   showButton: boolean;
   
   constructor() { }
@@ -15,15 +17,17 @@ export class ShopComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  mouseOver(id){
-    const currentWatch = this.watches.find(watch => watch.id === id);
-    // currentWatch.btnActive = true;
+  sortItemsBy(event){
+    this.watches.sort((a, b) => {
+      if(a[event.value] > b[event.value]){
+        return 1;
+      }
+      return -1
+    })
   }
 
-  mouseOut(id){
-    const outWatch = this.watches.find(watch => watch.id === id);
-    // outWatch.btnActive = false
-
+  filterItemsBy(){
+    this.watches = this.watches.filter(item => item.price > 200);
   }
 
   clickMoreInfoBtn(){

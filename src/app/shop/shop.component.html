@@ -1,13 +1,31 @@
 <div class="container">
+  <div class="sort-container" >
+    <mat-form-field appearance="fill" class="sort-items">
+      <mat-label class="mat-label--title">Sort by</mat-label>
+      <mat-select (selectionChange)="sortItemsBy($event)">
+        <mat-option *ngFor="let sort_item of sort_items" [value]="sort_item.value">
+          {{sort_item.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="sort-items">
+      <mat-label class="mat-label--title">Filter</mat-label>
+      <mat-select (selectionChange)="filterItemsBy($event)">
+        <mat-option *ngFor="let filter_item of filter_items" [value]="filter_item.value">
+          {{filter_item.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
   <div class="watches-container">
-    <div class="watches" *ngFor="let watch of watches" (mouseover)="mouseOver(watch.id)" (mouseout)="mouseOut(watch.id)" (click)="clickMoreInfoBtn()">
-      <img class="clock-image" [src]="watch.image">
+    <div class="watches" *ngFor="let watch of watches">
+      <img class="clock-image" [src]="watch.image" alt="clock image{{watch.id}}">
       <p class="watch-title">{{ watch.name }}</p>
       <p class="watch-descr">{{ watch.description }}</p>
-      <p class="watch-price">{{ watch.price }}</p>
+      <p class="watch-price">£{{ watch.price }}</p>
       <div class="watch-button--container">
         <button class="watch-btn btn-info">More info</button>
-        <button class="watch-btn">Buy</button>
+        <button class="watch-btn">Add to basket</button>
       </div>
     </div>
   </div>
