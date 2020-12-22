@@ -12,7 +12,8 @@ export class ShopComponent implements OnInit {
   filter_items = FILTER_ITEMS;
   showButton: boolean;
   
-  constructor() { }
+  constructor() { 
+  }
 
   ngOnInit(): void {
   }
@@ -30,9 +31,11 @@ export class ShopComponent implements OnInit {
     this.watches = this.watches.filter(item => item.price > 200);
   }
 
-  clickMoreInfoBtn(){
-    console.log('qwerty');
+  clickOnMoreInfoButton(){
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
   }
 
-
+  clickHere(){
+    console.log('***************')
+  }
 }

@@ -29,6 +29,7 @@
   border: none;
   overflow: hidden;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .clock-image {
@@ -78,7 +79,7 @@
 }
 
 .watch-btn {
-  pointer-events: none;
+  // pointer-events: none;
   padding: 5px 10px;
   box-shadow: 0 6px 6px rgba(10, 16, 20, .15), 0 0 52px rgba(10, 16, 20, .12);
   border-radius: 5px;
@@ -89,6 +90,16 @@
 
 .watches:hover .watch-button--container {
   opacity: 1;
+}
+
+.watches:hover .watch-title{
+  font-size: 22px;
+  color: #613700;
+}
+
+.watches:hover .watch-descr{
+  font-size: 15px;
+  color: black;
 }
 
 .watches:hover .watch-price{

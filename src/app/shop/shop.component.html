@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="sort-container" >
+  <div class="sort-container">
     <mat-form-field appearance="fill" class="sort-items">
       <mat-label class="mat-label--title">Sort by</mat-label>
       <mat-select (selectionChange)="sortItemsBy($event)">
@@ -10,7 +10,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill" class="sort-items">
       <mat-label class="mat-label--title">Filter</mat-label>
-      <mat-select (selectionChange)="filterItemsBy($event)">
+      <mat-select (selectionChange)="filterItemsBy()">
         <mat-option *ngFor="let filter_item of filter_items" [value]="filter_item.value">
           {{filter_item.title}}
         </mat-option>
@@ -24,12 +24,9 @@
       <p class="watch-descr">{{ watch.description }}</p>
       <p class="watch-price">£{{ watch.price }}</p>
       <div class="watch-button--container">
-        <button class="watch-btn btn-info">More info</button>
+        <button class="watch-btn btn-info" (click)="clickOnMoreInfoButton()">More info</button>
         <button class="watch-btn">Add to basket</button>
       </div>
     </div>
   </div>
 </div>
-
-
-
