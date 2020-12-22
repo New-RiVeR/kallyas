@@ -27,10 +27,14 @@
       <button class="admin-button">
         <a routerLink="/admin">Admin</a>
       </button>
-      <button class="basket-btn" (click)="basketClick()">
-        <img src="../../assets/image/shopping-basket.png" alt="">
-      </button>
+      <div>
+        <button class="basket-btn" (click)="basketClick()">
+          <a routerLink="/cart"><img src="../../assets/image/shopping-basket.png" alt="basket-icon"></a>
+        </button>
+      </div>
+
     </div>
   </div>
 </div>
+
 <router-outlet></router-outlet>

@@ -18,7 +18,7 @@ export const NAV_MENU = [
         title: 'Contacts',
         link: '/contact',
         active: false
-    }
+    },
 ]
 
 export const ITEMS_HEADER = [

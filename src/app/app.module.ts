@@ -15,6 +15,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdminComponent } from './admin/admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartComponent } from './cart/cart.component';
 
 
 const appRoutes: Routes = [
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   {path: 'shop', component: ShopComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'admin', component: AdminComponent},
+  {path: 'cart', component: CartComponent},
   {path: '**', component: NotFoundComponent}
 ]
 
@@ -37,6 +39,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     AdminComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

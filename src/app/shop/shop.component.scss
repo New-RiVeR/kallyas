@@ -63,10 +63,10 @@
   line-height: 1.4;
 }
 
-.watch-price{
-  line-height: 40px;
-  font-size: 25px;
-    font-weight: 500;
+.watch-price {
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .watch-button--container {
@@ -75,7 +75,7 @@
   padding-left: 10px;
   cursor: pointer;
   transition: .5s;
-  opacity: 0;
+  opacity: 1;
 }
 
 .watch-btn {
@@ -83,28 +83,17 @@
   padding: 5px 10px;
   box-shadow: 0 6px 6px rgba(10, 16, 20, .15), 0 0 52px rgba(10, 16, 20, .12);
   border-radius: 5px;
-  background-color: #ab8e69;
   border: none;
+  color: #ab8e69;
+  background-color: white;
+}
+
+.btn-info:hover,
+.btn-add:hover {
+  transition: .5s;
+  background-color: #ab8e69;
   color: white;
-}
 
-.watches:hover .watch-button--container {
-  opacity: 1;
-}
-
-.watches:hover .watch-title{
-  font-size: 22px;
-  color: #613700;
-}
-
-.watches:hover .watch-descr{
-  font-size: 15px;
-  color: black;
-}
-
-.watches:hover .watch-price{
-  font-size: 30px;
-  color: #613700;
 }
 
 .btn-info {
