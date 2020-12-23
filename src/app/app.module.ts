@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+// import {v4 as uuidv1} from 'src/app/admin/node_modules/uuid'
+import {v4 as uuidv1} from '../../node_modules/uuid'
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -15,6 +17,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdminComponent } from './admin/admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartComponent } from './cart/cart.component';
+import { from } from 'rxjs';
 
 
 const appRoutes: Routes = [
@@ -23,6 +27,7 @@ const appRoutes: Routes = [
   {path: 'shop', component: ShopComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'admin', component: AdminComponent},
+  {path: 'cart', component: CartComponent},
   {path: '**', component: NotFoundComponent}
 ]
 
@@ -37,6 +42,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     FooterComponent,
     AdminComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

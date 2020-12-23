@@ -24,9 +24,9 @@
       <p class="watch-descr">{{ watch.description }}</p>
       <p class="watch-price">£{{ watch.price }}</p>
       <div class="watch-button--container">
-        <button class="watch-btn btn-info" (click)="clickOnMoreInfoButton()">More info</button>
-        <button class="watch-btn">Add to basket</button>
+        <button class="watch-btn btn-info">More info</button>
+        <button class="watch-btn btn-add" (click)="addCart(watch)">Add to cart</button>
       </div>
     </div>
   </div>
-</div>
+</div>  

@@ -66,6 +66,11 @@
     align-items: center;
 }
 
+.navigation-menu--main{
+    display: flex;
+    align-items: center;
+}
+
 .navigation-menu--inner{
     display: flex;
     align-items: center;
@@ -140,6 +145,18 @@
     color: #ab8e69!important;
 }
 
-.nav-link {
-    margin-left: 5px;
+.cart-icon{
+    position: relative;
+}
+
+.cart_value{
+    position: absolute;
+    font-size: 10px;
+    font-weight: 800;
+    background-color: #fff;
+    border: 1px solid white;
+    border-radius: 50%;
+    padding: 4px 10px;
+    top: -16px;
+    right: -7px;
 }

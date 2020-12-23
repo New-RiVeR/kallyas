@@ -5,6 +5,7 @@ export const WATCHES = [
     description: 'Interactively expedite business materials without holistic information',
     price: 150,
     image: '../../assets/image/clock-1.jpg',
+    qnt: 1
   },
   {
     id: 2,
@@ -12,6 +13,7 @@ export const WATCHES = [
     description: 'Competently build 24/7 “outside the box” thinking via excellent paradigms',
     price: 169,
     image: '../../assets/image/clock-2.jpg',
+    qnt: 1
   },
   {
     id: 3,
@@ -19,6 +21,7 @@ export const WATCHES = [
     description: 'Collaboratively enable multimedia based supply chains for leveraged mindshare',
     price: 125,
     image: '../../assets/image/clock-3.jpg',
+    qnt: 1
   },
   {
     id: 4,
@@ -26,6 +29,7 @@ export const WATCHES = [
     description: 'Uniquely generate emerging functionalities whereas leveraged e-business',
     price: 400,
     image: '../../assets/image/clock-4.jpg',
+    qnt: 1
   },
   {
     id: 5,
@@ -33,6 +37,7 @@ export const WATCHES = [
     description: 'Seamlessly predominate flexible niches whereas seamless total linkage',
     price: 195,
     image: '../../assets/image/clock-5.jpg',
+    qnt: 1
   },
   {
     id: 6,
@@ -40,6 +45,7 @@ export const WATCHES = [
     description: 'Uniquely syndicate resource sucking synergy and economically sound e-tailers',
     price: 260,
     image: '../../assets/image/clock-6.jpg',
+    qnt: 1
   },
   {
     id: 7,
@@ -47,6 +53,7 @@ export const WATCHES = [
     description: 'Proactively unleash customized imperatives whereas timely meta-services.',
     price: 529,
     image: '../../assets/image/clock-7.jpg',
+    qnt: 1
   },
   {
     id: 8,
@@ -54,6 +61,7 @@ export const WATCHES = [
     description: 'Interactively matrix excellent benefits via adaptive e-tailers',
     price: 239,
     image: '../../assets/image/clock-8.jpg',
+    qnt: 1
   },
   {
     id: 9,
@@ -61,6 +69,7 @@ export const WATCHES = [
     description: 'Seamlessly develop strategic e-tailers rather than magnetic platforms',
     price: 310,
     image: '../../assets/image/clock-9.jpg',
+    qnt: 1
   }
 ];
 
