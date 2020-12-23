@@ -57,7 +57,9 @@ export class CartComponent implements OnInit {
   }
 
   removeAllItemsFromCart(){
-    
+    localStorage.removeItem('localCart');
+    this.getCartDetails = [];
+    this.total = 0;
   }
 
 
