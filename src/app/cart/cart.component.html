@@ -1,1 +1,30 @@
-<p>cart works!</p>
+<section class="cart_section">
+  <div class="container">
+    <table>
+      <tr>
+        <th>Image</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+        <th>Remove Item</th>
+      </tr>
+      <tr *ngFor="let getCartDetail of getCartDetails">
+        <td><img class="basket-image" src="{{getCartDetail.image}}" alt="clock-1"></td>
+        <td>£ {{getCartDetail.price}}</td>
+        <td>
+          <button type="button" class="btn-minus">-</button>
+          <span>{{getCartDetail.qnt}}</span>
+          <button type="button" class="btn-plus">+</button>
+        </td>
+        <td>£ 300</td>
+        <td>
+          <button>remove</button>
+        </td>
+      </tr>
+    </table>
+    <div class="footer-container">
+      <h2>Total: £300</h2>
+      <button>Remove all</button>
+    </div>
+  </div>
+</section>

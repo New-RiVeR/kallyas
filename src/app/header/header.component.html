@@ -18,6 +18,7 @@
     <div class="header-main--image">
       <img src="../../assets/image/logo.png" alt="image.logo">
     </div>
+    <div class="navigation-menu--main">
     <div class="navigation-menu--inner">
       <nav class="navigation-menu--inner nav">
         <div class="navigation-menu--routes" *ngFor="let item of navMenu">
@@ -27,14 +28,16 @@
       <button class="admin-button">
         <a routerLink="/admin">Admin</a>
       </button>
-      <div>
-        <button class="basket-btn" (click)="basketClick()">
-          <a routerLink="/cart"><img src="../../assets/image/shopping-basket.png" alt="basket-icon"></a>
-        </button>
-      </div>
-
+    </div>
+    <div class="cart-icon">
+      <a routerLink="/cart"><img src="../../assets/image/shopping-basket.png" alt="basket-icon"></a>
+      <div class="cart_value">
+        {{cartItem}}
+      </div> 
     </div>
   </div>
 </div>
+</div>
 
 <router-outlet></router-outlet>
+
