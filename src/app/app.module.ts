@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 // import {v4 as uuidv1} from 'src/app/admin/node_modules/uuid'
+import {v4 as uuidv1} from '../../node_modules/uuid'
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';

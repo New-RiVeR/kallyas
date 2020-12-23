@@ -12,19 +12,19 @@
         <td><img class="basket-image" src="{{getCartDetail.image}}" alt="clock-1"></td>
         <td>£ {{getCartDetail.price}}</td>
         <td>
-          <button type="button" class="btn-minus">-</button>
+          <button type="button" class="btn-minus" (click)="decrementQuantity(getCartDetail.id, getCartDetail.qnt)">-</button>
           <span>{{getCartDetail.qnt}}</span>
-          <button type="button" class="btn-plus">+</button>
+          <button type="button" class="btn-plus" (click)="incrementQuantity(getCartDetail.id, getCartDetail.qnt)">+</button>
         </td>
-        <td>£ 300</td>
+        <td>£ {{getCartDetail.price * getCartDetail.qnt | number}}</td>
         <td>
           <button>remove</button>
         </td>
       </tr>
     </table>
     <div class="footer-container">
-      <h2>Total: £300</h2>
-      <button>Remove all</button>
+      <h2>Total: £{{total}}</h2>
+      <button (click)="removeAllItemsFromCart()">Remove all</button>
     </div>
   </div>
 </section>
