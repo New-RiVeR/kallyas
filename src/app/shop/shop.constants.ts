@@ -4,6 +4,8 @@ export const WATCHES = [
     name: 'Black Silicon Strap Watch',
     description: 'Interactively expedite business materials without holistic information',
     price: 150,
+    country: 'USA',
+    year: 2014,
     image: '../../assets/image/clock-1.jpg',
     qnt: 1
   },
@@ -12,6 +14,8 @@ export const WATCHES = [
     name: 'Blue Silicon Strap Watch',
     description: 'Competently build 24/7 “outside the box” thinking via excellent paradigms',
     price: 169,
+    country: 'China',
+    year: 2012,
     image: '../../assets/image/clock-2.jpg',
     qnt: 1
   },
@@ -20,6 +24,8 @@ export const WATCHES = [
     name: 'Silicone Strap Watch',
     description: 'Collaboratively enable multimedia based supply chains for leveraged mindshare',
     price: 125,
+    country: 'Greece',
+    year: 2013,
     image: '../../assets/image/clock-3.jpg',
     qnt: 1
   },
@@ -28,6 +34,8 @@ export const WATCHES = [
     name: 'Luxury Watch',
     description: 'Uniquely generate emerging functionalities whereas leveraged e-business',
     price: 400,
+    country: 'Poland',
+    year: 2020,
     image: '../../assets/image/clock-4.jpg',
     qnt: 1
   },
@@ -36,6 +44,8 @@ export const WATCHES = [
     name: 'Golden Watch',
     description: 'Seamlessly predominate flexible niches whereas seamless total linkage',
     price: 195,
+    country: 'Germany',
+    year: 2019,
     image: '../../assets/image/clock-5.jpg',
     qnt: 1
   },
@@ -44,6 +54,8 @@ export const WATCHES = [
     name: 'Leather Strap Watch',
     description: 'Uniquely syndicate resource sucking synergy and economically sound e-tailers',
     price: 260,
+    country: 'Ukraine',
+    year: 2018,
     image: '../../assets/image/clock-6.jpg',
     qnt: 1
   },
@@ -52,6 +64,8 @@ export const WATCHES = [
     name: 'Leather Strap Watch',
     description: 'Proactively unleash customized imperatives whereas timely meta-services.',
     price: 529,
+    country: 'Canada',
+    year: 2017,
     image: '../../assets/image/clock-7.jpg',
     qnt: 1
   },
@@ -60,6 +74,8 @@ export const WATCHES = [
     name: 'Leather Strap Watch',
     description: 'Interactively matrix excellent benefits via adaptive e-tailers',
     price: 239,
+    country: 'Spain',
+    year: 2016,
     image: '../../assets/image/clock-8.jpg',
     qnt: 1
   },
@@ -68,6 +84,8 @@ export const WATCHES = [
     name: 'Sports Watch',
     description: 'Seamlessly develop strategic e-tailers rather than magnetic platforms',
     price: 310,
+    country: 'Italy',
+    year: 2015,
     image: '../../assets/image/clock-9.jpg',
     qnt: 1
   }

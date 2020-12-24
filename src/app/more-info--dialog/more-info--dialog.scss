@@ -1,4 +1,40 @@
 .more-info--container{
     height: 600px;
     width: 800px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.more-info--left,
+.more-info--right{
+    width: 48%;
+}
+
+.more-info--left{
+    height: 60%;
+}
+
+.image-block{
+    height: 100%;
+    width: 360px;
+    border-radius: 10px;
+    background: darkgray;
+}
+
+.image-block img{
+    height: 100%;
+    border-radius: 10px;
+}
+
+.title-block,
+.description-block,
+.price-block,
+.country-block,
+.year-block{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-block--right{
+    width: 50%;
 }

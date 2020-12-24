@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { FILTER_ITEMS, SORT_ITEMS, WATCHES } from './shop.constants';
 import { CartService } from '../services/cart.service'
 import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
+import { DialogService } from '../services/dialog.service';
 
 @Component({
   selector: 'app-shop',
@@ -17,10 +18,11 @@ export class ShopComponent implements OnInit {
   itemsCart: any = [];
   cartNumber: number = 0;
 
-  constructor(private cart: CartService, public dialog: MatDialog) {
+  constructor(private cart: CartService, public dialog: MatDialog, private dialogHelper: DialogService) {
   }
 
   ngOnInit(): void {
+
   }
 
   sortItemsBy(event) {
@@ -36,7 +38,8 @@ export class ShopComponent implements OnInit {
     this.watches = this.watches.filter(item => item.price > 200);
   }
 
-  openDialog() {
+  openDialog(watch) {
+    this.dialogHelper.watchSelected$.next(watch);
     const dialogRef = this.dialog.open(MoreInfoDialog);
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
