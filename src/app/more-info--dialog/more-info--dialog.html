@@ -3,26 +3,35 @@
 </mat-dialog-actions> -->
 
 <div class="more-info--container">
-  <div class="more-info--left">
-    <div class="image-block">
-      <img [src]="selectedWatch.image" alt="watch-image{{selectedWatch.id}}">
+  <div class="more-info--upper">
+    <div class="more-info--left">
+      <div class="image-block">
+        <img [src]="selectedWatch.image" alt="watch-image{{selectedWatch.id}}">
+      </div>
+    </div>
+    <div class="more-info--right">
+      <div class="title-block">
+        Title: <div class="title-block--right">{{selectedWatch.name}}</div>
+      </div>
+      <div class="country-block">
+        <div class="country-block--title">Country:</div>
+        <div class="country-block--content">
+          <div class="title-block--right country">{{selectedWatch.country}}</div>
+          <img [src]="selectedWatch.countryFlag" alt="flag of {{selectedWatch.country}}">
+        </div>
+      </div>
+      <div class="year-block">
+        Year: <div class="title-block--right">{{selectedWatch.year}}</div>
+      </div>
+      <div class="price-block">
+        Price: <div class="title-block--right">{{selectedWatch.price}}</div>
+      </div>
     </div>
   </div>
-  <div class="more-info--right">
-    <div class="title-block">
-      Title: <div class="title-block--right">{{selectedWatch.name}}</div>
-    </div>
-    <div class="country-block">
-      Country: <div class="title-block--right">{{selectedWatch.country}}</div>
-    </div>
-    <div class="description-block">
-      Description: <div class="title-block--right">{{selectedWatch.description}}</div>
-    </div>
-    <div class="year-block">
-      Year: <div class="title-block--right">{{selectedWatch.year}}</div>
-    </div>
-    <div class="price-block">
-      Price: <div class="title-block--right">{{selectedWatch.price}}</div>
+  <div class="more-info--lower">
+    <h3>Description</h3>
+    <div class="description-content">
+      {{selectedWatch.description}}
     </div>
   </div>
 </div>

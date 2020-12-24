@@ -5,6 +5,7 @@ export const WATCHES = [
     description: 'Interactively expedite business materials without holistic information',
     price: 150,
     country: 'USA',
+    countryFlag: '../../assets/image/united-states.png',
     year: 2014,
     image: '../../assets/image/clock-1.jpg',
     qnt: 1

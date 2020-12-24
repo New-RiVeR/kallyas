@@ -3,6 +3,12 @@
     width: 800px;
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
+}
+
+.more-info--upper{
+    display: flex;
+    height: 60%;
 }
 
 .more-info--left,
@@ -11,7 +17,7 @@
 }
 
 .more-info--left{
-    height: 60%;
+    height: 100%;
 }
 
 .image-block{
@@ -27,14 +33,51 @@
 }
 
 .title-block,
-.description-block,
 .price-block,
-.country-block,
 .year-block{
     display: flex;
     justify-content: space-between;
+    height: 20%;
 }
 
 .title-block--right{
     width: 50%;
+}
+
+.country-block{
+    display: flex;
+    justify-content: space-between;
+    height: 40%;
+}
+
+.country-block--content{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.country-block--content img{
+    max-width: 50%;
+    height: 50%;
+}
+
+.more-info--lower{
+    height: 37%;
+}
+
+.more-info--lower h3{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.description-block{
+    display: flex;
+    justify-content: space-between;
+}
+
+.description-content{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
 }
