@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactPage } from '../interfaces/contact-page.interface'
 
 @Component({
   selector: 'app-contact',
@@ -7,26 +8,25 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-  contactPageForm: FormGroup;
+  form: FormGroup;
+  contactPage: ContactPage;
 
-  constructor( private fb: FormBuilder  ) {}
-
-  ngOnInit(): void {
-  }
-
-  initContactForm(){
-    this.contactPageForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', Validators.required]
+  constructor(private formBuilder: FormBuilder) {
+    this.form = formBuilder.group({
+      firstName: ['', [Validators.required, Validators.minLength(5)]],
+      lastName: ['', [Validators.required, Validators.minLength(5)]],
+      email: ['', [Validators.required, Validators.email]]
     })
   }
 
-  send(){
-    if(this.contactPageForm.invalid){
-      return;
-    }
-    console.log('qqqqqqqqqqqqqq')
+  ngOnInit(): void {
+
+  }
+
+
+
+  send() {
+    console.log(this.form);
   }
 
 

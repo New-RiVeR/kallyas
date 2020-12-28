@@ -36,81 +36,34 @@
     </div>
   </div>
 
-  <!-- <div class="container-send">
-    <div class="container-send--inner">
-      <h4 class="container-send--title">Send us a message</h4>
-      <div class="send-form--top">
-        <input type="text" placeholder="First Name" name="name" class="firstNamee" id="firstName" required>
-        <input type="text" placeholder="Last Name" name="name" class="lastNamee" id="lastName" required>
-      </div>
-      <div class="send-form--middle">
-        <input type="email" placeholder="Email" name="email" class="email" id="email" required>
-      </div>
-      <div class="send-form--bottom">
-        <textarea id="message" placeholder="Message" rows="6" cols="40" name="message" class="form-control"></textarea>
-      </div>
-      <div class="confirm-container">
-        <div class="confirm">
-          <input type="checkbox" class="confirmSbs" id="confirmSubs" name="subs" checked>
-          <label for="scales" class="confirm-label">Subscribe to our newsletter</label>
-        </div>
-        <div class="send-button">
-          <input type="submit" class="btn-send" value="Send">
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-
-
-  <form [formGroup]='contactPageForm'>
+  <form [formGroup]='form'>
     <div class="container-send">
       <div class="container-send--inner">
         <h4 class="container-send--title">Send us a message</h4>
         <div class="send-form--top">
-          <input type="text" placeholder="First Name" name="name" class="firstNamee" id="firstName" required>
-          <input type="text" placeholder="Last Name" name="name" class="lastNamee" id="lastName" required>
+          <input type="text" placeholder="First Name" class="firstNamee" formControlName="firstName">
+          <div *ngIf="form.controls.firstName.invalid">Error</div>
+          <input type="text" placeholder="Last Name" class="lastNamee" formControlName="lastName">
         </div>
         <div class="send-form--middle">
-          <input type="email" placeholder="Email" name="email" class="email" id="email" required>
+          <input type="email" placeholder="Email" class="email" formControlName="email">
+          <div *ngIf="form.controls.email.invalid">email error</div>
         </div>
         <div class="send-form--bottom">
-          <textarea id="message" placeholder="Message" rows="6" cols="40" name="message" class="form-control"></textarea>
+          <textarea placeholder="Message" rows="6" cols="40" class="form-control"></textarea>
         </div>
         gg
         <div class="confirm-container">
           <div class="confirm">
-            <input type="checkbox" class="confirmSbs" id="confirmSubs" name="subs" checked>
+            <input type="checkbox" class="confirmSbs">
             <label for="scales" class="confirm-label">Subscribe to our newsletter</label>
           </div>
           <div class="send-button">
-            <button class="btn-send" (click)="send()" [disabled]="!contactPageForm.value">Send</button>
+            <button class="btn-send" (click)="send()">Send</button>
           </div>
         </div>
       </div>
     </div>
   </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </section>
