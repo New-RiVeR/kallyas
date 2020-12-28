@@ -41,25 +41,22 @@
       <div class="container-send--inner">
         <h4 class="container-send--title">Send us a message</h4>
         <div class="send-form--top">
-          <input type="text" placeholder="First Name" class="firstNamee" formControlName="firstName">
-          <div *ngIf="form.controls.firstName.invalid">Error</div>
-          <input type="text" placeholder="Last Name" class="lastNamee" formControlName="lastName">
+          <input type="text" placeholder="First Name *" class="firstNamee" formControlName="firstName">
+          <input type="text" placeholder="Last Name *" class="lastNamee" formControlName="lastName">
         </div>
         <div class="send-form--middle">
-          <input type="email" placeholder="Email" class="email" formControlName="email">
-          <div *ngIf="form.controls.email.invalid">email error</div>
+          <input type="email" placeholder="Email *" class="email" formControlName="email">
         </div>
         <div class="send-form--bottom">
           <textarea placeholder="Message" rows="6" cols="40" class="form-control"></textarea>
         </div>
-        gg
         <div class="confirm-container">
           <div class="confirm">
-            <input type="checkbox" class="confirmSbs">
+            <input type="checkbox" class="confirmSbs" formControlName="checkbox">
             <label for="scales" class="confirm-label">Subscribe to our newsletter</label>
           </div>
           <div class="send-button">
-            <button class="btn-send" (click)="send()">Send</button>
+            <button class="btn-send" (click)="send()" [disabled]="form.invalid">Send</button>
           </div>
         </div>
       </div>
