@@ -1,7 +1,7 @@
 export const NAV_MENU = [
     {
         title: 'Home',
-        link: '',
+        link: '/home',
         active: false
     },
     {

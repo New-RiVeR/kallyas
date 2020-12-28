@@ -24,13 +24,14 @@ import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
 
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'shop', component: ShopComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'cart', component: CartComponent },
-  { path: '**', component: NotFoundComponent }
+  {path: 'home', component: HomeComponent},
+  {path: '', component: HomeComponent},
+  {path: 'about', component: AboutComponent},
+  {path: 'shop', component: ShopComponent},
+  {path: 'contact', component: ContactComponent},
+  {path: 'admin', component: AdminComponent},
+  {path: 'cart', component: CartComponent},
+  {path: '**', component: NotFoundComponent}
 ]
 
 @NgModule({
