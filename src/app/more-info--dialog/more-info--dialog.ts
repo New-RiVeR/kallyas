@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DialogService } from '../services/dialog.service';
-import { WATCHES } from '../shop/shop.constants';
 
 @Component({
   selector: 'app-dialog-content-example-dialog',
@@ -15,8 +14,10 @@ export class MoreInfoDialog implements OnInit {
     
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
       this.selectedWatch = this.dialogHelper.watchSelected$.getValue();
+      console.log(this.selectedWatch);
+      
   }
 
   

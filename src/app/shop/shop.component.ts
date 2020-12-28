@@ -18,7 +18,10 @@ export class ShopComponent implements OnInit {
   itemsCart: any = [];
   cartNumber: number = 0;
 
-  constructor(private cart: CartService, public dialog: MatDialog, private dialogHelper: DialogService) {
+  constructor(
+    private cart: CartService,
+    public dialog: MatDialog,
+    private dialogHelper: DialogService) {
   }
 
   ngOnInit(): void {
