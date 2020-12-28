@@ -1,3 +1,7 @@
+input{
+    outline: none;
+}
+
 .contacts-main {
     margin: 0;
     width: 100%;
@@ -171,6 +175,14 @@
     display: flex;
     justify-content: flex-end;
     margin-bottom: 20px;
+}
+
+button:disabled{
+    cursor: not-allowed;
+}
+
+button:disabled:hover{
+    background-color: #ab8e69;
 }
 
 .btn-send{

@@ -11,19 +11,19 @@ export class ContactComponent implements OnInit {
   form: FormGroup;
   contactPage: ContactPage;
 
+
   constructor(private formBuilder: FormBuilder) {
-    this.form = formBuilder.group({
-      firstName: ['', [Validators.required, Validators.minLength(5)]],
-      lastName: ['', [Validators.required, Validators.minLength(5)]],
-      email: ['', [Validators.required, Validators.email]]
+    this.form = this.formBuilder.group({
+      firstName: ['', [Validators.required, Validators.minLength(2)]],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      checkbox: [false, [Validators.required]]
     })
   }
 
   ngOnInit(): void {
 
   }
-
-
 
   send() {
     console.log(this.form);
