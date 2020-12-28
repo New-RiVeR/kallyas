@@ -22,6 +22,7 @@ import { from } from 'rxjs';
 
 
 const appRoutes: Routes = [
+  {path: 'home', component: HomeComponent},
   {path: '', component: HomeComponent},
   {path: 'about', component: AboutComponent},
   {path: 'shop', component: ShopComponent},
