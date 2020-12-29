@@ -98,17 +98,7 @@ export const WATCHES = [
     image: '../../assets/image/clock-9.jpg',
     qnt: 1
   },
-  {
-    id: 9,
-    name: '',
-    description: 'Seamlessly develop strategic e-tailers rather than magnetic platforms',
-    price: 310,
-    country: 'Italy',
-    countryFlag: '../../assets/image/italy.png',
-    year: 2015,
-    image: '../../assets/image/clock-9.jpg',
-    qnt: 1
-  }
+ 
 ];
 
 export const SORT_ITEMS = [
