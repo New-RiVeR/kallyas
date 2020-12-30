@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   }
 
   clickMoreInfoBtn(){
-    console.log('qwerty');
+    
   }
 
 }

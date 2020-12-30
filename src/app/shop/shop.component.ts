@@ -47,7 +47,7 @@ export class ShopComponent implements OnInit {
     this.dialogHelper.watchSelected$.next(watch);
     const dialogRef = this.dialog.open(MoreInfoDialog);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+    
     });
   }
 

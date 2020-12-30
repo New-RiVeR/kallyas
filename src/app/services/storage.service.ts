@@ -19,7 +19,7 @@ export class StorageService {
 
   public pushToSharedData(watch) {
     this.sharedData.push(watch);
-    console.log(this.sharedData)
+    
     return this.sharedData;
   }
 }

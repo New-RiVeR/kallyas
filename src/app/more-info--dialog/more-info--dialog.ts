@@ -16,7 +16,7 @@ export class MoreInfoDialog implements OnInit {
 
   ngOnInit(): void {    
       this.selectedWatch = this.dialogHelper.watchSelected$.getValue();
-      console.log(this.selectedWatch);
+      
       
   }
 

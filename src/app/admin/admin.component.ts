@@ -69,7 +69,7 @@ export class AdminComponent implements OnInit {
   }
 
   sortBy(e) {
-    console.log(e)
+    
     this.watchesArray.sort((a, b) => {
       if (a[e.value] > b[e.value]) {
         return 1
@@ -87,12 +87,10 @@ export class AdminComponent implements OnInit {
   edit(){
     const selectedWatch = this.watchesArray.find(watch => watch.id === this.selectedWatch.id);
     selectedWatch.name = this.watchForm.value.name
-    console.log(selectedWatch);
+    
   }
 
-  filter(){
-    this.watchesArray = this.watchesArray.filter(watch => watch.price > 30)
-  }
+ 
 
   addClockInStorage(watch) {
     if (localStorage.getItem('Watches')) {
@@ -107,7 +105,7 @@ export class AdminComponent implements OnInit {
 
   loadDataFromStorage(): any[] {
     let data = JSON.parse(localStorage.getItem('Watches'));
-    console.log(data);
+    
     return data;
   }
 
@@ -117,7 +115,7 @@ export class AdminComponent implements OnInit {
 
   arrayFromStorage(){
     this.dataFromStarage.push(JSON.parse(localStorage.getItem('Watches')));
-    console.log(this.dataFromStarage);
+    
     
   }
 
