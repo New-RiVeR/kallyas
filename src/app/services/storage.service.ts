@@ -14,7 +14,7 @@ export class StorageService {
   }
 
   public getSharedData() {
-    return this.sharedData;
+    return this.sharedData; 
   }
 
   public pushToSharedData(watch) {

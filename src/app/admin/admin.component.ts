@@ -14,7 +14,7 @@ export class AdminComponent implements OnInit {
   watchForm: FormGroup;
   watchesArray = [];
   watch: any = {};
-  watchIndex = 1;
+  // watchIndex = 1;
   watches = [];
   formIsEditing: boolean;
   selectedWatch:any;
@@ -46,19 +46,22 @@ export class AdminComponent implements OnInit {
 
   initWatchForm() {
     this.watchForm = this.fb.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
-      price: ['', Validators.required]
+      name: ['', [Validators.required, Validators.minLength(5)]],
+      year: ['', [Validators.required,Validators.min(1800)]],
+      country: ['', [Validators.required]],
+      description: ['', [Validators.required, Validators.minLength(5)]],
+      price: ['', [Validators.required,Validators.min(1)]]
     })
   }
 
   submit(): void {
+    console.log('________-')
     if (this.watchForm.invalid) {
       return;
     }
     const obj = { ...this.watchForm.value, id: uuidv1() }
-    this.watchesArray.push(obj);
     this.watch = Object.assign(this.watch, obj);
+    this.watchesArray.push(obj);
     this.addClockInStorage(this.watch);
     this.watchForm.reset();
   }
@@ -68,31 +71,22 @@ export class AdminComponent implements OnInit {
     localStorage.setItem('Watches', JSON.stringify(this.watchesArray));
   }
 
-  sortBy(e) {
-    console.log(e)
-    this.watchesArray.sort((a, b) => {
-      if (a[e.value] > b[e.value]) {
-        return 1
-      }
-      return -1
-    })
-  }
-
   editWatch(watch) {
     this.selectedWatch = watch;
     this.watchForm.patchValue(watch);
     this.formIsEditing = true;
   }
 
-  edit(){
+  saveEdit(){
     const selectedWatch = this.watchesArray.find(watch => watch.id === this.selectedWatch.id);
     selectedWatch.name = this.watchForm.value.name
+    selectedWatch.description = this.watchForm.value.description;
+    selectedWatch.country = this.watchForm.value.country;
+    selectedWatch.price = this.watchForm.value.price;
+    selectedWatch.year = this.watchForm.value.year;
     console.log(selectedWatch);
   }
 
-  filter(){
-    this.watchesArray = this.watchesArray.filter(watch => watch.price > 30)
-  }
 
   addClockInStorage(watch) {
     if (localStorage.getItem('Watches')) {
@@ -118,7 +112,6 @@ export class AdminComponent implements OnInit {
   arrayFromStorage(){
     this.dataFromStarage.push(JSON.parse(localStorage.getItem('Watches')));
     console.log(this.dataFromStarage);
-    
   }
 
 }

@@ -5,6 +5,12 @@
         <input class="input-control" type="text" value placeholder="name" formControlName="name">
       </div>
       <div class="control">
+        <input class="input-control" type="number" value placeholder="year" formControlName="year">
+      </div>
+      <div class="control">
+        <input class="input-control" type="string" value placeholder="country" formControlName="country">
+      </div>
+      <div class="control">
         <input class="input-control" type="text" value placeholder="description" formControlName="description">
       </div>
       <div class="control">
@@ -12,28 +18,11 @@
       </div>
     </div>
     <div class="button-container">
-      <button *ngIf="formIsEditing" class="submit-button" (click)="edit()">Save</button>
-      <button *ngIf="!formIsEditing" class="submit-button" (click)="submit()" [disabled]="!watchForm.value">Submit
+      <button *ngIf="formIsEditing" class="submit-button" (click)="saveEdit()">Save</button>
+      <button *ngIf="!formIsEditing" class="submit-button" (click)="submit()" [disabled]="watchForm.invalid">Submit
         Form</button>
     </div>
   </form>
-
-  <div class="filter-container">
-    <div class="filter-buttons-container">
-      <button class="filter-button" (click)="filter()">Filter</button>
-      <div>
-      <mat-form-field appearance="fill" class="sort-items">
-        <mat-label>Sort by</mat-label>
-        <mat-select (selectionChange)="sortBy($event)">
-          <mat-option *ngFor="let item of arrayItems" [value]="item.value">
-            {{item.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    </div>
-  </div>
-
 
   <div class="array-container">
     <div class="watch-container" *ngFor="let watch of watchesArray">
@@ -44,6 +33,7 @@
         <p>name: {{watch.name }} </p>
         <p>Description: {{watch.description }} </p>
         <p>Price: {{watch.price }} </p>
+        <p>Year: {{watch.year}}</p>
       </div>
       <div class="button-edit--wrapper">
         <button class="button-edit" (click)="editWatch(watch)">Edit</button>
