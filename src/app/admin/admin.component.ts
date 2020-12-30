@@ -2,6 +2,7 @@ import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { JsonPipe } from '@angular/common';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { v4 as uuidv1 } from 'uuid';
+import { StorageService } from '../services/storage.service';
 
 
 @Component({
@@ -32,12 +33,15 @@ export class AdminComponent implements OnInit {
     }
   ];
 
-  constructor(private fb: FormBuilder) {
+  dataFromStarage = [];
+
+  constructor(private fb: FormBuilder, private storageService: StorageService) {
   }
 
   ngOnInit() {
     this.initWatchForm();
     this.populateWatchesArray(this.loadDataFromStorage());
+    this.arrayFromStorage()
   }
 
   initWatchForm() {
@@ -98,6 +102,7 @@ export class AdminComponent implements OnInit {
       this.watches = [watch]
     }
     localStorage.setItem('Watches', JSON.stringify(this.watches));
+    this.storageService.pushToSharedData(watch);
   }
 
   loadDataFromStorage(): any[] {
@@ -108,6 +113,12 @@ export class AdminComponent implements OnInit {
 
   populateWatchesArray(watches: any): void {
     this.watchesArray = watches || [];
+  }
+
+  arrayFromStorage(){
+    this.dataFromStarage.push(JSON.parse(localStorage.getItem('Watches')));
+    console.log(this.dataFromStarage);
+    
   }
 
 }
