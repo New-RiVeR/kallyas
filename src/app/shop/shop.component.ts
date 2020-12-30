@@ -1,3 +1,4 @@
+import { StorageService } from './../services/storage.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FILTER_ITEMS, SORT_ITEMS, WATCHES } from './shop.constants';
@@ -11,7 +12,7 @@ import { DialogService } from '../services/dialog.service';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  watches = WATCHES;
+  watches;
   sort_items = SORT_ITEMS;
   filter_items = FILTER_ITEMS;
   showButton: boolean;
@@ -21,11 +22,12 @@ export class ShopComponent implements OnInit {
   constructor(
     private cart: CartService,
     public dialog: MatDialog,
-    private dialogHelper: DialogService) {
+    private dialogHelper: DialogService,
+    private storageService: StorageService) {
   }
 
   ngOnInit(): void {
-
+    this.watches = this.storageService.getSharedData();
   }
 
   sortItemsBy(event) {
