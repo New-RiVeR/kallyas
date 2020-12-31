@@ -1,54 +1,37 @@
 <div class="admin-page--container">
   <form [formGroup]="watchForm">
     <div class="control-container">
+      <div *ngFor="let input of inputs">
       <div class="control">
-        <input class="input-control" type="text" value placeholder="name" formControlName="name">
-      </div>
-      <div class="control">
-        <input class="input-control" type="text" value placeholder="description" formControlName="description">
-      </div>
-      <div class="control">
-        <input class="input-control" type="number" value placeholder="price" formControlName="price">
+        <input class="input-control" [type]=input.type value [placeholder]=input.placeholder [formControlName]="input.formControlName">
+        <div class="control-paragraph--wrapper">
+          <app-error-content [showErrors]="showErrors(watchForm.controls[input.formControlName])"></app-error-content>
+        </div>
       </div>
     </div>
     <div class="button-container">
-      <button *ngIf="formIsEditing" class="submit-button" (click)="edit()">Save</button>
-      <button *ngIf="!formIsEditing" class="submit-button" (click)="submit()" [disabled]="!watchForm.value">Submit
-        Form</button>
+      <button *ngIf="formIsEditing" class="submit-button" (click)="saveEdit()">Save</button>
+      <button *ngIf="!formIsEditing" class="submit-button" (click)="submit()">SubmitForm</button>
+    </div>
     </div>
   </form>
 
-  <div class="filter-container">
-    <div class="filter-buttons-container">
-      <button class="filter-button" (click)="filter()">Filter</button>
-      <div>
-      <mat-form-field appearance="fill" class="sort-items">
-        <mat-label>Sort by</mat-label>
-        <mat-select (selectionChange)="sortBy($event)">
-          <mat-option *ngFor="let item of arrayItems" [value]="item.value">
-            {{item.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-    </div>
-  </div>
-
-
-  <div class="array-container">
-    <div class="watch-container" *ngFor="let watch of watchesArray">
+  <div class="watches-container">
+    <div class="watches" *ngFor="let watch of watchesArray">
       <div class="button-delete--wrapper">
         <button class="button-delete" (click)="deleteItem(watch.id)"></button>
       </div>
       <div>
-        <p>name: {{watch.name }} </p>
-        <p>Description: {{watch.description }} </p>
-        <p>Price: {{watch.price }} </p>
+        <img class="clock-image" [src]="watch.image" alt="clock image{{watch.id}}">
+        <p class="watch-title">title: {{watch.title }} </p>
+        <p class="watch-descr">Description: {{watch.description }} </p>
+        <p class="watch-price">Price: {{watch.price }} </p>
+        <p class="watch-price">Year: {{watch.year}}</p>
       </div>
-      <div class="button-edit--wrapper">
-        <button class="button-edit" (click)="editWatch(watch)">Edit</button>
+      <div class="watch-button--container">
+        <button class="watch-btn btn-info" mat-button (click)="openDialog(watch)">More info</button>
+        <button class="watch-btn btn-add" (click)="editWatch(watch)">Edit</button>
       </div>
     </div>
   </div>
-
 </div>

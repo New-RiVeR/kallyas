@@ -1,8 +1,11 @@
-import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
-import { JsonPipe } from '@angular/common';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { v4 as uuidv1 } from 'uuid';
 import { StorageService } from '../services/storage.service';
+import { INPUTS_FIELDS } from './admin.constants';
+import { DialogService } from '../services/dialog.service';
+import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -11,13 +14,17 @@ import { StorageService } from '../services/storage.service';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+
+  inputs = INPUTS_FIELDS;
   watchForm: FormGroup;
-  watchesArray = [];
-  watch: any = {};
-  watchIndex = 1;
-  watches = [];
   formIsEditing: boolean;
-  selectedWatch:any;
+  formSubmitted: boolean;
+  watchesArray = [];
+  watches = [];
+  watch: any = {};
+  selectedWatch: any;
+  dataFromStarage = [];
+
   arrayItems = [
     {
       name: 'Title',
@@ -33,10 +40,13 @@ export class AdminComponent implements OnInit {
     }
   ];
 
-  dataFromStarage = [];
 
-  constructor(private fb: FormBuilder, private storageService: StorageService) {
-  }
+  constructor(
+    private fb: FormBuilder,
+    private storageService: StorageService,
+    public dialog: MatDialog,
+    private dialogHelper: DialogService,
+    ) { }
 
   ngOnInit() {
     this.initWatchForm();
@@ -44,38 +54,36 @@ export class AdminComponent implements OnInit {
     this.arrayFromStorage()
   }
 
+  showErrors(field: AbstractControl): boolean {
+    return field.invalid && (field.touched || this.formSubmitted);
+  }
+
   initWatchForm() {
     this.watchForm = this.fb.group({
-      name: ['', Validators.required],
-      description: ['', Validators.required],
-      price: ['', Validators.required]
+      title: ['', [Validators.required, Validators.minLength(5)]],
+      year: ['', [Validators.required, Validators.min(1800)]],
+      country: ['', [Validators.required]],
+      description: ['', [Validators.required, Validators.minLength(5)]],
+      price: ['', [Validators.required, Validators.min(1)]]
     })
   }
 
   submit(): void {
+    this.formSubmitted = true;
+    console.log('!!!!!!!!!!!!!!!');
     if (this.watchForm.invalid) {
       return;
     }
     const obj = { ...this.watchForm.value, id: uuidv1() }
-    this.watchesArray.push(obj);
     this.watch = Object.assign(this.watch, obj);
+    this.watchesArray.push(obj);
     this.addClockInStorage(this.watch);
     this.watchForm.reset();
   }
-  
+
   deleteItem(id: string) {
     this.watchesArray = this.watchesArray.filter(watch => watch.id !== id);
     localStorage.setItem('Watches', JSON.stringify(this.watchesArray));
-  }
-
-  sortBy(e) {
-    console.log(e)
-    this.watchesArray.sort((a, b) => {
-      if (a[e.value] > b[e.value]) {
-        return 1
-      }
-      return -1
-    })
   }
 
   editWatch(watch) {
@@ -84,14 +92,16 @@ export class AdminComponent implements OnInit {
     this.formIsEditing = true;
   }
 
-  edit(){
+  saveEdit() {
     const selectedWatch = this.watchesArray.find(watch => watch.id === this.selectedWatch.id);
-    selectedWatch.name = this.watchForm.value.name
+    selectedWatch.title = this.watchForm.value.name
+    selectedWatch.description = this.watchForm.value.description;
+    selectedWatch.country = this.watchForm.value.country;
+    selectedWatch.price = this.watchForm.value.price;
+    selectedWatch.year = this.watchForm.value.year;
     console.log(selectedWatch);
-  }
-
-  filter(){
-    this.watchesArray = this.watchesArray.filter(watch => watch.price > 30)
+    this.watchForm.reset()
+    this.formIsEditing = false;
   }
 
   addClockInStorage(watch) {
@@ -115,10 +125,18 @@ export class AdminComponent implements OnInit {
     this.watchesArray = watches || [];
   }
 
-  arrayFromStorage(){
+  arrayFromStorage() {
     this.dataFromStarage.push(JSON.parse(localStorage.getItem('Watches')));
     console.log(this.dataFromStarage);
-    
   }
+
+  openDialog(watch) {
+    this.dialogHelper.watchSelected$.next(watch);
+    const dialogRef = this.dialog.open(MoreInfoDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 
 }

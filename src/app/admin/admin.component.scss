@@ -1,149 +1,159 @@
-.admin-page--container{
+.admin-page--container {
   margin-bottom: 30px;
 }
 
 .control-container {
-    width: 50%;
-    margin: 0 auto;
-    margin-top: 30px;
-    border-radius: 5px;
-    padding-bottom: 30px;
-  }
-  
-  .control {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-  }
-  
-  .input-control {
-    width: 90%;
-    height: 45px;
-    font-size: 25px;
-    padding-bottom: 7px;
-    padding-left: 10px;
-    box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
-    border: none;
-  }
-  
-  .button-container {
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
-  .submit-button {
-    height: 50px;
-    width: 150px;
-    font-size: 15px;
-    font-weight: 600;
-    background-color: #ab8e69;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
-  }
-  
-  .array-container {
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .watch-container {
-    width: 30%;
-    min-height: 170px;
-    margin: 20px;
-    text-align: center;
-    margin-top: 20px;
-    background-color: white;
-    box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
-    border: none;
-    overflow: hidden;
-    border-radius: 5px;
-  }
-
-  .watch-container p{
-    color: black;
-  }
-  
-  .validate-form {
-    width: 90%;
-    margin: 0 auto;
-    color: tomato;
-  }
-  
-  .button-delete--wrapper {
-    display: flex;
-    justify-content: flex-end;
-  }
-  
-  .button-delete {
-    background-image: url(../../assets/image/cancel.png);
-    background-color: transparent;
-    border: none;
-    margin-right: 5px;
-    margin-top: 5px;
-    width: 16px;
-    height: 16px;
-  }
-
-  
-  .button-edit--wrapper{
-    display: flex;
-    justify-content: center;
-    color: black;
-  }
-  
-  .button-edit{
-    background-color: #ab8e69;
-    border: none;
-    border-radius: 5px;
-  }
-  .sort-items{
-    background-color: black;  
-  }
-  
-  .filter-container{
-    margin-top: 30px;
-    display: flex;
-    align-items: stretch;
-    justify-content: space-around;
-    
-  }
-  
-  .filter-button{
-    margin-right: 20px;
-    height: 40px;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    background-color: #ab8e69;
-    box-shadow: 0 8px 8 px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
-  }
-
-.mat-form-field {
-  height: 40px;
-  width: 120px;
-  
-  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 30px;
   border-radius: 5px;
+  padding-bottom: 30px;
+}
+
+.control {
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.input-control {
+  width: 90%;
+  height: 45px;
+  font-size: 25px;
+  padding-bottom: 7px;
+  padding-left: 10px;
+  box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
+  border: none;
+}
+
+.control-paragraph--wrapper{
+  height: 24px;
+}
+
+.paragraph-contol {
+  margin: 0;
+  color: red;
+}
+
+.button-container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.submit-button {
+  height: 50px;
+  width: 150px;
+  font-size: 15px;
+  font-weight: 600;
   background-color: #ab8e69;
-  box-shadow: 0 8px 8 px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
 }
-.filter-buttons-container {
+
+.button-delete--wrapper {
   display: flex;
+  justify-content: flex-end;
 }
 
-.mat-form-field-infix-flex{
+.button-delete {
+  background-image: url(../../assets/image/cancel.png);
+  background-color: transparent;
+  border: none;
+  margin-right: 5px;
+  margin-top: 5px;
+  width: 16px;
+  height: 16px;
+}
+
+.watches-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.watches {
+  width: 30%;
+  height: 100%;
+  text-align: center;
+  margin-top: 20px;
+  background-color: white;
+  box-shadow: 0 6px 6px rgba(10, 16, 20, .15), 0 0 52px rgba(10, 16, 20, .12);
+  border: none;
+  overflow: hidden;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.clock-image {
+  min-height: 333px;
+  width: 100%;
+}
+
+.watch-title,
+.watch-descr,
+.watch-price {
+  padding: 0 20px;
+  margin-bottom: 10px;
+}
+
+.watch-title {
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  height: 24px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  
 }
 
-.qqq{
-  padding: 0;
+.watch-descr {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 50px;
+  font-size: 14px;
+  color: #939393;
+  line-height: 1.4;
+}
+
+.watch-price {
+  line-height: 30px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.watch-button--container {
+  min-height: 40px;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  cursor: pointer;
+  transition: .5s;
+  opacity: 1;
+}
+
+.watch-btn {
+  padding: 5px 10px;
+  box-shadow: 0 6px 6px rgba(10, 16, 20, .15), 0 0 52px rgba(10, 16, 20, .12);
+  border-radius: 5px;
+  border: none;
+  color: #ab8e69;
+  background-color: white;
+  outline: none;
+}
+
+
+.btn-info:hover,
+.btn-add:hover {
+  transition: .5s;
+  background-color: #ab8e69;
+  color: white;
+}
+
+.btn-info {
+  margin-right: 10px;
 }
