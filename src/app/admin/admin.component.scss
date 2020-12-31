@@ -146,8 +146,14 @@
   outline: none;
 }
 
+
+.btn-info:hover,
 .btn-add:hover {
   transition: .5s;
   background-color: #ab8e69;
   color: white;
+}
+
+.btn-info {
+  margin-right: 10px;
 }

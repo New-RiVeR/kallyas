@@ -1,8 +1,11 @@
-import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
-import { JsonPipe } from '@angular/common';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { v4 as uuidv1 } from 'uuid';
 import { StorageService } from '../services/storage.service';
+import { INPUTS_FIELDS } from './admin.constants';
+import { DialogService } from '../services/dialog.service';
+import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -11,13 +14,15 @@ import { StorageService } from '../services/storage.service';
   styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
+
+  inputs = INPUTS_FIELDS;
   watchForm: FormGroup;
   formIsEditing: boolean;
-  formSubmitted:boolean;
+  formSubmitted: boolean;
   watchesArray = [];
   watches = [];
   watch: any = {};
-  selectedWatch:any;
+  selectedWatch: any;
   dataFromStarage = [];
 
   arrayItems = [
@@ -36,8 +41,12 @@ export class AdminComponent implements OnInit {
   ];
 
 
-  constructor(private fb: FormBuilder, private storageService: StorageService) {
-  }
+  constructor(
+    private fb: FormBuilder,
+    private storageService: StorageService,
+    public dialog: MatDialog,
+    private dialogHelper: DialogService,
+    ) { }
 
   ngOnInit() {
     this.initWatchForm();
@@ -45,13 +54,17 @@ export class AdminComponent implements OnInit {
     this.arrayFromStorage()
   }
 
+  showErrors(field: AbstractControl): boolean {
+    return field.invalid && (field.touched || this.formSubmitted);
+  }
+
   initWatchForm() {
     this.watchForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(5)]],
-      year: ['', [Validators.required,Validators.min(1800)]],
+      year: ['', [Validators.required, Validators.min(1800)]],
       country: ['', [Validators.required]],
       description: ['', [Validators.required, Validators.minLength(5)]],
-      price: ['', [Validators.required,Validators.min(1)]]
+      price: ['', [Validators.required, Validators.min(1)]]
     })
   }
 
@@ -67,7 +80,7 @@ export class AdminComponent implements OnInit {
     this.addClockInStorage(this.watch);
     this.watchForm.reset();
   }
-  
+
   deleteItem(id: string) {
     this.watchesArray = this.watchesArray.filter(watch => watch.id !== id);
     localStorage.setItem('Watches', JSON.stringify(this.watchesArray));
@@ -79,7 +92,7 @@ export class AdminComponent implements OnInit {
     this.formIsEditing = true;
   }
 
-  saveEdit(){
+  saveEdit() {
     const selectedWatch = this.watchesArray.find(watch => watch.id === this.selectedWatch.id);
     selectedWatch.title = this.watchForm.value.name
     selectedWatch.description = this.watchForm.value.description;
@@ -112,9 +125,18 @@ export class AdminComponent implements OnInit {
     this.watchesArray = watches || [];
   }
 
-  arrayFromStorage(){
+  arrayFromStorage() {
     this.dataFromStarage.push(JSON.parse(localStorage.getItem('Watches')));
     console.log(this.dataFromStarage);
   }
+
+  openDialog(watch) {
+    this.dialogHelper.watchSelected$.next(watch);
+    const dialogRef = this.dialog.open(MoreInfoDialog);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+
 
 }

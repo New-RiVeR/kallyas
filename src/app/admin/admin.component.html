@@ -1,42 +1,18 @@
 <div class="admin-page--container">
   <form [formGroup]="watchForm">
     <div class="control-container">
+      <div *ngFor="let input of inputs">
       <div class="control">
-        <input class="input-control" type="text" value placeholder="title" formControlName="title">
+        <input class="input-control" [type]=input.type value [placeholder]=input.placeholder [formControlName]="input.formControlName">
         <div class="control-paragraph--wrapper">
-          <p *ngIf="watchForm.controls.title.invalid && formSubmitted || watchForm.controls.title.touched && watchForm.controls.title.invalid" class="paragraph-contol">This field is required</p>
-        </div>
-      </div>
-      <div class="control">
-        <input class="input-control" type="number" value placeholder="year" formControlName="year">
-        <div class="control-paragraph--wrapper">
-          <p *ngIf="watchForm.controls.year.invalid && watchForm.controls.year.touched" class="paragraph-contol">This field is required</p>
-        </div>
-      </div>
-      <div class="control">
-        <input class="input-control" type="string" value placeholder="country" formControlName="country">
-        <div class="control-paragraph--wrapper">
-          <p *ngIf="watchForm.controls.country.invalid && watchForm.controls.country.touched" class="paragraph-contol">This field is required</p>
-        </div>
-      </div>
-      <div class="control">
-        <input class="input-control" type="text" value placeholder="description" formControlName="description">
-        <div class="control-paragraph--wrapper">
-          <p *ngIf="watchForm.controls.description.invalid && watchForm.controls.description.touched"
-          class="paragraph-contol">This field is required</p>
-        </div>
-      </div>
-      <div class="control">
-        <input class="input-control" type="number" value placeholder="price" formControlName="price">
-        <div class="control-paragraph--wrapper">
-          <p *ngIf="watchForm.controls.price.invalid && watchForm.controls.price.touched" class="paragraph-contol">This field is required</p>
+          <app-error-content [showErrors]="showErrors(watchForm.controls[input.formControlName])"></app-error-content>
         </div>
       </div>
     </div>
     <div class="button-container">
       <button *ngIf="formIsEditing" class="submit-button" (click)="saveEdit()">Save</button>
-      <button *ngIf="!formIsEditing" class="submit-button" (click)="submit()">Submit
-        Form</button>
+      <button *ngIf="!formIsEditing" class="submit-button" (click)="submit()">SubmitForm</button>
+    </div>
     </div>
   </form>
 
@@ -53,9 +29,9 @@
         <p class="watch-price">Year: {{watch.year}}</p>
       </div>
       <div class="watch-button--container">
+        <button class="watch-btn btn-info" mat-button (click)="openDialog(watch)">More info</button>
         <button class="watch-btn btn-add" (click)="editWatch(watch)">Edit</button>
       </div>
     </div>
   </div>
-
 </div>
