@@ -12,12 +12,14 @@ import { StorageService } from '../services/storage.service';
 })
 export class AdminComponent implements OnInit {
   watchForm: FormGroup;
-  watchesArray = [];
-  watch: any = {};
-  // watchIndex = 1;
-  watches = [];
   formIsEditing: boolean;
+  formSubmitted:boolean;
+  watchesArray = [];
+  watches = [];
+  watch: any = {};
   selectedWatch:any;
+  dataFromStarage = [];
+
   arrayItems = [
     {
       name: 'Title',
@@ -33,7 +35,6 @@ export class AdminComponent implements OnInit {
     }
   ];
 
-  dataFromStarage = [];
 
   constructor(private fb: FormBuilder, private storageService: StorageService) {
   }
@@ -46,7 +47,7 @@ export class AdminComponent implements OnInit {
 
   initWatchForm() {
     this.watchForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(5)]],
+      title: ['', [Validators.required, Validators.minLength(5)]],
       year: ['', [Validators.required,Validators.min(1800)]],
       country: ['', [Validators.required]],
       description: ['', [Validators.required, Validators.minLength(5)]],
@@ -55,7 +56,8 @@ export class AdminComponent implements OnInit {
   }
 
   submit(): void {
-    console.log('________-')
+    this.formSubmitted = true;
+    console.log('!!!!!!!!!!!!!!!');
     if (this.watchForm.invalid) {
       return;
     }
@@ -79,14 +81,15 @@ export class AdminComponent implements OnInit {
 
   saveEdit(){
     const selectedWatch = this.watchesArray.find(watch => watch.id === this.selectedWatch.id);
-    selectedWatch.name = this.watchForm.value.name
+    selectedWatch.title = this.watchForm.value.name
     selectedWatch.description = this.watchForm.value.description;
     selectedWatch.country = this.watchForm.value.country;
     selectedWatch.price = this.watchForm.value.price;
     selectedWatch.year = this.watchForm.value.year;
     console.log(selectedWatch);
+    this.watchForm.reset()
+    this.formIsEditing = false;
   }
-
 
   addClockInStorage(watch) {
     if (localStorage.getItem('Watches')) {

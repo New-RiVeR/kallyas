@@ -55,6 +55,7 @@
 
 .watch-descr {
   display: flex;
+  justify-content: center;
   align-items: center;
   overflow: hidden;
   height: 50px;
@@ -93,7 +94,6 @@
   transition: .5s;
   background-color: #ab8e69;
   color: white;
-
 }
 
 .btn-info {

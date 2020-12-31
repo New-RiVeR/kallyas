@@ -2,41 +2,58 @@
   <form [formGroup]="watchForm">
     <div class="control-container">
       <div class="control">
-        <input class="input-control" type="text" value placeholder="name" formControlName="name">
+        <input class="input-control" type="text" value placeholder="title" formControlName="title">
+        <div class="control-paragraph--wrapper">
+          <p *ngIf="watchForm.controls.title.invalid && formSubmitted || watchForm.controls.title.touched && watchForm.controls.title.invalid" class="paragraph-contol">This field is required</p>
+        </div>
       </div>
       <div class="control">
         <input class="input-control" type="number" value placeholder="year" formControlName="year">
+        <div class="control-paragraph--wrapper">
+          <p *ngIf="watchForm.controls.year.invalid && watchForm.controls.year.touched" class="paragraph-contol">This field is required</p>
+        </div>
       </div>
       <div class="control">
         <input class="input-control" type="string" value placeholder="country" formControlName="country">
+        <div class="control-paragraph--wrapper">
+          <p *ngIf="watchForm.controls.country.invalid && watchForm.controls.country.touched" class="paragraph-contol">This field is required</p>
+        </div>
       </div>
       <div class="control">
         <input class="input-control" type="text" value placeholder="description" formControlName="description">
+        <div class="control-paragraph--wrapper">
+          <p *ngIf="watchForm.controls.description.invalid && watchForm.controls.description.touched"
+          class="paragraph-contol">This field is required</p>
+        </div>
       </div>
       <div class="control">
         <input class="input-control" type="number" value placeholder="price" formControlName="price">
+        <div class="control-paragraph--wrapper">
+          <p *ngIf="watchForm.controls.price.invalid && watchForm.controls.price.touched" class="paragraph-contol">This field is required</p>
+        </div>
       </div>
     </div>
     <div class="button-container">
       <button *ngIf="formIsEditing" class="submit-button" (click)="saveEdit()">Save</button>
-      <button *ngIf="!formIsEditing" class="submit-button" (click)="submit()" [disabled]="watchForm.invalid">Submit
+      <button *ngIf="!formIsEditing" class="submit-button" (click)="submit()">Submit
         Form</button>
     </div>
   </form>
 
-  <div class="array-container">
-    <div class="watch-container" *ngFor="let watch of watchesArray">
+  <div class="watches-container">
+    <div class="watches" *ngFor="let watch of watchesArray">
       <div class="button-delete--wrapper">
         <button class="button-delete" (click)="deleteItem(watch.id)"></button>
       </div>
       <div>
-        <p>name: {{watch.name }} </p>
-        <p>Description: {{watch.description }} </p>
-        <p>Price: {{watch.price }} </p>
-        <p>Year: {{watch.year}}</p>
+        <img class="clock-image" [src]="watch.image" alt="clock image{{watch.id}}">
+        <p class="watch-title">title: {{watch.title }} </p>
+        <p class="watch-descr">Description: {{watch.description }} </p>
+        <p class="watch-price">Price: {{watch.price }} </p>
+        <p class="watch-price">Year: {{watch.year}}</p>
       </div>
-      <div class="button-edit--wrapper">
-        <button class="button-edit" (click)="editWatch(watch)">Edit</button>
+      <div class="watch-button--container">
+        <button class="watch-btn btn-add" (click)="editWatch(watch)">Edit</button>
       </div>
     </div>
   </div>
