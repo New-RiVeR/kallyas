@@ -21,7 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from './cart/cart.component';
 import { from } from 'rxjs';
 import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
-
+import { AuthComponent } from "./auth/auth.component";
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
