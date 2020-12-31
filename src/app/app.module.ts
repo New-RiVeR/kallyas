@@ -31,7 +31,11 @@ const appRoutes: Routes = [
   {path: 'contact', component: ContactComponent},
   {path: 'admin', component: AdminComponent},
   {path: 'cart', component: CartComponent},
-  {path: '**', component: NotFoundComponent}
+  {path: '**', component: NotFoundComponent},
+  {
+    path: "auth",
+    loadChildren: () => import("./auth/auth.module").then(m => m.AuthModule)
+  }
 ]
 
 @NgModule({
