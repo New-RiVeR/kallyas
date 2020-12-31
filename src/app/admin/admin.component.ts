@@ -6,6 +6,7 @@ import { INPUTS_FIELDS } from './admin.constants';
 import { DialogService } from '../services/dialog.service';
 import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
 import { MatDialog } from '@angular/material/dialog';
+import { isGeneratedFile } from '@angular/compiler/src/aot/util';
 
 
 @Component({
@@ -69,16 +70,19 @@ export class AdminComponent implements OnInit {
   }
 
   submit(): void {
-    this.formSubmitted = true;
+    // this.formSubmitted = true;
     console.log('!!!!!!!!!!!!!!!');
     if (this.watchForm.invalid) {
+    this.formSubmitted = true;
       return;
+    }else{
+      const obj = { ...this.watchForm.value, id: uuidv1() }
+      this.watch = Object.assign(this.watch, obj);
+      this.watchesArray.push(obj);
+      this.addClockInStorage(this.watch);
+      this.watchForm.reset();
     }
-    const obj = { ...this.watchForm.value, id: uuidv1() }
-    this.watch = Object.assign(this.watch, obj);
-    this.watchesArray.push(obj);
-    this.addClockInStorage(this.watch);
-    this.watchForm.reset();
+
   }
 
   deleteItem(id: string) {
@@ -94,7 +98,7 @@ export class AdminComponent implements OnInit {
 
   saveEdit() {
     const selectedWatch = this.watchesArray.find(watch => watch.id === this.selectedWatch.id);
-    selectedWatch.title = this.watchForm.value.name
+    selectedWatch.title = this.watchForm.value.title
     selectedWatch.description = this.watchForm.value.description;
     selectedWatch.country = this.watchForm.value.country;
     selectedWatch.price = this.watchForm.value.price;
