@@ -23,7 +23,7 @@ import { CartComponent } from './cart/cart.component';
 import { from } from 'rxjs';
 import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
 import { ErrorContentComponent } from './admin/error-content/error-content.component';
-import { ShopItemsService } from './services/shop-items.service';
+import { ShopService } from './services/shop.service';
 
 
 const appRoutes: Routes = [
@@ -64,7 +64,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     NgbModule
   ],
-  providers: [ShopItemsService],
+  providers: [ShopService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

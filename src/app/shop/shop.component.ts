@@ -5,7 +5,7 @@ import { FILTER_ITEMS, SORT_ITEMS, WATCHES } from './shop.constants';
 import { CartService } from '../services/cart.service'
 import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
 import { DialogService } from '../services/dialog.service';
-import { ShopItemsService } from '../services/shop-items.service';
+import { ShopService } from '../services/shop.service';
 import { ShopItem } from '../models/Shop-item';
 
 @Component({
@@ -27,7 +27,7 @@ export class ShopComponent implements OnInit {
     public dialog: MatDialog,
     private dialogHelper: DialogService,
     private storageService: StorageService,
-    private shopItemsService: ShopItemsService) {
+    private shopItemsService: ShopService) {
   }
 
   ngOnInit(): void {

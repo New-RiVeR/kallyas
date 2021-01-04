@@ -6,7 +6,7 @@ import { ShopItem } from '../models/Shop-item';
 @Injectable({
   providedIn: 'root'
 })
-export class ShopItemsService {
+export class ShopService {
 
   constructor(private httpClient: HttpClient) {}
 
