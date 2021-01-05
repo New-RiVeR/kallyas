@@ -26,7 +26,7 @@ import { ErrorContentComponent } from './admin/error-content/error-content.compo
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: '', component: HomeComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'about', component: AboutComponent},
   {path: 'shop', component: ShopComponent},
   {path: 'contact', component: ContactComponent},
