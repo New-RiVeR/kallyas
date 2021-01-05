@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 // import {v4 as uuidv1} from 'src/app/admin/node_modules/uuid'
-import { v4 as uuidv1 } from '../../node_modules/uuid'
+import { v4 as uuidv1 } from '../../node_modules/uuid';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
@@ -23,17 +23,16 @@ import { from } from 'rxjs';
 import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
 import { ErrorContentComponent } from './admin/error-content/error-content.component';
 
-
 const appRoutes: Routes = [
-  {path: 'home', component: HomeComponent},
-  {path: '', component: HomeComponent},
-  {path: 'about', component: AboutComponent},
-  {path: 'shop', component: ShopComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'admin', component: AdminComponent},
-  {path: 'cart', component: CartComponent},
-  {path: '**', component: NotFoundComponent}
-]
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'about', component: AboutComponent },
+  { path: 'shop', component: ShopComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'cart', component: CartComponent },
+  { path: '**', component: NotFoundComponent },
+];
 
 @NgModule({
   declarations: [
@@ -59,9 +58,9 @@ const appRoutes: Routes = [
     MatDialogModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
-    NgbModule
+    NgbModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
