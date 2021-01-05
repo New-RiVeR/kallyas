@@ -5,8 +5,8 @@ import { FILTER_ITEMS, SORT_ITEMS, WATCHES } from './shop.constants';
 import { CartService } from '../services/cart.service'
 import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
 import { DialogService } from '../services/dialog.service';
-import { ShopService } from '../services/shop.service';
-import { ShopItem } from '../models/Shop-item';
+import { WatchService } from '../services/watch.service';
+import { WatchItem } from '../models/IWatch';
 
 @Component({
   selector: 'app-shop',
@@ -14,7 +14,7 @@ import { ShopItem } from '../models/Shop-item';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  shopItems: ShopItem[] = [];
+  shopItems: WatchItem[] = [];
   watches;
   sort_items = SORT_ITEMS;
   filter_items = FILTER_ITEMS;
@@ -27,12 +27,12 @@ export class ShopComponent implements OnInit {
     public dialog: MatDialog,
     private dialogHelper: DialogService,
     private storageService: StorageService,
-    private shopItemsService: ShopService) {
+    private shopItemsService: WatchService) {
   }
 
   ngOnInit(): void {
     this.watches = this.storageService.getSharedData();
-    this.shopItemsService.getShopItems().subscribe((shopItems: ShopItem[]) => {
+    this.shopItemsService.getWatches().subscribe((shopItems: WatchItem[]) => {
       this.watches = shopItems;
       console.log(this.watches);
     })
