@@ -1,7 +1,7 @@
 {
   "watches": [
     {
-      "id": 1,
+      "id": "333fbfc3-ddd2-4705-8f9a-aa78e34f8c77",
       "name": "Black Silicon Strap Watch",
       "description": "Interactively expedite business materials without holistic information",
       "price": 150,
@@ -12,7 +12,7 @@
       "qnt": 1
     },
     {
-      "id": 2,
+      "id": "57d74b9e-bfee-4dda-8b94-0b948714f078",
       "name": "Blue Silicon Strap Watch",
       "description": "Competently build 24/7 “outside the box” thinking via excellent paradigms",
       "price": 169,
@@ -23,7 +23,7 @@
       "qnt": 1
     },
     {
-      "id": 4,
+      "id": "83aec9ba-1255-4fef-b907-46cf1759f128",
       "name": "Luxury Watch",
       "description": "Uniquely generate emerging functionalities whereas leveraged e-business",
       "price": 400,
@@ -34,7 +34,7 @@
       "qnt": 1
     },
     {
-      "id": 5,
+      "id": "5c0213a6-5652-4b20-912b-2375e3e4ba36",
       "name": "Golden Watch",
       "description": "Seamlessly predominate flexible niches whereas seamless total linkage",
       "price": 195,
@@ -45,7 +45,7 @@
       "qnt": 1
     },
     {
-      "id": 6,
+      "id": "9a0f5d48-605f-481e-9ad5-30fd03ea7b9b",
       "name": "Leather Strap Watch",
       "description": "Uniquely syndicate resource sucking synergy and economically sound e-tailers",
       "price": 260,
@@ -56,7 +56,7 @@
       "qnt": 1
     },
     {
-      "id": 8,
+      "id": "1daf615b-0cb5-48aa-809d-0f2ca24b0cb5",
       "name": "Leather Strap Watch",
       "description": "Interactively matrix excellent benefits via adaptive e-tailers",
       "price": 239,
@@ -67,44 +67,12 @@
       "qnt": 1
     },
     {
-      "title": "YYYYYYYYYYYYYYYY",
-      "year": 2020,
-      "country": "qoqoqoqo",
-      "description": "nwdbdhbwd",
-      "price": 11111111111,
-      "id": 9
-    },
-    {
-      "title": "clock1",
-      "year": 111,
-      "country": "qqwedqwe",
-      "description": "wedwswd",
-      "price": 1111,
-      "id": 10
-    },
-    {
-      "title": "eruteryte",
-      "year": 32,
-      "country": "weyrweu",
-      "description": "wegyrwefv",
+      "name": "dsa",
+      "year": 1231,
+      "country": "ew",
+      "description": "ewq",
       "price": 123,
-      "id": 11
-    },
-    {
-      "title": "qweqw",
-      "year": 123,
-      "country": "qweqweqwewq",
-      "description": "qweqweqwe",
-      "price": 333,
-      "id": 12
-    },
-    {
-      "title": "jhdwegdv",
-      "year": 123,
-      "country": "ewhfvehgfv",
-      "description": "qweqwe",
-      "price": 21,
-      "id": "61604ade-0cd2-4c41-b3a9-560cdee09707"
+      "id": "65b88df5-775b-4a29-90ee-e0feeb195d6b"
     }
   ]
 }

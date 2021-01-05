@@ -2,7 +2,7 @@
   <form [formGroup]="watchForm">
     <div class="control-container">
       <div class="control">
-        <input class="input-control" type="text" placeholder="title" formControlName="title">
+        <input class="input-control" type="text" placeholder="name" formControlName="name">
         <div class="control-paragraph--wrapper">
         </div>
       </div>
@@ -27,7 +27,7 @@
         </div>
       </div>
     <div class="button-container">
-      <button class="submit-button" (click)="submit()">Add</button>
+      <button class="submit-button" (click)="addNewWatch()">Add</button>
     </div>
     </div>
   </form>
@@ -46,7 +46,7 @@
             <div>qweqweqweeqwqw</div>
           </ng-template>
         </div>
-        <p class="watch-title">title: {{watch.title }} </p>
+        <p class="watch-title">{{watch.name }} </p>
         <p class="watch-descr">Description: {{watch.description }} </p>
         <p class="watch-price">Price: {{watch.price }} </p>
         <p class="watch-price">Year: {{watch.year}}</p>

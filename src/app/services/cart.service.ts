@@ -1,11 +1,9 @@
 import { Injectable } from '@angular/core';
-import { from } from 'rxjs';
-import {Subject} from 'rxjs'
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
- 
-  cartSubject = new Subject<any>();
+  cartItemsLength$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 }
