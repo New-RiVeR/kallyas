@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-// import {v4 as uuidv1} from 'src/app/admin/node_modules/uuid'
 import { v4 as uuidv1 } from '../../node_modules/uuid';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -22,8 +21,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from './cart/cart.component';
 import { from } from 'rxjs';
 import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
-import { ErrorContentComponent } from './admin/error-content/error-content.component';
-import { ShopService } from './services/shop.service';
 
 const appRoutes: Routes = [
 
@@ -50,7 +47,6 @@ const appRoutes: Routes = [
     AdminComponent,
     CartComponent,
     MoreInfoDialog,
-    ErrorContentComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,8 +60,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     NgbModule,
   ],
-
-  providers: [ShopService],
+  providers: [],
   bootstrap: [AppComponent]
 
 })

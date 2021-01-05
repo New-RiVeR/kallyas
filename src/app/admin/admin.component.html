@@ -1,17 +1,33 @@
 <div class="admin-page--container">
   <form [formGroup]="watchForm">
     <div class="control-container">
-      <div *ngFor="let input of inputs">
       <div class="control">
-        <input class="input-control" [type]=input.type value [placeholder]=input.placeholder [formControlName]="input.formControlName">
+        <input class="input-control" type="text" placeholder="title" formControlName="title">
         <div class="control-paragraph--wrapper">
-          <app-error-content [showErrors]="showErrors(watchForm.controls[input.formControlName])"></app-error-content>
         </div>
       </div>
-    </div>
+      <div class="control">
+        <input class="input-control" type="number" placeholder="year" formControlName="year">
+        <div class="control-paragraph--wrapper">
+        </div>
+      </div>
+      <div class="control">
+        <input class="input-control" type="text" placeholder="country" formControlName="country">
+        <div class="control-paragraph--wrapper">
+        </div>
+      </div>
+      <div class="control">
+        <input class="input-control" type="text" placeholder="description" formControlName="description">
+        <div class="control-paragraph--wrapper">
+        </div>
+      </div>
+      <div class="control">
+        <input class="input-control" type="number" placeholder="price" formControlName="price">
+        <div class="control-paragraph--wrapper">
+        </div>
+      </div>
     <div class="button-container">
-      <button *ngIf="formIsEditing" class="submit-button" (click)="saveEdit()">Save</button>
-      <button *ngIf="!formIsEditing" class="submit-button" (click)="submit()">SubmitForm</button>
+      <button class="submit-button" (click)="submit()">Add</button>
     </div>
     </div>
   </form>
@@ -19,10 +35,17 @@
   <div class="watches-container">
     <div class="watches" *ngFor="let watch of watchesArray">
       <div class="button-delete--wrapper">
-        <button class="button-delete" (click)="deleteItem(watch.id)"></button>
+        <button class="button-delete" (click)="removeWatch(watch.id)"></button>
       </div>
       <div>
-        <img class="clock-image" [src]="watch.image" alt="clock image{{watch.id}}">
+        <div>
+          <ng-container *ngIf="watch.image; else noImage">
+            <img class="clock-image" [src]="watch.image" alt="clock image{{watch.id}}">
+          </ng-container>
+          <ng-template #noImage>
+            <div>qweqweqweeqwqw</div>
+          </ng-template>
+        </div>
         <p class="watch-title">title: {{watch.title }} </p>
         <p class="watch-descr">Description: {{watch.description }} </p>
         <p class="watch-price">Price: {{watch.price }} </p>
@@ -30,7 +53,7 @@
       </div>
       <div class="watch-button--container">
         <button class="watch-btn btn-info" mat-button (click)="openDialog(watch)">More info</button>
-        <button class="watch-btn btn-add" (click)="editWatch(watch)">Edit</button>
+        <button class="watch-btn btn-add">Edit</button>
       </div>
     </div>
   </div>

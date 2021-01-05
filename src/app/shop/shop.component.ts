@@ -1,12 +1,11 @@
-import { StorageService } from './../services/storage.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FILTER_ITEMS, SORT_ITEMS, WATCHES } from './shop.constants';
 import { CartService } from '../services/cart.service'
 import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
 import { DialogService } from '../services/dialog.service';
-import { ShopService } from '../services/shop.service';
-import { ShopItem } from '../models/Shop-item';
+import { WatchItem } from '../models/IWatch';
+import { WatchService } from '../services/watch.service';
 
 @Component({
   selector: 'app-shop',
@@ -14,8 +13,7 @@ import { ShopItem } from '../models/Shop-item';
   styleUrls: ['./shop.component.scss']
 })
 export class ShopComponent implements OnInit {
-  shopItems: ShopItem[] = [];
-  watches;
+  watches: WatchItem[] = [];
   sort_items = SORT_ITEMS;
   filter_items = FILTER_ITEMS;
   showButton: boolean;
@@ -23,18 +21,11 @@ export class ShopComponent implements OnInit {
   cartNumber: number = 0;
 
   constructor(
-    private cart: CartService,
-    public dialog: MatDialog,
-    private dialogHelper: DialogService,
-    private storageService: StorageService,
-    private shopItemsService: ShopService) {
-  }
+    private cart: CartService, public dialog: MatDialog, private dialogHelper: DialogService, private watchService: WatchService) { }
 
   ngOnInit(): void {
-    this.watches = this.storageService.getSharedData();
-    this.shopItemsService.getShopItems().subscribe((shopItems: ShopItem[]) => {
-      this.watches = shopItems;
-      console.log(this.watches);
+    this.watchService.getWatches().subscribe((value: WatchItem[]) => {
+      this.watches = value;
     })
   }
 

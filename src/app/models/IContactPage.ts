@@ -1,4 +1,4 @@
-export interface ContactPage {
+export interface IContactPage {
     firstName: string;
     lastName: string;
     Email: string;

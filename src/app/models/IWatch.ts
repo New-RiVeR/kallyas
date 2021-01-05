@@ -1,9 +1,10 @@
-export interface ShopItem {
+export interface WatchItem {
     id: number;
-    name: string;
+    title: string;
     description: string;
     price: number;
     country: string;
     year: number;
     qnt: number;
+    image?: string;
 }
