@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ContactPage } from '../interfaces/contact-page.interface'
+import { IContactPage } from '../models/IContactPage'
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +9,7 @@ import { ContactPage } from '../interfaces/contact-page.interface'
 })
 export class ContactComponent implements OnInit {
   form: FormGroup;
-  contactPage: ContactPage;
+  contactPage: IContactPage;
 
 
   constructor(private formBuilder: FormBuilder) {
