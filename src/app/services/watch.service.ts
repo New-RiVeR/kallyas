@@ -20,6 +20,8 @@ export class WatchService {
 
   addWatch(formValue):Observable<WatchItem>{
     const watch = formValue
+    console.log(watch);
+    
     return this.httpClient.post<WatchItem>('http://localhost:3000/watches', watch);
   }
 
