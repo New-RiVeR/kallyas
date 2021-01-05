@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 // import {v4 as uuidv1} from 'src/app/admin/node_modules/uuid'
 import { v4 as uuidv1 } from '../../node_modules/uuid'
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -22,6 +23,7 @@ import { CartComponent } from './cart/cart.component';
 import { from } from 'rxjs';
 import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
 import { ErrorContentComponent } from './admin/error-content/error-content.component';
+import { ShopService } from './services/shop.service';
 
 
 const appRoutes: Routes = [
@@ -57,11 +59,12 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatSelectModule,
     MatDialogModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     NgbModule
   ],
-  providers: [],
+  providers: [ShopService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
