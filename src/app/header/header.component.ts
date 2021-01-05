@@ -22,7 +22,6 @@ export class HeaderComponent implements OnInit {
 
   private getCartItemsLength(): void {
     this.cartService.cartItemsLength$.subscribe((itemsLength: number) => {
-      console.log('itemsLength: ', itemsLength);
       this.cartItemsLength = itemsLength;
     });
   }

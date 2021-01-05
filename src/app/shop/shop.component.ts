@@ -58,7 +58,7 @@ export class ShopComponent implements OnInit {
   }
 
   addToCart(watch: WatchItem): void {
-    const cartDataNull = localStorage.getItem('localCart');
+    // const cartDataNull = localStorage.getItem('localCart');
     // if (!cartDataNull) {
     //   let storeDataGet: any = [];
     //   storeDataGet.push(watch);
