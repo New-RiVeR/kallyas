@@ -27,7 +27,11 @@
     "@ng-bootstrap/ng-bootstrap": "^8.0.0",
     "angular-material": "^1.2.1",
     "bootstrap": "^4.5.0",
+<<<<<<< HEAD
     "json-server": "^0.16.3",
+=======
+    "lowdb": "^1.0.0",
+>>>>>>> 0b0324dbb91e80f8ff2ae58fd01aeabe56e52890
     "ngx-mat-select-search": "^3.1.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
