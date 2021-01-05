@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartItem } from '../models/IWatch';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -6,61 +8,65 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
+  cartItems: CartItem[] = [];
+  totalAmount: number = 0;
 
-  getCartDetails:any = [];
-  total: number = 0;
-
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     this.cartDetails();
-    this.loadTotalPriceInCart();
+    this.updateTotalPriceInCart();
   }
 
   cartDetails(){
-    if(localStorage.getItem('localCart')){
-      this.getCartDetails = JSON.parse(localStorage.getItem('localCart')) 
+    const watches = JSON.parse(localStorage.getItem('cartItems'));
+    if (watches) {
+      this.cartItems = watches;
     }
   }
 
-  incrementQuantity(watchId, watchCount){
-    for(let i = 0; i < this.getCartDetails.length; i++){
-      if(this.getCartDetails[i].id === watchId){
-        if(watchCount != 15){
-          this.getCartDetails[i].qnt = parseInt(watchCount) + 1;
-        }
-      }
-    }
-    localStorage.setItem('localCart', JSON.stringify(this.getCartDetails))
-    this.loadTotalPriceInCart()
+  incrementQuantity(cartItem: CartItem): void {
+    cartItem.amount++;
+    this.cartItems = [...this.cartItems];
+    // for(let i = 0; i < this.cartItems.length; i++){
+    //   if(this.cartItems[i].id === watchId){
+    //     if(watchCount != 15){
+    //       this.cartItems[i].qnt = parseInt(watchCount) + 1;
+    //     }
+    //   }
+    // }
+    // localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
+    this.updateTotalPriceInCart()
   }
 
-  decrementQuantity(watchId, watchCount){
-    for(let i = 0; i < this.getCartDetails.length; i++){
-      if(this.getCartDetails[i].id === watchId){
-        if(watchCount != 1){
-          this.getCartDetails[i].qnt = parseInt(watchCount) - 1;
-        }
-      }
+  decrementQuantity(cartItem: CartItem): void {
+    if (cartItem.amount > 1) {
+      cartItem.amount--;
+      this.cartItems = [...this.cartItems];
     }
-    localStorage.setItem('localCart', JSON.stringify(this.getCartDetails))
-    this.loadTotalPriceInCart();
+    // for(let i = 0; i < this.cartItems.length; i++){
+    //   if(this.cartItems[i].id === watchId){
+    //     if(watchCount != 1){
+    //       this.cartItems[i].qnt = parseInt(watchCount) - 1;
+    //     }
+    //   }
+    // }
+    // localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
+    this.updateTotalPriceInCart();
   }
 
-  loadTotalPriceInCart(){
-    if(localStorage.getItem('localCart')){
-      this.getCartDetails = JSON.parse(localStorage.getItem('localCart'));
-      this.total = this.getCartDetails.reduce(function(acc, value) {
-        return acc + (value.price * value.qnt)
+  updateTotalPriceInCart(): void {
+    if (this.cartItems) {
+      this.totalAmount = this.cartItems.reduce(function(acc, value) {
+        return acc + (value.price * value.amount)
       }, 0)
     }
   }
 
   removeAllItemsFromCart(){
-    localStorage.removeItem('localCart');
-    this.getCartDetails = [];
-    this.total = 0;
+    localStorage.removeItem('cartItems');
+    this.cartItems = [];
+    this.cartService.cartItemsLength$.next(0);
+    this.totalAmount = 0;
   }
-
-
 }

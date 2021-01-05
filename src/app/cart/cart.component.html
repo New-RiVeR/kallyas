@@ -1,6 +1,6 @@
 <section class="cart_section">
   <div class="container">
-    <div *ngIf="getCartDetails">
+    <div *ngIf="cartItems">
       <table>
         <tr>
           <th>Image</th>
@@ -9,19 +9,19 @@
           <th>Sub Total</th>
           <th>Remove Item</th>
         </tr>
-        <tr *ngFor="let getCartDetail of getCartDetails">
-          <td><img class="basket-image" src="{{getCartDetail.image}}" alt="clock-1"></td>
-          <td>£ {{getCartDetail.price}}</td>
+        <tr *ngFor="let item of cartItems">
+          <td><img class="basket-image" src="{{item.image}}" alt="clock-1"></td>
+          <td>£ {{item.price}}</td>
           <td>
             <button type="button" class="btn-minus"
-              (click)="decrementQuantity(getCartDetail.id, getCartDetail.qnt)">
+              (click)="decrementQuantity(item)">
             <img src="../../assets/image/minus.png" alt="button-minus"></button>
-            <span>{{getCartDetail.qnt}}</span>
+            <span>{{item.amount}}</span>
             <button type="button" class="btn-plus"
-              (click)="incrementQuantity(getCartDetail.id, getCartDetail.qnt)">
+              (click)="incrementQuantity(item)">
             <img src="../../assets/image/add.png" alt="button-add"></button>
           </td>
-          <td>£ {{getCartDetail.price * getCartDetail.qnt | number}}</td>
+          <td>£ {{item.price * item.amount | number}}</td>
           <td>
             <button class="delete-button">
               <img src="../../assets/image/delete.png" alt="">
@@ -31,7 +31,7 @@
       </table>
     </div>
     <div class="footer-container">
-      <h2>Total: £{{total}}</h2>
+      <h2>Total: £{{totalAmount}}</h2>
       <button class="removeAll-button" (click)="removeAllItemsFromCart()">Remove all</button>
     </div>
   </div>
