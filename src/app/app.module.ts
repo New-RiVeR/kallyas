@@ -28,7 +28,7 @@ import { ShopService } from './services/shop.service';
 
 const appRoutes: Routes = [
   {path: 'home', component: HomeComponent},
-  {path: '', component: HomeComponent},
+  {path: '', redirectTo: 'home', pathMatch: 'full' },
   {path: 'about', component: AboutComponent},
   {path: 'shop', component: ShopComponent},
   {path: 'contact', component: ContactComponent},
