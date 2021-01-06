@@ -73,30 +73,6 @@
       "country": "ew",
       "description": "ewq",
       "price": 123
-    },
-    {
-      "id": "a04a9269-6caf-4f2f-915c-ba71c8f5fd70",
-      "name": "",
-      "year": null,
-      "country": null,
-      "description": null,
-      "price": null
-    },
-    {
-      "id": "86d55126-fcca-498d-bb11-91c8ed22d64d",
-      "name": "",
-      "year": null,
-      "country": null,
-      "description": null,
-      "price": null
-    },
-    {
-      "id": "fdaca120-af44-4bc0-bb3d-fda35b23063b",
-      "name": null,
-      "year": null,
-      "country": null,
-      "description": null,
-      "price": null
     }
   ],
   "contact_page_data": [
