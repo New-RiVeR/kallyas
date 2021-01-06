@@ -21,9 +21,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from './cart/cart.component';
 import { from } from 'rxjs';
 import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
+import { AlertComponent } from './alert/alert.component';
+import { fakeBackendProvider } from './helpers/fake-backend';
+import { HomeLogComponent } from './home-log/home-log.component';
+import { AppRoutingModule } from './app-routing.module';
+import { JwtInterceptor, ErrorInterceptor } from './helpers';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { AuthGuard } from './helpers';
+
+const accountModule = () => import('./auth/account.module').then(x => x.AccountModule);
+const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
 
 const appRoutes: Routes = [
-
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
+  { path: 'account', loadChildren: accountModule },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'about', component: AboutComponent },
@@ -32,6 +45,7 @@ const appRoutes: Routes = [
   { path: 'admin', component: AdminComponent },
   { path: 'cart', component: CartComponent },
   { path: '**', component: NotFoundComponent },
+  
 ];
 
 @NgModule({
@@ -47,6 +61,11 @@ const appRoutes: Routes = [
     AdminComponent,
     CartComponent,
     MoreInfoDialog,
+    AlertComponent,
+    AppComponent,
+    AlertComponent,
+    HomeComponent,
+    HomeLogComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,11 +75,21 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatDialogModule,
     HttpClientModule,
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     NgbModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 
 })
