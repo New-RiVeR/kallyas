@@ -1,6 +1,6 @@
 export interface IContactPage {
-    firstName: string;
-    lastName: string;
-    Email: string;
-    Message: string;
+    name: string;
+    email: string;
+    message: string;
+    checkbox: boolean;
 }

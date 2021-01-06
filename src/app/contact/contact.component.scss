@@ -115,13 +115,11 @@ input{
 }
 
 .send-form--top{
-    display: flex;
     margin-bottom: 15px;
 }
 
-.firstNamee,
-.lastNamee{
-    width: 50%;
+.firstNamee{
+    width: 100%;
     padding: 15px;
     border: none;
     line-height: 1.6;
@@ -200,6 +198,7 @@ button:disabled:hover{
     cursor: pointer;
     border-radius: 5px;
     box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
+    outline: none;
 }
 
 .btn-send:hover{

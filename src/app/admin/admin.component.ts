@@ -49,7 +49,7 @@ export class AdminComponent implements OnInit {
   }
 
   addNewWatch(): void {
-    const newWatch = { ...this.watchForm.value, id: uuid.v4() };
+    const newWatch = { id: uuid.v4(), ...this.watchForm.value };
     this.watchService.addWatch(newWatch).subscribe((watch: WatchItem) => {
       this.watchesArray = [...this.watchesArray, watch];
     });
