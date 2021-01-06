@@ -67,20 +67,45 @@
       "qnt": 1
     },
     {
+      "id": "65b88df5-775b-4a29-90ee-e0feeb195d6b",
       "name": "dsa",
       "year": 1231,
       "country": "ew",
       "description": "ewq",
-      "price": 123,
-      "id": "65b88df5-775b-4a29-90ee-e0feeb195d6b"
+      "price": 123
     },
     {
+      "id": "a04a9269-6caf-4f2f-915c-ba71c8f5fd70",
       "name": "",
       "year": null,
       "country": null,
       "description": null,
-      "price": null,
-      "id": "911d28ae-17c6-4ad0-bc18-82ba3aea4f90"
+      "price": null
+    },
+    {
+      "id": "86d55126-fcca-498d-bb11-91c8ed22d64d",
+      "name": "",
+      "year": null,
+      "country": null,
+      "description": null,
+      "price": null
+    },
+    {
+      "id": "fdaca120-af44-4bc0-bb3d-fda35b23063b",
+      "name": null,
+      "year": null,
+      "country": null,
+      "description": null,
+      "price": null
+    }
+  ],
+  "contact_page_data": [
+    {
+      "id": "be0a5edc-882d-404f-a2b3-3b41ee0c22d8",
+      "name": "qweqwqwe",
+      "email": "qweeqw@qwewqewq",
+      "message": "",
+      "checkbox": false
     }
   ]
 }
