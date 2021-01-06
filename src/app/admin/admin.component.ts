@@ -6,6 +6,7 @@ import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { WatchItem } from '../models/IWatch';
 import { WatchService } from '../services/watch.service';
+// import { watch } from 'fs';
 
 @Component({
   selector: 'app-admin',
@@ -15,6 +16,8 @@ import { WatchService } from '../services/watch.service';
 export class AdminComponent implements OnInit {
   watchForm: FormGroup;
   watchesArray: WatchItem[] = [];
+  buttonEdit: boolean;
+  selectedWatch:any;
 
   constructor(
     private fb: FormBuilder,
@@ -27,6 +30,16 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadWatches();
+  }
+  
+  private initWatchForm(): void {
+    this.watchForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      year: [],
+      country: [],
+      description: [],
+      price: [],
+    });
   }
 
   private loadWatches(): void {
@@ -43,14 +56,26 @@ export class AdminComponent implements OnInit {
     this.watchForm.reset();
   }
 
+  saveEdit(): void {
+    const editedWatch = {...this.watchForm.value}
+    console.log(editedWatch);
+    this.watchService.editWatch(editedWatch).subscribe((newEditedWatch: WatchItem) => {
+      this.watchesArray = [...this.watchesArray, newEditedWatch];
+    })
+    this.buttonEdit = false;
+    this.watchForm.reset();
+  }
+
   removeWatch(id: string): void {
     this.watchService.removeWatch(id).subscribe(() => {
       this.watchesArray = this.watchesArray.filter((watch) => watch.id !== id);
     });
   }
-
-  saveEdit(): void {
-    //TODO - add update Watch logic
+  
+  editCurrentWatch(watch) {
+    this.buttonEdit = true;
+    this.selectedWatch = watch;
+    this.watchForm.patchValue(this.selectedWatch)
   }
 
   openDialog(watch: WatchItem) {
@@ -61,13 +86,4 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  private initWatchForm(): void {
-    this.watchForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      year: [],
-      country: [],
-      description: [],
-      price: [],
-    });
-  }
 }

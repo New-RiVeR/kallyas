@@ -13,13 +13,17 @@ export class WatchService {
   getWatches(): Observable<WatchItem[]> {
     return this.httpClient.get<WatchItem[]>('http://localhost:3000/watches');
   }
+  
+  addWatch(newWatch: WatchItem): Observable<WatchItem>{
+    return this.httpClient.post<WatchItem>('http://localhost:3000/watches', newWatch);
+  }
+
+  editWatch(editedWatch: WatchItem): Observable<WatchItem>{
+    return this.httpClient.put<WatchItem>('http://localhost:3000/watches', editedWatch);
+  }
 
   removeWatch(id: string): Observable<{}> {
     return this.httpClient.delete(`http://localhost:3000/watches/${id}`)
-  }
-
-  addWatch(newWatch: WatchItem): Observable<WatchItem>{
-    return this.httpClient.post<WatchItem>('http://localhost:3000/watches', newWatch);
   }
 
 }

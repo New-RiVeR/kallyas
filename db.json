@@ -73,6 +73,14 @@
       "description": "ewq",
       "price": 123,
       "id": "65b88df5-775b-4a29-90ee-e0feeb195d6b"
+    },
+    {
+      "name": "",
+      "year": null,
+      "country": null,
+      "description": null,
+      "price": null,
+      "id": "911d28ae-17c6-4ad0-bc18-82ba3aea4f90"
     }
   ]
 }
