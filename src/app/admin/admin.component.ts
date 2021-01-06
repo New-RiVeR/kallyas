@@ -75,6 +75,8 @@ export class AdminComponent implements OnInit {
   editCurrentWatch(watch) {
     this.buttonEdit = true;
     this.selectedWatch = watch;
+    console.log(this.selectedWatch);
+    
     this.watchForm.patchValue(this.selectedWatch)
   }
 
