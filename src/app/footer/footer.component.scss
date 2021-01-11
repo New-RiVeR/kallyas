@@ -47,6 +47,13 @@ a {
   z-index: 10;
   background-color: white;
   background-image: url(../../assets/image/button-top.png);
+  outline: none;
+}
+
+.button-to-top:hover{
+  background-image: url(../../assets/image/button-top--white.png);
+  background-color: #0e0e0e;
+  transition: .5s;
 }
 
 .footer-btn {
