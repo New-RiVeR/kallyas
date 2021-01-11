@@ -1,5 +1,5 @@
 <div class="container">
-  <!-- <div class="sort-container">
+  <div class="sort-container">
     <mat-form-field appearance="fill" class="sort-items">
       <mat-label class="mat-label--title">Sort by</mat-label>
       <mat-select (selectionChange)="sortItemsBy($event)">
@@ -16,8 +16,14 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-  </div> -->
+  </div>
   
+  <!-- <select (click)="sortItemsBy($event)">
+    <option *ngFor="let sort_item of sort_items" [value]="sort_item.value">
+      {{sort_item.title}}
+    </option>
+  </select> -->
+
   <div class="watches-container">
     <div class="watches" *ngFor="let watch of watches">
       <img class="clock-image" [src]="watch.image" alt="clock image{{watch.id}}">

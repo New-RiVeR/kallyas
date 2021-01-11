@@ -37,6 +37,8 @@ export class ShopComponent implements OnInit {
   }
 
   sortItemsBy(event): void {
+    console.log(event);
+    
     this.watches.sort((a, b) => {
       if (a[event.value] > b[event.value]) {
         return 1;

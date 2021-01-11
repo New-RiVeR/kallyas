@@ -19,8 +19,7 @@ export class WatchService {
   }
 
   editWatch(id: string, editedWatch: WatchItem):Observable<WatchItem>{
-    // return this.httpClient.put<WatchItem>('http://localhost:3000/watches' + id,editedWatch);
-    return this.httpClient.put<WatchItem>(`http://localhost:3000/watches/${id}` + id,editedWatch);    
+    return this.httpClient.put<WatchItem>(`http://localhost:3000/watches/${id}`, editedWatch);    
   }
 
   removeWatch(id: string): Observable<{}> {

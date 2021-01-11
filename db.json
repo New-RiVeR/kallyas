@@ -12,15 +12,12 @@
       "qnt": 1
     },
     {
-      "id": "57d74b9e-bfee-4dda-8b94-0b948714f078",
       "name": "Blue Silicon Strap Watch",
-      "description": "Competently build 24/7 “outside the box” thinking via excellent paradigms",
-      "price": 169,
-      "country": "China",
-      "countryFlag": "../../assets/image/china.png",
       "year": 2012,
-      "image": "../../assets/image/clock-2.jpg",
-      "qnt": 1
+      "country": "China",
+      "description": "Competently build 24/7 “outside the box” thinking via excellent paradigms",
+      "price": 2221111,
+      "id": "57d74b9e-bfee-4dda-8b94-0b948714f078"
     },
     {
       "id": "83aec9ba-1255-4fef-b907-46cf1759f128",

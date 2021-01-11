@@ -56,14 +56,10 @@ export class AdminComponent implements OnInit {
   }
 
   saveEdit(): void {
-    const editedWatch = {...this.watchForm.value}
-    console.log(editedWatch);
     console.log(this.selectedWatch);
     this.watchService.editWatch(this.selectedWatch.id,this.watchForm.value)
       .subscribe((newEditedWatch: WatchItem) => {
-        console.log('Form: ', this.watchForm.value);
-        console.log('newEditedWatch', newEditedWatch);
-      this.watchesArray = [...this.watchesArray, newEditedWatch];
+        //
     })
     this.buttonEdit = false;
     this.watchForm.reset();
