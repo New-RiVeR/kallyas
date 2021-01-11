@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
 import * as uuid from 'uuid';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService } from '../services/dialog.service';
 import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { WatchItem } from '../models/IWatch';
 import { WatchService } from '../services/watch.service';
-// import { watch } from 'fs';
 
 @Component({
   selector: 'app-admin',
@@ -59,12 +58,16 @@ export class AdminComponent implements OnInit {
   saveEdit(): void {
     const editedWatch = {...this.watchForm.value}
     console.log(editedWatch);
-    this.watchService.editWatch(editedWatch).subscribe((newEditedWatch: WatchItem) => {
+    console.log(this.selectedWatch);
+    this.watchService.editWatch(this.selectedWatch.id,this.watchForm.value)
+      .subscribe((newEditedWatch: WatchItem) => {
+        console.log('Form: ', this.watchForm.value);
+        console.log('newEditedWatch', newEditedWatch);
       this.watchesArray = [...this.watchesArray, newEditedWatch];
     })
     this.buttonEdit = false;
     this.watchForm.reset();
-  }
+  } 
 
   removeWatch(id: string): void {
     this.watchService.removeWatch(id).subscribe(() => {
@@ -75,8 +78,6 @@ export class AdminComponent implements OnInit {
   editCurrentWatch(watch) {
     this.buttonEdit = true;
     this.selectedWatch = watch;
-    console.log(this.selectedWatch);
-    
     this.watchForm.patchValue(this.selectedWatch)
   }
 

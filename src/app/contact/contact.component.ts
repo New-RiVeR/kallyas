@@ -38,6 +38,7 @@ export class ContactComponent implements OnInit {
     this.contactData.populateUserDataArray(newFormData).subscribe((value: IContactPage) => {
       this.contactPage = [...this.contactPage, value]
     })
+    this.form.reset();
   }
 
 

@@ -58,29 +58,6 @@ export class ShopComponent implements OnInit {
   }
 
   addToCart(watch: WatchItem): void {
-    // const cartDataNull = localStorage.getItem('localCart');
-    // if (!cartDataNull) {
-    //   let storeDataGet: any = [];
-    //   storeDataGet.push(watch);
-    //   localStorage.setItem('localCart', JSON.stringify(storeDataGet));
-    // } else {
-    //   let id = watch.id;
-    //   let index: number = -1;
-    //   this.itemsCart = JSON.parse(localStorage.getItem('localCart'));
-    //   for (let i = 0; i < this.itemsCart.length; i++) {
-    //     if (parseInt(id) === parseInt(this.itemsCart[i].id)) {
-    //       this.itemsCart[i].qnt = watch.qnt;
-    //       index = i;
-    //       break;
-    //     }
-    //   }
-    //   if (index == -1) {
-    //     this.itemsCart.push(watch);
-    //     localStorage.setItem('localCart', JSON.stringify(this.itemsCart));
-    //   } else {
-    //     localStorage.setItem('localCart', JSON.stringify(this.itemsCart));
-    //   }
-    // }
     const watchItem = {
       id: watch.id,
       name: watch.name,
@@ -97,4 +74,5 @@ export class ShopComponent implements OnInit {
     localStorage.setItem('cartItems', JSON.stringify(this.itemsCart));
     this.cartService.cartItemsLength$.next(this.itemsCart.length);
   }
+
 }

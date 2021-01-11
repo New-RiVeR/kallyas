@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { isArrayLiteralExpression } from 'typescript';
 import { CartItem } from '../models/IWatch';
 import { CartService } from '../services/cart.service';
 
@@ -18,7 +19,7 @@ export class CartComponent implements OnInit {
     this.updateTotalPriceInCart();
   }
 
-  cartDetails(){
+  cartDetails() {
     const watches = JSON.parse(localStorage.getItem('cartItems'));
     if (watches) {
       this.cartItems = watches;
@@ -28,14 +29,6 @@ export class CartComponent implements OnInit {
   incrementQuantity(cartItem: CartItem): void {
     cartItem.amount++;
     this.cartItems = [...this.cartItems];
-    // for(let i = 0; i < this.cartItems.length; i++){
-    //   if(this.cartItems[i].id === watchId){
-    //     if(watchCount != 15){
-    //       this.cartItems[i].qnt = parseInt(watchCount) + 1;
-    //     }
-    //   }
-    // }
-    // localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
     this.updateTotalPriceInCart()
   }
 
@@ -44,26 +37,33 @@ export class CartComponent implements OnInit {
       cartItem.amount--;
       this.cartItems = [...this.cartItems];
     }
-    // for(let i = 0; i < this.cartItems.length; i++){
-    //   if(this.cartItems[i].id === watchId){
-    //     if(watchCount != 1){
-    //       this.cartItems[i].qnt = parseInt(watchCount) - 1;
-    //     }
-    //   }
-    // }
-    // localStorage.setItem('cartItems', JSON.stringify(this.cartItems))
     this.updateTotalPriceInCart();
   }
 
   updateTotalPriceInCart(): void {
     if (this.cartItems) {
-      this.totalAmount = this.cartItems.reduce(function(acc, value) {
+      this.totalAmount = this.cartItems.reduce(function (acc, value) {
         return acc + (value.price * value.amount)
       }, 0)
     }
   }
 
-  removeAllItemsFromCart(){
+  deleteOneItem(id) {
+    let cartArray = localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [];
+    let index;
+    for (let i = 0; i < cartArray.length; i++) {
+      if (cartArray[i].id === id) {
+        index = i;
+        break;
+      }
+    }
+    cartArray.splice(index, 1);
+    localStorage.setItem('cartItems', JSON.stringify(cartArray));
+    this.cartItems = cartArray;
+    this.updateTotalPriceInCart();
+  }
+
+  removeAllItemsFromCart() {
     localStorage.removeItem('cartItems');
     this.cartItems = [];
     this.cartService.cartItemsLength$.next(0);

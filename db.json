@@ -65,14 +65,6 @@
       "year": 2016,
       "image": "../../assets/image/clock-8.jpg",
       "qnt": 1
-    },
-    {
-      "id": "65b88df5-775b-4a29-90ee-e0feeb195d6b",
-      "name": "dsa",
-      "year": 1231,
-      "country": "ew",
-      "description": "ewq",
-      "price": 123
     }
   ],
   "contact_page_data": [
@@ -81,6 +73,27 @@
       "name": "qweqwqwe",
       "email": "qweeqw@qwewqewq",
       "message": "",
+      "checkbox": false
+    },
+    {
+      "id": "d312017e-9fb3-4963-9b1b-983dc55c0bd7",
+      "name": "Roman",
+      "email": "roman.qqq@gmail.com",
+      "message": "qweqwe",
+      "checkbox": true
+    },
+    {
+      "id": "fada7133-d9b2-4d37-b06c-1ada156ed134",
+      "name": "Roman",
+      "email": "roman.qqq@gmail.com",
+      "message": "qweqwe",
+      "checkbox": false
+    },
+    {
+      "id": "9737588a-0341-4851-8354-8abde7f7d3fa",
+      "name": "qwewqe",
+      "email": "qwewqe@qwewe.com",
+      "message": "qweqwe",
       "checkbox": false
     }
   ]
