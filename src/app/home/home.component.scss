@@ -12,8 +12,24 @@
   color: rgb(178, 178, 178);
   text-decoration: none;
   opacity: 1;
- 
 }
+
+.carousel-caption{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.carousel-caption--inner{
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .carousel-caption button{
    background-color: transparent;
     font-family: "Open Sans";
@@ -30,13 +46,15 @@
     border-color: rgb(255, 255, 255);
     border-style: solid;
     border-width: 3px;
-    
     padding: 12px 35px;
     color: rgb(255, 255, 255);
-   
     width: 210px;
-   
+}
 
+.carousel-caption button:hover{
+  transition: .5s;
+  background-color: white;
+  color: black;
 }
 
 .about-container{
@@ -54,11 +72,11 @@
 .about-container--left,
 .about-container--right{
   width: 50%;
+  box-shadow: 0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12);
 }
 
 .about-container--left{
   display: flex;
-  box-shadow: 0 6px 6px rgba(10,16,20,.15), 0 0 52px rgba(10,16,20,.12);
 }
 
 .container-left--inner{
@@ -72,19 +90,24 @@
 }
 
 .container-content--button{
-  font-family: "Oswald",Helvetica,Arial,sans-serif;
-  font-size: 24px;
+  font-size: 15px;
   font-weight: 600;
+  padding: 10px 20px;
   color: #0a0a0a;
-  letter-spacing: 14px;
+  letter-spacing: 5px;
   margin-bottom: 5px;
   margin-top: 130px;
   border: 2px solid;
   cursor: pointer;
+  border-radius: 5px;
 }
+
 .container-content--button:hover{
-color: #ab8e69;
+  transition: .2s;
+  background-color: #ab8e69;
+  color: white;
 }
+
 .paragraph-style{
   font-size: 20px;
   line-height: 30px;

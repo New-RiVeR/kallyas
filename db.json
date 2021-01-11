@@ -12,15 +12,12 @@
       "qnt": 1
     },
     {
-      "id": "57d74b9e-bfee-4dda-8b94-0b948714f078",
       "name": "Blue Silicon Strap Watch",
-      "description": "Competently build 24/7 “outside the box” thinking via excellent paradigms",
-      "price": 169,
-      "country": "China",
-      "countryFlag": "../../assets/image/china.png",
       "year": 2012,
-      "image": "../../assets/image/clock-2.jpg",
-      "qnt": 1
+      "country": "China",
+      "description": "Competently build 24/7 “outside the box” thinking via excellent paradigms",
+      "price": 2221111,
+      "id": "57d74b9e-bfee-4dda-8b94-0b948714f078"
     },
     {
       "id": "83aec9ba-1255-4fef-b907-46cf1759f128",
@@ -65,14 +62,36 @@
       "year": 2016,
       "image": "../../assets/image/clock-8.jpg",
       "qnt": 1
+    }
+  ],
+  "contact_page_data": [
+    {
+      "id": "be0a5edc-882d-404f-a2b3-3b41ee0c22d8",
+      "name": "qweqwqwe",
+      "email": "qweeqw@qwewqewq",
+      "message": "",
+      "checkbox": false
     },
     {
-      "name": "dsa",
-      "year": 1231,
-      "country": "ew",
-      "description": "ewq",
-      "price": 123,
-      "id": "65b88df5-775b-4a29-90ee-e0feeb195d6b"
+      "id": "d312017e-9fb3-4963-9b1b-983dc55c0bd7",
+      "name": "Roman",
+      "email": "roman.qqq@gmail.com",
+      "message": "qweqwe",
+      "checkbox": true
+    },
+    {
+      "id": "fada7133-d9b2-4d37-b06c-1ada156ed134",
+      "name": "Roman",
+      "email": "roman.qqq@gmail.com",
+      "message": "qweqwe",
+      "checkbox": false
+    },
+    {
+      "id": "9737588a-0341-4851-8354-8abde7f7d3fa",
+      "name": "qwewqe",
+      "email": "qwewqe@qwewe.com",
+      "message": "qweqwe",
+      "checkbox": false
     }
   ]
 }

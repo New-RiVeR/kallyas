@@ -27,7 +27,8 @@
         </div>
       </div>
     <div class="button-container">
-      <button class="submit-button" (click)="addNewWatch()">Add</button>
+      <button class="submit-button" *ngIf="buttonEdit" (click)="saveEdit()">Save Edit</button>
+      <button class="submit-button" *ngIf="!buttonEdit" (click)="addNewWatch()">Add</button>
     </div>
     </div>
   </form>
@@ -43,7 +44,7 @@
             <img class="clock-image" [src]="watch.image" alt="clock image{{watch.id}}">
           </ng-container>
           <ng-template #noImage>
-            <div>qweqweqweeqwqw</div>
+            <div>No image</div>
           </ng-template>
         </div>
         <p class="watch-title">{{watch.name }} </p>
@@ -53,7 +54,7 @@
       </div>
       <div class="watch-button--container">
         <button class="watch-btn btn-info" mat-button (click)="openDialog(watch)">More info</button>
-        <button class="watch-btn btn-add">Edit</button>
+        <button class="watch-btn btn-add" (click)="editCurrentWatch(watch)">Edit</button>
       </div>
     </div>
   </div>
