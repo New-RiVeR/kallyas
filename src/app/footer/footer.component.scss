@@ -1,50 +1,77 @@
 h4 {
-    color: white;
-    font-family: "Oswald",Helvetica,Arial,sans-serif;
-    font-size: 12px;
-    line-height: 22px;
-    font-weight: 400;
-    letter-spacing: 8px;
-    text-transform: uppercase;
+  color: white;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  line-height: 22px;
+  font-weight: 400;
+  letter-spacing: 8px;
+  text-transform: uppercase;
 }
 
 ul {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 li {
-    list-style-type: none;
+  list-style-type: none;
 }
 
-p{
-    color: #8e8e8e;
+p {
+  color: #8e8e8e;
 }
 
 a {
-    font-size: 13px;
-    line-height: 26px;
-    font-weight: 300;
-    color: #8e8e8e;
-    font-family: "Open Sans", Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
+  font-size: 13px;
+  line-height: 26px;
+  font-weight: 300;
+  color: #8e8e8e;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
 }
 
-button{
-    height: 50px;
-    width: 150px;
-    font-size: 15px;
-    font-weight: 600;
-    background-color: #ab8e69;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
+.top-button--wrapper {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  top: -30px;
 }
 
-button:hover{
-    background-color: #fff;
-    color: #ab8e69;
-    transition: .5s;
+.button-to-top {
+  height: 64px;
+  width: 64px;
+  border-radius: 50%;
+  right: 30px;
+  border: none;
+  position: absolute;
+  z-index: 10;
+  background-color: white;
+  background-image: url(../../assets/image/button-top.png);
+  outline: none;
+}
+
+.button-to-top:hover{
+  background-image: url(../../assets/image/button-top--white.png);
+  background-color: #0e0e0e;
+  transition: .5s;
+}
+
+.footer-btn {
+  height: 50px;
+  width: 150px;
+  font-size: 15px;
+  font-weight: 600;
+  background-color: #ab8e69;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  outline: none;
+}
+
+.footer-btn:hover {
+  background-color: #fff;
+  color: #ab8e69;
+  transition: .5s;
 }
 
 .footer-main {
@@ -52,6 +79,7 @@ button:hover{
   background-color: #0e0e0e;
   padding-top: 110px;
   padding-bottom: 80px;
+  position: relative;
 }
 
 .footer-container {
@@ -85,6 +113,7 @@ button:hover{
   box-shadow: inset 1px 2px 0 rgba(0, 0, 0, .85);
   height: 48px;
   padding: 6px 12px 6px 20px;
+  outline: none;
 }
 
 .footer-container--middle {
@@ -104,8 +133,7 @@ button:hover{
   cursor: pointer;
 }
 
-.footer-container--bottom{
-    text-align: center;
-    color: #8e8e8e;
+.footer-container--bottom {
+  text-align: center;
+  color: #8e8e8e;
 }
-

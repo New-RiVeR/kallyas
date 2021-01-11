@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import * as uuid from 'uuid';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService } from '../services/dialog.service';
 import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
@@ -15,6 +15,8 @@ import { WatchService } from '../services/watch.service';
 export class AdminComponent implements OnInit {
   watchForm: FormGroup;
   watchesArray: WatchItem[] = [];
+  buttonEdit: boolean;
+  selectedWatch:any;
 
   constructor(
     private fb: FormBuilder,
@@ -28,6 +30,16 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.loadWatches();
   }
+  
+  private initWatchForm(): void {
+    this.watchForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(2)]],
+      year: [],
+      country: [],
+      description: [],
+      price: [],
+    });
+  }
 
   private loadWatches(): void {
     this.watchService.getWatches().subscribe((value: WatchItem[]) => {
@@ -36,21 +48,33 @@ export class AdminComponent implements OnInit {
   }
 
   addNewWatch(): void {
-    const newWatch = { ...this.watchForm.value, id: uuid.v4() };
+    const newWatch = { id: uuid.v4(), ...this.watchForm.value };
     this.watchService.addWatch(newWatch).subscribe((watch: WatchItem) => {
       this.watchesArray = [...this.watchesArray, watch];
     });
     this.watchForm.reset();
   }
 
+  saveEdit(): void {
+    console.log(this.selectedWatch);
+    this.watchService.editWatch(this.selectedWatch.id,this.watchForm.value)
+      .subscribe((newEditedWatch: WatchItem) => {
+        //
+    })
+    this.buttonEdit = false;
+    this.watchForm.reset();
+  } 
+
   removeWatch(id: string): void {
     this.watchService.removeWatch(id).subscribe(() => {
       this.watchesArray = this.watchesArray.filter((watch) => watch.id !== id);
     });
   }
-
-  saveEdit(): void {
-    //TODO - add update Watch logic
+  
+  editCurrentWatch(watch) {
+    this.buttonEdit = true;
+    this.selectedWatch = watch;
+    this.watchForm.patchValue(this.selectedWatch)
   }
 
   openDialog(watch: WatchItem) {
@@ -61,13 +85,4 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  private initWatchForm(): void {
-    this.watchForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      year: [],
-      country: [],
-      description: [],
-      price: [],
-    });
-  }
 }

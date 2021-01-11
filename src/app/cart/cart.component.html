@@ -23,7 +23,7 @@
           </td>
           <td>£ {{item.price * item.amount | number}}</td>
           <td>
-            <button class="delete-button">
+            <button class="delete-button" (click)="deleteOneItem(item.id)">
               <img src="../../assets/image/delete.png" alt="">
             </button>
           </td>
