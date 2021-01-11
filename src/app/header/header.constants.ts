@@ -23,16 +23,24 @@ export const NAV_MENU = [
 
 export const ITEMS_HEADER = [
     {
-        title: 'Customer support'
+        title: 'Customer support',
+        name: 'customer support',
+        active: false
     },
     {
-        title: 'Shipping'
+        title: 'Shipping',
+        name: 'shipping',
+        active: false
     },
     {
-        title: 'LogIn'
+        title: 'LogIn',
+        name: 'login',
+        active: false
     },
     {
-        title: 'Info'
+        title: 'Info',
+        name: 'info',
+        active: false
     }
 ]
 

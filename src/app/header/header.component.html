@@ -7,7 +7,7 @@
     </div>
     <div class="header-top--right">
       <ul *ngFor="let i of items">
-        <li>{{i.title}}</li>
+        <li (click)='openLogDialog(i.name)'>{{i.title}}</li>
       </ul>
     </div>
   </div>

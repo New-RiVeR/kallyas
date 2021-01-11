@@ -34,7 +34,7 @@ const accountModule = () => import('./auth/account.module').then(x => x.AccountM
 const usersModule = () => import('./users/users.module').then(x => x.UsersModule);
 
 const appRoutes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'homeLog', component: HomeLogComponent, canActivate: [AuthGuard] },
   { path: 'users', loadChildren: usersModule, canActivate: [AuthGuard] },
   { path: 'account', loadChildren: accountModule },
   { path: 'home', component: HomeComponent },
