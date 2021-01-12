@@ -21,6 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from './cart/cart.component';
 import { from } from 'rxjs';
 import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
+import { InputsErrorsComponent } from './admin/inputs-errors/inputs-errors.component';
 
 const appRoutes: Routes = [
 
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     AdminComponent,
     CartComponent,
     MoreInfoDialog,
+    InputsErrorsComponent,
   ],
   imports: [
     BrowserModule,
