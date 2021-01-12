@@ -74,4 +74,10 @@ export class LoginComponent implements OnInit {
     const dialogRef = this.dialog.open(RegisterComponent);
     dialogRef.afterClosed().subscribe((result) => {});
   }
+  closeWindow() {
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.dialog.closeAll();
+  }
 }
