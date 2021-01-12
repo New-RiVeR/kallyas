@@ -1,6 +1,6 @@
 import * as uuid from 'uuid';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DialogService } from '../services/dialog.service';
 import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
 import { MatDialog } from '@angular/material/dialog';
@@ -16,7 +16,9 @@ export class AdminComponent implements OnInit {
   watchForm: FormGroup;
   watchesArray: WatchItem[] = [];
   buttonEdit: boolean;
-  selectedWatch:any;
+  selectedWatch: any;
+  public showError;
+  formSubmitted: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -30,14 +32,14 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.loadWatches();
   }
-  
+
   private initWatchForm(): void {
     this.watchForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(2)]],
-      year: [],
-      country: [],
-      description: [],
-      price: [],
+      name: ['', [Validators.required, Validators.minLength(5)]],
+      year: ['', [Validators.required, Validators.min(1000)]],
+      country: ['', [Validators.required, Validators.minLength(3)]],
+      description: ['', [Validators.required, Validators.minLength(5)]],
+      price: ['', [Validators.required, Validators.min(2)]],
     });
   }
 
@@ -57,20 +59,20 @@ export class AdminComponent implements OnInit {
 
   saveEdit(): void {
     console.log(this.selectedWatch);
-    this.watchService.editWatch(this.selectedWatch.id,this.watchForm.value)
+    this.watchService.editWatch(this.selectedWatch.id, this.watchForm.value)
       .subscribe((newEditedWatch: WatchItem) => {
         //
-    })
+      })
     this.buttonEdit = false;
     this.watchForm.reset();
-  } 
+  }
 
   removeWatch(id: string): void {
     this.watchService.removeWatch(id).subscribe(() => {
       this.watchesArray = this.watchesArray.filter((watch) => watch.id !== id);
     });
   }
-  
+
   editCurrentWatch(watch) {
     this.buttonEdit = true;
     this.selectedWatch = watch;
@@ -83,6 +85,14 @@ export class AdminComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  errors = function showErrors(field: AbstractControl): boolean {
+    return field.invalid && (field.touched || this.formSubmitted)
+  }
+
+  showErrors(field: AbstractControl): boolean {
+    return field.invalid && (field.touched || this.formSubmitted)
   }
 
 }

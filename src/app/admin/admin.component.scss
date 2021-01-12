@@ -15,6 +15,29 @@
   margin-top: 10px;
 }
 
+.control-header{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.tooltip-btn{
+  height: 24px;
+  width: 24px;
+  border: none;
+  border-radius: 50%;
+  margin-left: 10px;
+  margin-bottom: 5px;
+  background-color: transparent;
+  background-image: url(../../assets/image/question-mark.png);
+}
+
+.control p{
+  margin: 0px;
+  margin-bottom: 5px;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+}
+
 .input-control {
   width: 90%;
   height: 45px;
@@ -24,6 +47,18 @@
   box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
   border: none;
   outline: none;
+  border-radius: 5px;
+  &--invalid{
+    width: 90%;
+    height: 45px;
+    font-size: 25px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
+    border: 2px solid red;
+    outline: none;
+    border-radius: 5px;
+  }
 }
 
 .control-paragraph--wrapper{
@@ -55,10 +90,10 @@
   box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
 }
 
-.button-delete--wrapper {
-  display: flex;
-  justify-content: flex-end;
-}
+// .button-delete--wrapper {
+//   display: flex;
+//   justify-content: flex-end;
+// }
 
 .button-delete {
   background-image: url(../../assets/image/cancel.png);
@@ -68,6 +103,10 @@
   margin-top: 5px;
   width: 16px;
   height: 16px;
+  &--wrapper{
+    display: flex;
+    justify-content: flex-end;
+  }
 }
 
 .watches-container {

@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -21,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from './cart/cart.component';
 import { from } from 'rxjs';
 import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
+import { InputsErrorsComponent } from './admin/inputs-errors/inputs-errors.component';
 
 const appRoutes: Routes = [
 
@@ -47,6 +49,7 @@ const appRoutes: Routes = [
     AdminComponent,
     CartComponent,
     MoreInfoDialog,
+    InputsErrorsComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +57,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatTooltipModule,
     MatDialogModule,
     HttpClientModule,
     BrowserAnimationsModule,
