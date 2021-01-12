@@ -2,33 +2,43 @@
   <form [formGroup]="watchForm">
     <div class="control-container">
       <div class="control">
-        <input class="input-control" type="text" placeholder="name" formControlName="name">
+        <p>Name*</p>
+        <input class="input-control" type="text" formControlName="name">
         <div class="control-paragraph--wrapper">
+          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.name)"></app-inputs-errors>
         </div>
       </div>
       <div class="control">
-        <input class="input-control" type="number" placeholder="year" formControlName="year">
+        <p>Year*</p>
+        <input class="input-control" type="number" formControlName="year">
         <div class="control-paragraph--wrapper">
+          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.year)"></app-inputs-errors>
         </div>
       </div>
       <div class="control">
-        <input class="input-control" type="text" placeholder="country" formControlName="country">
+        <p>Country*</p>
+        <input class="input-control" type="text" formControlName="country">
         <div class="control-paragraph--wrapper">
+          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.country)"></app-inputs-errors>
         </div>
       </div>
       <div class="control">
-        <input class="input-control" type="text" placeholder="description" formControlName="description">
+        <p>Description*</p>
+        <input class="input-control" type="text" formControlName="description">
         <div class="control-paragraph--wrapper">
+          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.description)"></app-inputs-errors>
         </div>
       </div>
       <div class="control">
-        <input class="input-control" type="number" placeholder="price" formControlName="price">
+        <p>Price*</p>
+        <input class="input-control" type="number" formControlName="price">
         <div class="control-paragraph--wrapper">
+          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.price)"></app-inputs-errors>
         </div>
       </div>
     <div class="button-container">
       <button class="submit-button" *ngIf="buttonEdit" (click)="saveEdit()">Save Edit</button>
-      <button class="submit-button" *ngIf="!buttonEdit" (click)="addNewWatch()">Add</button>
+      <button class="submit-button" *ngIf="!buttonEdit" (click)="addNewWatch()" [disabled]="watchForm.invalid">Add</button>
     </div>
     </div>
   </form>

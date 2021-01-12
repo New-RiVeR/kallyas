@@ -15,6 +15,12 @@
   margin-top: 10px;
 }
 
+.control p{
+  margin: 0px;
+  margin-bottom: 5px;
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+}
+
 .input-control {
   width: 90%;
   height: 45px;
@@ -24,6 +30,8 @@
   box-shadow: 0 6px 6px rgba(10, 16, 20, 0.15), 0 0 52px rgba(10, 16, 20, 0.12);
   border: none;
   outline: none;
+  border-radius: 5px;
+  // outline-color: red;
 }
 
 .control-paragraph--wrapper{
