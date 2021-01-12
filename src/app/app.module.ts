@@ -8,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -21,12 +22,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from './cart/cart.component';
 import { from } from 'rxjs';
 import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
+
 import { AlertComponent } from './alert/alert.component';
 import { fakeBackendProvider } from './helpers/fake-backend';
 import { HomeLogComponent } from './home-log/home-log.component';
 import { AppRoutingModule } from './app-routing.module';
 import { JwtInterceptor, ErrorInterceptor } from './helpers';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
+import { InputsErrorsComponent } from './admin/inputs-errors/inputs-errors.component';
+
 
 import { AuthGuard } from './helpers';
 
@@ -66,6 +71,8 @@ const appRoutes: Routes = [
     AlertComponent,
     HomeComponent,
     HomeLogComponent,
+    InputsErrorsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -73,6 +80,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatTooltipModule,
     MatDialogModule,
     HttpClientModule,
     BrowserModule,

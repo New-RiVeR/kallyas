@@ -2,34 +2,71 @@
   <form [formGroup]="watchForm">
     <div class="control-container">
       <div class="control">
-        <input class="input-control" type="text" placeholder="name" formControlName="name">
+        <div class="control-header">
+          <p>Name*</p>
+          <button class="tooltip-btn" mat-raised-button matTooltip="Minimum 5 characters"
+            aria-label="Button that displays a tooltip when focused or hovered over">
+          </button>
+        </div>
+        <!-- <input class="input-control" type="string" formControlName="name"> -->
+          <input [className]="showErrors(watchForm.controls.name) ? 'input-control--invalid' : 'input-control' " type="text" formControlName="name">
+          <div class="control-paragraph--wrapper">
+            <app-inputs-errors [showErrors]="showErrors(watchForm.controls.name)"></app-inputs-errors>
+          </div>
+      </div>
+      <div class="control">
+        <div class="control-header">
+          <p>Year*</p>
+          <button class="tooltip-btn" mat-raised-button matTooltip="Minimum 1000"
+            aria-label="Button that displays a tooltip when focused or hovered over">
+          </button>
+        </div>
+        <input [className]="showErrors(watchForm.controls.year) ? 'input-control--invalid' : 'input-control' " type="number" formControlName="year">
         <div class="control-paragraph--wrapper">
+          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.year)"></app-inputs-errors>
         </div>
       </div>
       <div class="control">
-        <input class="input-control" type="number" placeholder="year" formControlName="year">
+        <div class="control-header">
+          <p>Country*</p>
+          <button class="tooltip-btn" mat-raised-button matTooltip="Minimum 3 characters"
+            aria-label="Button that displays a tooltip when focused or hovered over">
+          </button>
+        </div>
+        <input [className]="showErrors(watchForm.controls.country) ? 'input-control--invalid' : 'input-control' " type="text" formControlName="country">
         <div class="control-paragraph--wrapper">
+          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.country)"></app-inputs-errors>
         </div>
       </div>
       <div class="control">
-        <input class="input-control" type="text" placeholder="country" formControlName="country">
+        <div class="control-header">
+          <p>Description*</p>
+          <button class="tooltip-btn" mat-raised-button matTooltip="Minimum 5 characters"
+            aria-label="Button that displays a tooltip when focused or hovered over">
+          </button>
+        </div>
+        <input [className]="showErrors(watchForm.controls.description) ? 'input-control--invalid' : 'input-control' " type="text" formControlName="description">
         <div class="control-paragraph--wrapper">
+          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.description)"></app-inputs-errors>
         </div>
       </div>
       <div class="control">
-        <input class="input-control" type="text" placeholder="description" formControlName="description">
+        <div class="control-header">
+          <p>Price*</p>
+          <button class="tooltip-btn" mat-raised-button matTooltip="Minimum 2"
+            aria-label="Button that displays a tooltip when focused or hovered over">
+          </button>
+        </div>
+        <input [className]="showErrors(watchForm.controls.price) ? 'input-control--invalid' : 'input-control' " type="number" formControlName="price">
         <div class="control-paragraph--wrapper">
+          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.price)"></app-inputs-errors>
         </div>
       </div>
-      <div class="control">
-        <input class="input-control" type="number" placeholder="price" formControlName="price">
-        <div class="control-paragraph--wrapper">
-        </div>
+      <div class="button-container">
+        <button class="submit-button" *ngIf="buttonEdit" (click)="saveEdit()">Save Edit</button>
+        <button class="submit-button" *ngIf="!buttonEdit" (click)="addNewWatch()"
+          [disabled]="watchForm.invalid">Add</button>
       </div>
-    <div class="button-container">
-      <button class="submit-button" *ngIf="buttonEdit" (click)="saveEdit()">Save Edit</button>
-      <button class="submit-button" *ngIf="!buttonEdit" (click)="addNewWatch()">Add</button>
-    </div>
     </div>
   </form>
 
