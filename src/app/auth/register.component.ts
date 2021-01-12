@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
-
+import {MatDialog} from '@angular/material/dialog';
 import { AccountService, AlertService } from '../services';
 
-@Component({ templateUrl: 'register.component.html' })
+@Component({ templateUrl: 'register.component.html', 
+              styleUrls: ['register.component.scss'] })
 export class RegisterComponent implements OnInit {
     form: FormGroup;
     loading = false;
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private accountService: AccountService,
-        private alertService: AlertService
+        private alertService: AlertService,
+        public dialog: MatDialog,
     ) {
         // redirect to home if already logged in
         if (this.accountService.userValue) {

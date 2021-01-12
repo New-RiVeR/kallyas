@@ -18,7 +18,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     const cartItems = JSON.parse(localStorage.getItem('cartItems'));
-    this.cartService.cartItemsLength$.next(cartItems.length);
+    if (cartItems) {
+      this.cartService.cartItemsLength$.next(cartItems.length);
+    }
   }
 
   user: User;
