@@ -62,4 +62,17 @@ export class RegisterComponent implements OnInit {
                     this.loading = false;
                 });
     }
+    closeWindow() {
+        if (this.form.invalid) {
+            
+            return;
+          }
+          setTimeout(() => {
+            this.dialog.closeAll()
+          },1500);
+        
+    }
+    closeModal() {
+        this.dialog.closeAll()
+    }
 }

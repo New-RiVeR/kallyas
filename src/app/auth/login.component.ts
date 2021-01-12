@@ -78,6 +78,8 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
+    setTimeout(() => {
     this.dialog.closeAll();
+  },1500);
   }
 }
