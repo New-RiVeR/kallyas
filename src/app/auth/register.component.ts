@@ -6,11 +6,13 @@ import {MatDialog} from '@angular/material/dialog';
 import { AccountService, AlertService } from '../services';
 
 @Component({ templateUrl: 'register.component.html', 
-              styleUrls: ['register.component.scss'] })
+              styleUrls: ['register.component.scss'], 
+})
 export class RegisterComponent implements OnInit {
     form: FormGroup;
     loading = false;
     submitted = false;
+    returnUrl: string;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -22,15 +24,15 @@ export class RegisterComponent implements OnInit {
     ) {
         // redirect to home if already logged in
         if (this.accountService.userValue) {
-            this.router.navigate(['/']);
+            this.router.navigate(['../home']);
         }
     }
 
     ngOnInit() {
         this.form = this.formBuilder.group({
-            firstName: ['', Validators.required],
+            firstName:['', Validators.required],
             lastName: ['', Validators.required],
-            username: ['', Validators.required],
+            username: ['', [Validators.required, Validators.email]],
             password: ['', [Validators.required, Validators.minLength(6)]]
         });
     }

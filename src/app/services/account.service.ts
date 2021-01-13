@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
 import { environment } from '../../environments/environment';
 import { User } from '../models';
 
@@ -12,6 +11,7 @@ import { User } from '../models';
 export class AccountService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
+    
 
     constructor(
         private router: Router,
@@ -46,7 +46,7 @@ export class AccountService {
         return this.http.post(`${environment.apiUrl}/users/register`, user);
     }
 
-    getAll() {
+    getAll(): Observable<User[]> {
         return this.http.get<User[]>(`${environment.apiUrl}/users`);
     }
 
