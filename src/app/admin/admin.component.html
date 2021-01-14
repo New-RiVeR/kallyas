@@ -8,7 +8,6 @@
             aria-label="Button that displays a tooltip when focused or hovered over">
           </button>
         </div>
-        <!-- <input class="input-control" type="string" formControlName="name"> -->
         <input [className]="showErrors(watchForm.controls.name) ? 'input-control--invalid' : 'input-control' "
           type="text" formControlName="name">
         <div class="control-paragraph--wrapper">
@@ -74,67 +73,21 @@
     </div>
   </form>
 
-  <!-- <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="dataSource" matSort>
-      <ng-container matColumnDef="{{col}}" *ngFor="let col of displayedColumns">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{col}} </th>
-        <td mat-cell *matCellDef="let element">
-          <p *ngIf="!buttonEdit"> {{element[col]}} </p>
-          <input *ngIf="buttonEdit" type="{{dataSchema[col]}}" value="{{element[col]}}" #inputValue>
-          <div *ngIf="col === '$$edit'">
-            <button mat-raised-button *ngIf="!buttonEdit" (click)="editCurrentWatch(element)">Edit</button>
-            <button mat-raised-button color="primary" *ngIf="buttonEdit"
-              (click)="saveEdit(inputValue.value)">Save</button>
-          </div>
-          <div *ngIf="col === '$$delete'">
-            <button mat-raised-button color="warn" (click)="removeWatch(element)">Delete</button>
-          </div>
-        </td>
-      </ng-container>
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
-  </div> -->
-
-
-
-
-
-
-
-
   <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
       <ng-container matColumnDef="{{col}}" *ngFor="let col of displayedColumns">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> {{col}} </th>
         <td mat-cell *matCellDef="let element">
-          <div *ngIf="!element.isEdit">
-            <div class="btn-edit" *ngIf="col === '$$edit'; spanHeader">
-              <div (click)="element.isEdit = !element.isEdit"> 
-                <button (click)="editCurrentWatch()">Edit</button>
-              </div>
+          <div>
+            <div class="btn-edit" *ngIf="col === 'edit'; spanHeader">
+                <button (click)="editCurrentWatch(element)">Edit</button>
             </div>
             <div class="btn-delete" *ngIf="col === '$$delete'; spanHeader">
-              <div>
-                <button>Delete</button>
-              </div>
+                <button (click)="removeWatch(element)">Delete</button>
             </div>
             <span #spanHeader>
               {{element[col]}}
             </span>
-          </div>
-          <div *ngIf="element.isEdit">
-            <div class="btn-edit" *ngIf="col === '$$edit'; else dataField">
-              <div (click)="element.isEdit = !element.isEdit">
-                <button (click)="saveEdit()">Done</button>
-              </div>
-            </div>
-            <ng-template #dataField>
-              <mat-form-field>
-                <input type="{{dataSchema[col]}}" matInput value="{{element[col]}}">
-              </mat-form-field>
-            </ng-template>
           </div>
         </td>
       </ng-container>
@@ -144,5 +97,4 @@
     <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
   
-
 </div>

@@ -1,0 +1,43 @@
+<div>
+  <form [formGroup]="editWatchForm">
+    <div class="form-wrapper">
+      <div class="inputs-top">
+        <div>
+          <p>Name</p>
+          <div>
+            <input type="text"  formControlName="name">
+          </div>
+        </div>
+        <div>
+          <p>Price</p>
+          <div>
+            <input type="number" formControlName="price">
+          </div>
+        </div>
+        <div>
+          <p>Year</p>
+          <div>
+            <input type="number" formControlName="year">
+          </div>
+        </div>
+      </div>
+      <div class="inputs-middle">
+        <div>
+          <p>Description</p>
+          <div>
+            <input type="text" formControlName="description">
+          </div>
+        </div>
+        <div>
+          <p>Country</p>
+          <div>
+            <input type="text" formControlName="country">
+          </div>
+        </div>
+      </div>
+      <!-- <button *ngIf="path === 'create" (click)="saveEditWatch(editWatchForm)">Save</button> -->
+      <button (click)="saveEditWatch(editWatchForm)">Save</button>
+      <button (click)="navigateBack()">Cancel</button>
+    </div>
+  </form>
+</div>

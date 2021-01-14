@@ -6,6 +6,8 @@ import { WatchService } from '../services/watch.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { WATCHES_SCHEMA } from './admin.constants';
 import { MatPaginator } from '@angular/material/paginator';
+import { Router } from '@angular/router';
+import { state } from '@angular/animations';
 
 @Component({
   selector: 'app-admin',
@@ -19,23 +21,21 @@ export class AdminComponent implements OnInit {
   formSubmitted: boolean;
   public showError;
 
-  displayedColumns: string[] = ['name', 'description', 'price', 'country', 'year', '$$edit', '$$delete'];
+  displayedColumns: string[] = ['name', 'description', 'price', 'country', 'year', 'edit', '$$delete'];
   dataSource = new MatTableDataSource<WatchItem>(this.watchesArray)
   dataSchema = WATCHES_SCHEMA;  //
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     private fb: FormBuilder,
-    private watchService: WatchService
+    private watchService: WatchService,
+    private router: Router
   ) {
     this.initWatchForm();
   }
 
   ngOnInit(): void {
     this.loadWatches();
-    console.log(this.watchesArray);
-    console.log(this.dataSource.data);
-
     this.dataSource.paginator = this.paginator
   }
 
@@ -52,6 +52,7 @@ export class AdminComponent implements OnInit {
   private loadWatches(): void {
     this.watchService.getWatches().subscribe((value: WatchItem[]) => {
       this.dataSource = new MatTableDataSource(value)
+      console.log('this.dataSource: ', this.dataSource);
     });
   }
 
@@ -64,20 +65,18 @@ export class AdminComponent implements OnInit {
     console.log(this.dataSource.data);
   }
 
-  editCurrentWatch() {
-    // this.buttonEdit = true;
-    console.log('Edit');
-  }
-
-  saveEdit() {
-    // this.buttonEdit = false;
-    console.log('Done');
+  editCurrentWatch(element) {
+    this.router.navigate(['admin', element.id], {
+      queryParams: {
+        path: 'create'
+      }
+    })
   }
 
   removeWatch(element): void {
     console.log(element.id);
     this.watchService.removeWatch(element.id).subscribe(() => {
-      this.watchesArray = this.watchesArray.filter((watch) => watch.id !== element.id)
+      this.loadWatches()
     })
   }
 
@@ -88,7 +87,5 @@ export class AdminComponent implements OnInit {
   showErrors(field: AbstractControl): boolean {
     return field.invalid && (field.touched || this.formSubmitted)
   }
-
-
 
 }

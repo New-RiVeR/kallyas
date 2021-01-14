@@ -28,6 +28,7 @@ import { from } from 'rxjs';
 import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
 import { InputsErrorsComponent } from './admin/inputs-errors/inputs-errors.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { EditWatchComponent } from './edit-watch/edit-watch.component';
 
 const appRoutes: Routes = [
 
@@ -37,6 +38,7 @@ const appRoutes: Routes = [
   { path: 'shop', component: ShopComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'admin/:id', component: EditWatchComponent },
   { path: 'cart', component: CartComponent },
   { path: '**', component: NotFoundComponent },
 ];
@@ -55,6 +57,7 @@ const appRoutes: Routes = [
     CartComponent,
     MoreInfoDialog,
     InputsErrorsComponent,
+    EditWatchComponent,
   ],
   imports: [
     BrowserModule,
