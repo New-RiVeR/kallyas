@@ -67,28 +67,12 @@
       "price": 23123
     },
     {
-      "id": "c7c8e8e4-e074-4593-b8ae-5334e93d929a",
-      "name": "TEST1",
-      "year": 202020,
-      "country": "QUQUQUQUQU",
-      "description": "UQUQUUQUQUQU",
-      "price": 20202020
-    },
-    {
       "id": "ccb6b2a8-ae11-4b5e-90e3-5613af31e558",
       "name": "qweqweqweqwq",
       "year": 1234,
       "country": "qweqweqweqwqeqw",
       "description": "asasdassadqwweqeqweqw",
       "price": 4122
-    },
-    {
-      "id": "98115732-3211-4623-a7cd-dd307671e715",
-      "name": "weqweqweqw",
-      "year": 828282,
-      "country": "jsjsjsjs",
-      "description": "uxuxuxhsnsnssn",
-      "price": 71771
     },
     {
       "id": "034ceb62-bddc-42b9-8fc0-3ccbf1d1ec3f",
@@ -99,44 +83,12 @@
       "price": 61616
     },
     {
-      "id": "c2cfbc38-38f7-4a18-b30c-7bafcc18c61e",
-      "name": "qweqweqweqwe",
-      "year": 4444,
-      "country": "mvfjvfvnfjv",
-      "description": "wkkfkj fvekrj vke evjn",
-      "price": 44444
-    },
-    {
-      "id": "f1afe076-d4e2-4f88-ae6a-ba55862f6366",
-      "name": "раимирвам",
-      "year": 202020,
-      "country": "іпіпіпіпіп",
-      "description": "рввррврврврв",
-      "price": 3000
-    },
-    {
-      "id": "c9adc26a-14fc-4da4-8da4-8890bb40fa7d",
-      "name": "ораврврпіарп",
-      "year": 20202,
-      "country": "црвиапуоап",
-      "description": "20202впцурв",
-      "price": 20202020
-    },
-    {
       "id": "82b97e6c-2d83-44f1-8325-12eeda89afbf",
       "name": "впаппап",
       "year": 23232,
       "country": "впапа",
       "description": "апапап",
       "price": 23232
-    },
-    {
-      "id": "96616755-d32a-4452-badb-8f8f833b2ebd",
-      "name": "ergegfvefh",
-      "year": 292020,
-      "country": "wdhvcuwedviwegui",
-      "description": "djgwiedhwuiedwuig",
-      "price": 535353
     }
   ],
   "contact_page_data": [
