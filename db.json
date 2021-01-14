@@ -1,58 +1,6 @@
 {
   "watches": [
     {
-      "id": "333fbfc3-ddd2-4705-8f9a-aa78e34f8c77",
-      "name": "Black Silicon Strap Watch",
-      "description": "Interactively expedite business materials without holistic information",
-      "price": 150,
-      "country": "USA",
-      "countryFlag": "../../assets/image/united-states.png",
-      "year": 2014,
-      "image": "../../assets/image/clock-1.jpg",
-      "qnt": 1
-    },
-    {
-      "name": "Blue Silicon Strap Watch",
-      "year": 2012,
-      "country": "China",
-      "description": "Competently build 24/7 “outside the box” thinking via excellent paradigms",
-      "price": 2221111,
-      "id": "57d74b9e-bfee-4dda-8b94-0b948714f078"
-    },
-    {
-      "id": "83aec9ba-1255-4fef-b907-46cf1759f128",
-      "name": "Luxury Watch",
-      "description": "Uniquely generate emerging functionalities whereas leveraged e-business",
-      "price": 400,
-      "country": "Poland",
-      "countryFlag": "../../assets/image/poland.png",
-      "year": 2020,
-      "image": "../../assets/image/clock-4.jpg",
-      "qnt": 1
-    },
-    {
-      "id": "5c0213a6-5652-4b20-912b-2375e3e4ba36",
-      "name": "Golden Watch",
-      "description": "Seamlessly predominate flexible niches whereas seamless total linkage",
-      "price": 195,
-      "country": "Germany",
-      "countryFlag": "../../assets/image/germany.png",
-      "year": 2019,
-      "image": "../../assets/image/clock-5.jpg",
-      "qnt": 1
-    },
-    {
-      "id": "9a0f5d48-605f-481e-9ad5-30fd03ea7b9b",
-      "name": "Leather Strap Watch",
-      "description": "Uniquely syndicate resource sucking synergy and economically sound e-tailers",
-      "price": 260,
-      "country": "Ukraine",
-      "countryFlag": "../../assets/image/ukraine.png",
-      "year": 2018,
-      "image": "../../assets/image/clock-6.jpg",
-      "qnt": 1
-    },
-    {
       "id": "1daf615b-0cb5-48aa-809d-0f2ca24b0cb5",
       "name": "Leather Strap Watch",
       "description": "Interactively matrix excellent benefits via adaptive e-tailers",
@@ -60,8 +8,135 @@
       "country": "Spain",
       "countryFlag": "../../assets/image/spain.png",
       "year": 2016,
-      "image": "../../assets/image/clock-8.jpg",
-      "qnt": 1
+      "image": "../../assets/image/clock-8.jpg"
+    },
+    {
+      "id": "7a896e74-8cd3-4432-a5f8-e3e56ae5c58d",
+      "name": "KingA",
+      "year": 2010,
+      "country": "qweqweqwe",
+      "description": "qwasdasdasdasd",
+      "price": 123
+    },
+    {
+      "id": "f424775b-3f48-44ec-936e-993f15511f7f",
+      "name": "wqeqweqwe",
+      "year": 1231,
+      "country": "qwewqeqweqweqw",
+      "description": "wqeqweqweqwe",
+      "price": 123123
+    },
+    {
+      "id": "3c0f1af0-87de-4276-aec7-a2ae5b55a3f4",
+      "name": "trqwterqrwer",
+      "year": 4444,
+      "country": "zzzzzzz",
+      "description": "aaaaaaaaa",
+      "price": 2020202
+    },
+    {
+      "id": "97888736-e8d9-4925-a1f8-e65c08192a80",
+      "name": "tqtqtqtqtq",
+      "year": 2020,
+      "country": "yweteqwet",
+      "description": "uyetqwetqwewq",
+      "price": 3333
+    },
+    {
+      "id": "e2bbdd1f-1a86-440b-8537-7f4fec705079",
+      "name": "wehrwrte",
+      "year": 28282828,
+      "country": "qweqweqwe",
+      "description": "qweqweqwe",
+      "price": 12323
+    },
+    {
+      "id": "cf8a1ac4-5836-4db0-8ef8-73944b06ef7b",
+      "name": "hfhfhfhfhfhfh",
+      "year": 123123,
+      "country": "ehgrweugrweurf",
+      "description": "32ew32e",
+      "price": 123123
+    },
+    {
+      "id": "a805d5fe-0d8b-4a6c-b7c0-4ece8a7c7990",
+      "name": "etetetetetetet",
+      "year": 121212,
+      "country": "qqqqqqqq",
+      "description": "drgfvdhgsdv",
+      "price": 23123
+    },
+    {
+      "id": "c7c8e8e4-e074-4593-b8ae-5334e93d929a",
+      "name": "TEST1",
+      "year": 202020,
+      "country": "QUQUQUQUQU",
+      "description": "UQUQUUQUQUQU",
+      "price": 20202020
+    },
+    {
+      "id": "ccb6b2a8-ae11-4b5e-90e3-5613af31e558",
+      "name": "qweqweqweqwq",
+      "year": 1234,
+      "country": "qweqweqweqwqeqw",
+      "description": "asasdassadqwweqeqweqw",
+      "price": 4122
+    },
+    {
+      "id": "98115732-3211-4623-a7cd-dd307671e715",
+      "name": "weqweqweqw",
+      "year": 828282,
+      "country": "jsjsjsjs",
+      "description": "uxuxuxhsnsnssn",
+      "price": 71771
+    },
+    {
+      "id": "034ceb62-bddc-42b9-8fc0-3ccbf1d1ec3f",
+      "name": "qweqweqwe",
+      "year": 33333,
+      "country": "cdcsedwe",
+      "description": "qwdkcdjnewwehj",
+      "price": 61616
+    },
+    {
+      "id": "c2cfbc38-38f7-4a18-b30c-7bafcc18c61e",
+      "name": "qweqweqweqwe",
+      "year": 4444,
+      "country": "mvfjvfvnfjv",
+      "description": "wkkfkj fvekrj vke evjn",
+      "price": 44444
+    },
+    {
+      "id": "f1afe076-d4e2-4f88-ae6a-ba55862f6366",
+      "name": "раимирвам",
+      "year": 202020,
+      "country": "іпіпіпіпіп",
+      "description": "рввррврврврв",
+      "price": 3000
+    },
+    {
+      "id": "c9adc26a-14fc-4da4-8da4-8890bb40fa7d",
+      "name": "ораврврпіарп",
+      "year": 20202,
+      "country": "црвиапуоап",
+      "description": "20202впцурв",
+      "price": 20202020
+    },
+    {
+      "id": "82b97e6c-2d83-44f1-8325-12eeda89afbf",
+      "name": "впаппап",
+      "year": 23232,
+      "country": "впапа",
+      "description": "апапап",
+      "price": 23232
+    },
+    {
+      "id": "96616755-d32a-4452-badb-8f8f833b2ebd",
+      "name": "ergegfvefh",
+      "year": 292020,
+      "country": "wdhvcuwedviwegui",
+      "description": "djgwiedhwuiedwuig",
+      "price": 535353
     }
   ],
   "contact_page_data": [

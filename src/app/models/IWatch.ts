@@ -4,7 +4,7 @@ export interface WatchItem {
     description: string;
     price: number;
     country: string;
-    countryFlag: string;
+    countryFlag?: string;
     year: number;
     image?: string;
 }

@@ -1,11 +1,11 @@
 import * as uuid from 'uuid';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DialogService } from '../services/dialog.service';
-import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
-import { MatDialog } from '@angular/material/dialog';
 import { WatchItem } from '../models/IWatch';
 import { WatchService } from '../services/watch.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { WATCHES_SCHEMA } from './admin.constants';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-admin',
@@ -16,14 +16,16 @@ export class AdminComponent implements OnInit {
   watchForm: FormGroup;
   watchesArray: WatchItem[] = [];
   buttonEdit: boolean;
-  selectedWatch: any;
-  public showError;
   formSubmitted: boolean;
+  public showError;
 
+  displayedColumns: string[] = ['name', 'description', 'price', 'country', 'year', '$$edit', '$$delete'];
+  dataSource = new MatTableDataSource<WatchItem>(this.watchesArray)
+  dataSchema = WATCHES_SCHEMA;  //
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     private fb: FormBuilder,
-    public dialog: MatDialog,
-    private dialogHelper: DialogService,
     private watchService: WatchService
   ) {
     this.initWatchForm();
@@ -31,6 +33,10 @@ export class AdminComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadWatches();
+    console.log(this.watchesArray);
+    console.log(this.dataSource.data);
+
+    this.dataSource.paginator = this.paginator
   }
 
   private initWatchForm(): void {
@@ -45,7 +51,7 @@ export class AdminComponent implements OnInit {
 
   private loadWatches(): void {
     this.watchService.getWatches().subscribe((value: WatchItem[]) => {
-      this.watchesArray = value;
+      this.dataSource = new MatTableDataSource(value)
     });
   }
 
@@ -55,36 +61,24 @@ export class AdminComponent implements OnInit {
       this.watchesArray = [...this.watchesArray, watch];
     });
     this.watchForm.reset();
+    console.log(this.dataSource.data);
   }
 
-  saveEdit(): void {
-    console.log(this.selectedWatch);
-    this.watchService.editWatch(this.selectedWatch.id, this.watchForm.value)
-      .subscribe((newEditedWatch: WatchItem) => {
-        //
-      })
-    this.buttonEdit = false;
-    this.watchForm.reset();
+  editCurrentWatch() {
+    // this.buttonEdit = true;
+    console.log('Edit');
   }
 
-  removeWatch(id: string): void {
-    this.watchService.removeWatch(id).subscribe(() => {
-      this.watchesArray = this.watchesArray.filter((watch) => watch.id !== id);
-    });
+  saveEdit() {
+    // this.buttonEdit = false;
+    console.log('Done');
   }
 
-  editCurrentWatch(watch) {
-    this.buttonEdit = true;
-    this.selectedWatch = watch;
-    this.watchForm.patchValue(this.selectedWatch)
-  }
-
-  openDialog(watch: WatchItem) {
-    this.dialogHelper.watchSelected$.next(watch);
-    const dialogRef = this.dialog.open(MoreInfoDialog);
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-    });
+  removeWatch(element): void {
+    console.log(element.id);
+    this.watchService.removeWatch(element.id).subscribe(() => {
+      this.watchesArray = this.watchesArray.filter((watch) => watch.id !== element.id)
+    })
   }
 
   errors = function showErrors(field: AbstractControl): boolean {
@@ -94,5 +88,7 @@ export class AdminComponent implements OnInit {
   showErrors(field: AbstractControl): boolean {
     return field.invalid && (field.touched || this.formSubmitted)
   }
+
+
 
 }
