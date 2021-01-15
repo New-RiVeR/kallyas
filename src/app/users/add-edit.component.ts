@@ -1,3 +1,4 @@
+import { User } from './../models/user';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -32,7 +33,7 @@ export class AddEditComponent implements OnInit {
         }
 
         this.form = this.formBuilder.group({
-            firstName: ['', Validators.required],
+            firstName: ['', [Validators.required]],
             lastName: ['', Validators.required],
             username: ['', Validators.required],
             password: ['', passwordValidators]
@@ -41,16 +42,16 @@ export class AddEditComponent implements OnInit {
         if (!this.isAddMode) {
             this.accountService.getById(this.id)
                 .pipe(first())
-                .subscribe(x => {
-                    this.f.firstName.setValue(x.firstName);
-                    this.f.lastName.setValue(x.lastName);
-                    this.f.username.setValue(x.username);
+                .subscribe((x: User) => {
+                    this.controls.firstName.setValue(x.firstName);
+                    this.controls.lastName.setValue(x.lastName);
+                    this.controls.username.setValue(x.username);
                 });
         }
     }
 
     // convenience getter for easy access to form fields
-    get f() { return this.form.controls; }
+    get controls() { return this.form.controls; }
 
     onSubmit() {
         this.submitted = true;

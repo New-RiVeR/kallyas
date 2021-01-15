@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
   items = ITEMS_HEADER;
   photos = PHOTOS;
   cartItemsLength: number;
+  
 
   constructor(
     private router: Router, 
