@@ -1,98 +1,25 @@
 <div class="admin-page--container">
-  <form [formGroup]="watchForm">
-    <div class="control-container">
-      <div class="control">
-        <div class="control-header">
-          <p>Name*</p>
-          <button class="tooltip-btn" mat-raised-button matTooltip="Minimum 5 characters"
-            aria-label="Button that displays a tooltip when focused or hovered over">
-          </button>
-        </div>
-        <!-- <input class="input-control" type="string" formControlName="name"> -->
-          <input [className]="showErrors(watchForm.controls.name) ? 'input-control--invalid' : 'input-control' " type="text" formControlName="name">
-          <div class="control-paragraph--wrapper">
-            <app-inputs-errors [showErrors]="showErrors(watchForm.controls.name)"></app-inputs-errors>
-          </div>
-      </div>
-      <div class="control">
-        <div class="control-header">
-          <p>Year*</p>
-          <button class="tooltip-btn" mat-raised-button matTooltip="Minimum 1000"
-            aria-label="Button that displays a tooltip when focused or hovered over">
-          </button>
-        </div>
-        <input [className]="showErrors(watchForm.controls.year) ? 'input-control--invalid' : 'input-control' " type="number" formControlName="year">
-        <div class="control-paragraph--wrapper">
-          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.year)"></app-inputs-errors>
-        </div>
-      </div>
-      <div class="control">
-        <div class="control-header">
-          <p>Country*</p>
-          <button class="tooltip-btn" mat-raised-button matTooltip="Minimum 3 characters"
-            aria-label="Button that displays a tooltip when focused or hovered over">
-          </button>
-        </div>
-        <input [className]="showErrors(watchForm.controls.country) ? 'input-control--invalid' : 'input-control' " type="text" formControlName="country">
-        <div class="control-paragraph--wrapper">
-          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.country)"></app-inputs-errors>
-        </div>
-      </div>
-      <div class="control">
-        <div class="control-header">
-          <p>Description*</p>
-          <button class="tooltip-btn" mat-raised-button matTooltip="Minimum 5 characters"
-            aria-label="Button that displays a tooltip when focused or hovered over">
-          </button>
-        </div>
-        <input [className]="showErrors(watchForm.controls.description) ? 'input-control--invalid' : 'input-control' " type="text" formControlName="description">
-        <div class="control-paragraph--wrapper">
-          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.description)"></app-inputs-errors>
-        </div>
-      </div>
-      <div class="control">
-        <div class="control-header">
-          <p>Price*</p>
-          <button class="tooltip-btn" mat-raised-button matTooltip="Minimum 2"
-            aria-label="Button that displays a tooltip when focused or hovered over">
-          </button>
-        </div>
-        <input [className]="showErrors(watchForm.controls.price) ? 'input-control--invalid' : 'input-control' " type="number" formControlName="price">
-        <div class="control-paragraph--wrapper">
-          <app-inputs-errors [showErrors]="showErrors(watchForm.controls.price)"></app-inputs-errors>
-        </div>
-      </div>
-      <div class="button-container">
-        <button class="submit-button" *ngIf="buttonEdit" (click)="saveEdit()">Save Edit</button>
-        <button class="submit-button" *ngIf="!buttonEdit" (click)="addNewWatch()"
-          [disabled]="watchForm.invalid">Add</button>
-      </div>
-    </div>
-  </form>
-
-  <div class="watches-container">
-    <div class="watches" *ngFor="let watch of watchesArray">
-      <div class="button-delete--wrapper">
-        <button class="button-delete" (click)="removeWatch(watch.id)"></button>
-      </div>
-      <div>
-        <div>
-          <ng-container *ngIf="watch.image; else noImage">
-            <img class="clock-image" [src]="watch.image" alt="clock image{{watch.id}}">
-          </ng-container>
-          <ng-template #noImage>
-            <div>No image</div>
-          </ng-template>
-        </div>
-        <p class="watch-title">{{watch.name }} </p>
-        <p class="watch-descr">Description: {{watch.description }} </p>
-        <p class="watch-price">Price: {{watch.price }} </p>
-        <p class="watch-price">Year: {{watch.year}}</p>
-      </div>
-      <div class="watch-button--container">
-        <button class="watch-btn btn-info" mat-button (click)="openDialog(watch)">More info</button>
-        <button class="watch-btn btn-add" (click)="editCurrentWatch(watch)">Edit</button>
-      </div>
-    </div>
+  <div class="add-button--wrapper">
+    <button (click)="addWatch()">Add Clock</button>
   </div>
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="{{col}}" *ngFor="let col of displayedColumns">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{col}} </th>
+      <td mat-cell *matCellDef="let element">
+        <div>
+          <div class="btn-edit" *ngIf="col === 'edit'; spanHeader">
+            <button (click)="editCurrentWatch(element)">Edit</button>
+          </div>
+          <div class="btn-delete" *ngIf="col === '$$delete'; spanHeader">
+            <button mat-raised-button color="warn" (click)="removeWatch(element)">Delete</button>
+          </div>
+          <span #spanHeader>
+            {{element[col]}}
+          </span>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>

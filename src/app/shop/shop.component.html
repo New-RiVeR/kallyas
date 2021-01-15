@@ -31,7 +31,7 @@
       <p class="watch-descr">{{ watch.description }}</p>
       <p class="watch-price">£{{ watch.price }}</p>
       <div class="watch-button--container">
-        <button class="watch-btn btn-info" mat-button (click)="openDialog(watch)">More info</button>
+        <button class="watch-btn btn-info" (click)="openDialog(watch)">More info</button>
         <button class="watch-btn btn-add" (click)="addToCart(watch)">Add to cart</button>
       </div>
     </div>

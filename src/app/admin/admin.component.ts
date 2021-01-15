@@ -1,11 +1,12 @@
 import * as uuid from 'uuid';
-import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { DialogService } from '../services/dialog.service';
-import { MoreInfoDialog } from '../more-info--dialog/more-info--dialog';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { WatchItem } from '../models/IWatch';
 import { WatchService } from '../services/watch.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { WATCHES_SCHEMA } from './admin.constants';
+import { MatPaginator } from '@angular/material/paginator';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -16,37 +17,33 @@ export class AdminComponent implements OnInit {
   watchForm: FormGroup;
   watchesArray: WatchItem[] = [];
   buttonEdit: boolean;
-  selectedWatch: any;
-  public showError;
   formSubmitted: boolean;
+  public showError;
 
+  displayedColumns: string[] = ['name', 'description', 'price', 'country', 'year', 'edit', '$$delete'];
+  dataSource = new MatTableDataSource<WatchItem>(this.watchesArray)
+  dataSchema = WATCHES_SCHEMA;  //
+
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
     private fb: FormBuilder,
-    public dialog: MatDialog,
-    private dialogHelper: DialogService,
-    private watchService: WatchService
-  ) {
-    this.initWatchForm();
-  }
+    private watchService: WatchService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.loadWatches();
   }
 
-  private initWatchForm(): void {
-    this.watchForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(5)]],
-      year: ['', [Validators.required, Validators.min(1000)]],
-      country: ['', [Validators.required, Validators.minLength(3)]],
-      description: ['', [Validators.required, Validators.minLength(5)]],
-      price: ['', [Validators.required, Validators.min(2)]],
+  private loadWatches(): void {
+    this.watchService.getWatches().subscribe((value: WatchItem[]) => {
+      this.dataSource = new MatTableDataSource(value)
     });
   }
 
-  private loadWatches(): void {
-    this.watchService.getWatches().subscribe((value: WatchItem[]) => {
-      this.watchesArray = value;
-    });
+  addWatch(){
+    this.router.navigate(['admin','add'])
   }
 
   addNewWatch(): void {
@@ -55,44 +52,19 @@ export class AdminComponent implements OnInit {
       this.watchesArray = [...this.watchesArray, watch];
     });
     this.watchForm.reset();
+    console.log(this.dataSource.data);
   }
 
-  saveEdit(): void {
-    console.log(this.selectedWatch);
-    this.watchService.editWatch(this.selectedWatch.id, this.watchForm.value)
-      .subscribe((newEditedWatch: WatchItem) => {
-        //
-      })
-    this.buttonEdit = false;
-    this.watchForm.reset();
+  editCurrentWatch(element) {
+    this.router.navigate(['admin', element.id])
   }
 
-  removeWatch(id: string): void {
-    this.watchService.removeWatch(id).subscribe(() => {
-      this.watchesArray = this.watchesArray.filter((watch) => watch.id !== id);
-    });
+  removeWatch(element): void {
+    console.log(element.id);
+    this.watchService.removeWatch(element.id).subscribe(() => {
+      this.loadWatches()
+    })
   }
 
-  editCurrentWatch(watch) {
-    this.buttonEdit = true;
-    this.selectedWatch = watch;
-    this.watchForm.patchValue(this.selectedWatch)
-  }
-
-  openDialog(watch: WatchItem) {
-    this.dialogHelper.watchSelected$.next(watch);
-    const dialogRef = this.dialog.open(MoreInfoDialog);
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
-
-  errors = function showErrors(field: AbstractControl): boolean {
-    return field.invalid && (field.touched || this.formSubmitted)
-  }
-
-  showErrors(field: AbstractControl): boolean {
-    return field.invalid && (field.touched || this.formSubmitted)
-  }
 
 }
