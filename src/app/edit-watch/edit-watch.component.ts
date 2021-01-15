@@ -1,8 +1,11 @@
+import * as uuid from 'uuid';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WatchItem } from '../models/IWatch';
 import { WatchService } from '../services/watch.service';
+
+
 
 @Component({
   selector: 'app-edit-watch',
@@ -12,33 +15,26 @@ import { WatchService } from '../services/watch.service';
 export class EditWatchComponent implements OnInit {
 
   watch: WatchItem;
-  editWatchForm: FormGroup
+  watchForm: FormGroup
+  formSubmitted: boolean;
+  isAddWatchPage: boolean;
+  saveActionButton: boolean;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private watchService: WatchService,
-    private fb: FormBuilder
-  ) {
+    private fb: FormBuilder) {
     this.getSingleWatchFromDB()
+    this.addNewWatchForm();
   }
-  
+
   ngOnInit(): void {
-    this.initEditForm()
+    this.initForm()
   }
 
-  private getSingleWatchFromDB() {
-    console.log('this.activatedRoute.: ', this.activatedRoute.queryParams);
-    this.activatedRoute.params
-    .subscribe(params =>
-      this.watchService.getSingleWatch(params.id)
-      .subscribe(value => this.editWatchForm.patchValue(value))
-      );
-  }
-
-
-  private initEditForm() {
-    this.editWatchForm = this.fb.group({
+  private initForm() {
+    this.watchForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(5)]],
       year: ['', [Validators.required, Validators.min(1000)]],
       country: ['', [Validators.required, Validators.minLength(3)]],
@@ -47,14 +43,63 @@ export class EditWatchComponent implements OnInit {
     })
   }
 
-  saveEditWatch(watch){
-    console.log(watch);
+  private addNewWatchForm() {
+    console.log();
+    this.activatedRoute.url.subscribe(val => {
+      if (val[1].path === 'add') {
+        this.isAddWatchPage = true
+      }
+    });
   }
 
-  
-  navigateBack(){
+  private getSingleWatchFromDB() {
+    this.activatedRoute.params
+      .subscribe(params =>
+        this.watchService.getSingleWatch(params.id)
+          .subscribe(value => this.watchForm.patchValue(value))
+      );
+  }
+
+  progressFile(imageInput: any){
+
+  }
+
+  addNewWatch() {
+    let formValue = this.watchForm.value;
+    const newWatch = {id: uuid.v4(), ...formValue}
+    this.watchService.addWatch(newWatch).subscribe((watch) => {
+      this.watch = watch;
+    })    
+    this.watchForm.reset();
+  }
+
+  saveEditWatch() {
+    const formValue = this.watchForm.value
+    console.log(formValue);
+    this.activatedRoute.params
+      .subscribe(params =>
+        this.watchService.editWatch(params.id, formValue).subscribe((editedWatch: WatchItem) => {
+          this.watch = editedWatch;
+        }))
+    this.saveActionButton = true;
+  }
+
+  navigateBack() {
     this.router.navigate(['admin'])
   }
+
+  navigateToAdminPage() {
+    this.router.navigate(['admin'])
+  }
+
+  errors = function showErrors(field: AbstractControl): boolean {
+    return field.invalid && (field.touched || this.formSubmitted)
+  }
+
+  showErrors(field: AbstractControl): boolean {
+    return field.invalid && (field.touched || this.formSubmitted)
+  }
+
 
 
 }

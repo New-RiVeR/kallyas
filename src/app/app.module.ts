@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { v4 as uuidv1 } from '../../node_modules/uuid';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -24,7 +23,6 @@ import { FooterComponent } from './footer/footer.component';
 import { AdminComponent } from './admin/admin.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartComponent } from './cart/cart.component';
-import { from } from 'rxjs';
 import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
 import { InputsErrorsComponent } from './admin/inputs-errors/inputs-errors.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -38,6 +36,7 @@ const appRoutes: Routes = [
   { path: 'shop', component: ShopComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'admin/add', component: EditWatchComponent },
   { path: 'admin/:id', component: EditWatchComponent },
   { path: 'cart', component: CartComponent },
   { path: '**', component: NotFoundComponent },

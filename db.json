@@ -1,94 +1,68 @@
 {
   "watches": [
     {
-      "id": "1daf615b-0cb5-48aa-809d-0f2ca24b0cb5",
-      "name": "Leather Strap Watch",
-      "description": "Interactively matrix excellent benefits via adaptive e-tailers",
-      "price": 239,
-      "country": "Spain",
-      "countryFlag": "../../assets/image/spain.png",
-      "year": 2016,
-      "image": "../../assets/image/clock-8.jpg"
-    },
-    {
-      "id": "7a896e74-8cd3-4432-a5f8-e3e56ae5c58d",
-      "name": "KingA",
-      "year": 2010,
-      "country": "qweqweqwe",
-      "description": "qwasdasdasdasd",
-      "price": 123
-    },
-    {
-      "id": "f424775b-3f48-44ec-936e-993f15511f7f",
-      "name": "wqeqweqwe",
-      "year": 1231,
-      "country": "qwewqeqweqweqw",
-      "description": "wqeqweqweqwe",
+      "id": "96756b8e-5db9-493b-b0c3-3ecc8d54d367",
+      "name": "Clock1",
+      "year": 2020,
+      "country": "qweqwwqeewq",
+      "description": "weqwewdmckdw",
       "price": 123123
     },
     {
-      "id": "3c0f1af0-87de-4276-aec7-a2ae5b55a3f4",
-      "name": "trqwterqrwer",
-      "year": 4444,
-      "country": "zzzzzzz",
-      "description": "aaaaaaaaa",
-      "price": 2020202
+      "id": "5c12262d-6017-41e4-bb1d-889894943486",
+      "name": "ejwedjwejed",
+      "year": 20202,
+      "country": "whdjhnfhb",
+      "description": "wehwefhwfb",
+      "price": 1232
     },
     {
-      "id": "97888736-e8d9-4925-a1f8-e65c08192a80",
-      "name": "tqtqtqtqtq",
-      "year": 2020,
-      "country": "yweteqwet",
-      "description": "uyetqwetqwewq",
+      "name": "jhbhfbhfehbefh",
+      "year": 20202,
+      "country": "wehbfuefbhu",
+      "description": "wuefweufu",
+      "price": 123123,
+      "id": "aff351d0-11d1-4c45-a34a-bff02b14cbc2"
+    },
+    {
+      "id": "76c0a342-6a9e-45fb-aae8-817e3b6582d2",
+      "name": "fhfuyfrreure",
+      "year": 133243,
+      "country": "wefhehwheewhj",
+      "description": "wheewhjhwje",
       "price": 3333
     },
     {
-      "id": "e2bbdd1f-1a86-440b-8537-7f4fec705079",
-      "name": "wehrwrte",
-      "year": 28282828,
-      "country": "qweqweqwe",
-      "description": "qweqweqwe",
-      "price": 12323
+      "id": "44caa86e-cc54-4c02-a970-65cc3dae1793",
+      "name": "efhjevbvhehjvhebj",
+      "year": 123123,
+      "country": "uruurehvbve",
+      "description": "wuuefweef",
+      "price": 123123123
     },
     {
-      "id": "cf8a1ac4-5836-4db0-8ef8-73944b06ef7b",
-      "name": "hfhfhfhfhfhfh",
-      "year": 123123,
-      "country": "ehgrweugrweurf",
-      "description": "32ew32e",
+      "id": "9b022d1f-0187-457f-872a-788223fb991f",
+      "name": "hdhdhdhddh",
+      "year": 12231233,
+      "country": "weufuweifiew",
+      "description": "wuieiwefh",
+      "price": 12312312
+    },
+    {
+      "id": "9a3b8e17-f91a-4ada-bf6b-d70973d86ea0",
+      "name": "enjveferhf",
+      "year": 2020,
+      "country": "ururururu",
+      "description": "hghghghghg",
       "price": 123123
     },
     {
-      "id": "a805d5fe-0d8b-4a6c-b7c0-4ece8a7c7990",
-      "name": "etetetetetetet",
-      "year": 121212,
-      "country": "qqqqqqqq",
-      "description": "drgfvdhgsdv",
-      "price": 23123
-    },
-    {
-      "id": "ccb6b2a8-ae11-4b5e-90e3-5613af31e558",
-      "name": "qweqweqweqwq",
-      "year": 1234,
-      "country": "qweqweqweqwqeqw",
-      "description": "asasdassadqwweqeqweqw",
-      "price": 4122
-    },
-    {
-      "id": "034ceb62-bddc-42b9-8fc0-3ccbf1d1ec3f",
-      "name": "qweqweqwe",
-      "year": 33333,
-      "country": "cdcsedwe",
-      "description": "qwdkcdjnewwehj",
-      "price": 61616
-    },
-    {
-      "id": "82b97e6c-2d83-44f1-8325-12eeda89afbf",
-      "name": "впаппап",
-      "year": 23232,
-      "country": "впапа",
-      "description": "апапап",
-      "price": 23232
+      "id": "0457e741-2a9e-4547-8e45-0e950324904b",
+      "name": "fhfhfhfhfhf",
+      "year": 31221,
+      "country": "qweqweweqweq",
+      "description": "iieieieieieieie",
+      "price": 9191919
     }
   ],
   "contact_page_data": [

@@ -1,13 +1,12 @@
 import * as uuid from 'uuid';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { WatchItem } from '../models/IWatch';
 import { WatchService } from '../services/watch.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { WATCHES_SCHEMA } from './admin.constants';
 import { MatPaginator } from '@angular/material/paginator';
-import { Router } from '@angular/router';
-import { state } from '@angular/animations';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin',
@@ -29,31 +28,22 @@ export class AdminComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private watchService: WatchService,
-    private router: Router
-  ) {
-    this.initWatchForm();
-  }
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
     this.loadWatches();
-    this.dataSource.paginator = this.paginator
-  }
-
-  private initWatchForm(): void {
-    this.watchForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(5)]],
-      year: ['', [Validators.required, Validators.min(1000)]],
-      country: ['', [Validators.required, Validators.minLength(3)]],
-      description: ['', [Validators.required, Validators.minLength(5)]],
-      price: ['', [Validators.required, Validators.min(2)]],
-    });
   }
 
   private loadWatches(): void {
     this.watchService.getWatches().subscribe((value: WatchItem[]) => {
       this.dataSource = new MatTableDataSource(value)
-      console.log('this.dataSource: ', this.dataSource);
     });
+  }
+
+  addWatch(){
+    this.router.navigate(['admin','add'])
   }
 
   addNewWatch(): void {
@@ -66,11 +56,7 @@ export class AdminComponent implements OnInit {
   }
 
   editCurrentWatch(element) {
-    this.router.navigate(['admin', element.id], {
-      queryParams: {
-        path: 'create'
-      }
-    })
+    this.router.navigate(['admin', element.id])
   }
 
   removeWatch(element): void {
@@ -80,12 +66,5 @@ export class AdminComponent implements OnInit {
     })
   }
 
-  errors = function showErrors(field: AbstractControl): boolean {
-    return field.invalid && (field.touched || this.formSubmitted)
-  }
-
-  showErrors(field: AbstractControl): boolean {
-    return field.invalid && (field.touched || this.formSubmitted)
-  }
 
 }
