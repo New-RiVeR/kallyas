@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import { first, take } from 'rxjs/operators';
 import { RegisterComponent } from './../auth/register.component';
 import { AccountService, AlertService } from '../services';
 import { MatDialog } from '@angular/material/dialog';
+import * as uuid from 'uuid';
 @Component({
   templateUrl: 'login.component.html',
   styleUrls: ['./login.component.scss'],
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required],
     });
 
@@ -56,12 +57,21 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
+    const user = {
+      email: this.loginForm.value.email,
+      password: this.loginForm.value.password
+    }
     this.accountService
-      .login(this.controls.username.value, this.controls.password.value)
-      .pipe(first())
+      .login(user)
+      .pipe(take(1))
       .subscribe(
-        (data) => {
-          this.router.navigate([this.returnUrl]);
+        (userExist) => {
+          console.log('userExist: ', userExist);
+          if (userExist) {
+            this.router.navigate([this.returnUrl]);
+          } else {
+            this.alertService.error(`User doesn't exist`);
+          }
         },
         (error) => {
           this.alertService.error(error);

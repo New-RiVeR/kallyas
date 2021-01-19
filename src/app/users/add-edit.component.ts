@@ -35,7 +35,7 @@ export class AddEditComponent implements OnInit {
         this.form = this.formBuilder.group({
             firstName: ['', [Validators.required]],
             lastName: ['', Validators.required],
-            username: ['', Validators.required],
+            email: ['', Validators.required],
             password: ['', passwordValidators]
         });
 
@@ -45,7 +45,7 @@ export class AddEditComponent implements OnInit {
                 .subscribe((x: User) => {
                     this.controls.firstName.setValue(x.firstName);
                     this.controls.lastName.setValue(x.lastName);
-                    this.controls.username.setValue(x.username);
+                    this.controls.email.setValue(x.email);
                 });
         }
     }

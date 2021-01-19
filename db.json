@@ -131,126 +131,133 @@
       "lastName": "Leather Strap",
       "firstName": "Bird Ramsey",
       "password": "NIMON23",
-      "username": "birdramsey@nimon.com"
+      "email": "birdramsey@nimon.com"
     },
     {
       "id": 2,
       "lastName": "Leather Watch",
       "firstName": "Lillian Burgess",
       "password": "LUXURIA",
-      "username": "lillianburgess@luxuria.com"
+      "email": "lillianburgess@luxuria.com"
     },
     {
       "id": 3,
       "lastName": "Leather",
       "firstName": "Kristie Cole",
       "password": "QUADEEBO",
-      "username": "kristiecole@quadeebo.com"
+      "email": "kristiecole@quadeebo.com"
     },
     {
       "id": 4,
       "lastName": "Leattrap",
       "firstName": "Leonor Cross",
       "password": "GRONKwe",
-      "username": "leonorcross@gronk.com"
+      "email": "leonorcross@gronk.com"
     },
     {
       "id": 5,
       "lastName": "Leathatch",
       "firstName": "Marsh Mccall",
       "password": "ULTRIMAX",
-      "username": "marshmccall@ultrimax.com"
+      "email": "marshmccall@ultrimax.com"
     },
     {
       "firstName": "1qa",
       "lastName": "1qa",
-      "username": "q1a@1qa",
+      "email": "q1a@1qa",
       "password": "1qa1qa",
       "id": 6
     },
     {
       "firstName": "admin",
       "lastName": "admin",
-      "username": "admin@asd",
+      "email": "admin@asd",
       "password": "admin1",
       "id": 7
     },
     {
       "firstName": "12",
       "lastName": "12",
-      "username": "12",
+      "email": "12",
       "password": "121212",
       "id": 8
     },
     {
       "firstName": "123",
       "lastName": "123",
-      "username": "123@123",
+      "email": "123@123",
       "password": "123123",
       "id": 9
     },
     {
       "firstName": "qwe",
       "lastName": "qwe",
-      "username": "qwe@qwe",
+      "email": "qwe@qwe",
       "password": "qweqwe",
       "id": 10
     },
     {
       "firstName": "123",
       "lastName": "123",
-      "username": "123@123",
+      "email": "123@123",
       "password": "123123",
       "id": 11
     },
     {
       "firstName": "azazaz",
       "lastName": "azazaz",
-      "username": "azazaz@az",
+      "email": "azazaz@az",
       "password": "azazaz",
       "id": 12
     },
     {
       "firstName": "zzz",
       "lastName": "zzz",
-      "username": "zzz@zz",
+      "email": "zzz@zz",
       "password": "zzzzzz",
       "id": 13
     },
     {
       "firstName": "123123",
       "lastName": "123123",
-      "username": "123@rwerer",
+      "email": "123@rwerer",
       "password": "123123",
       "id": 14
     },
     {
       "firstName": "ф",
       "lastName": "ф",
-      "username": "asas@s.com",
+      "email": "asas@s.com",
       "password": "фффффф",
       "id": 15
     },
     {
       "firstName": "qweqwe",
       "lastName": "qewqwe",
-      "username": "qwewe@qwe",
+      "email": "qwewe@qwe",
       "password": "qweqeqwe",
       "id": 16
     },
     {
       "firstName": "1",
       "lastName": "1",
-      "username": "1@1",
+      "email": "1@1",
       "password": "111111",
       "id": 17
     },
     {
       "firstName": "1",
       "lastName": "1",
-      "username": "11@1",
+      "email": "11@1",
       "password": "111111",
       "id": 18
+    },
+    {
+      "firstName": "Vasyl",
+      "lastName": "Kukurudz",
+      "email": "vasakuk03@gmail.com",
+      "password": "qwerty12",
+      "id": 19
     }
   ]
 }

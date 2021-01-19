@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { first, map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { User } from '../models';
 
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
+    users: User[];
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
     
@@ -25,13 +26,26 @@ export class AccountService {
         return this.userSubject.value;
     }
 
-    login(username, password) {
-        return this.http.post<User>(`${environment.apiUrl}/users/authenticate`, { username, password })
-            .pipe(map(user => {
-                // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('user', JSON.stringify(user));
-                this.userSubject.next(user);
-                return user;
+    // login(loggedUser) {
+    //     return this.getAll()
+    //     .pipe()
+    //     .subscribe(users => {
+    //         const userExist = users.some(user => user.email === loggedUser.email && user.password === loggedUser.password);
+    //         console.log('userExist: ', userExist);
+    //     });
+    // }
+
+    login(loggedUser) {
+        console.log('loggedUser: ', loggedUser);
+        return this.http.get<User[]>(`${environment.apiUrl}/users`)
+            .pipe(map(users => {
+                const existedUser = users.find(user => user.email === loggedUser.email && user.password === loggedUser.password);
+                if (existedUser) {
+                    localStorage.setItem('user', JSON.stringify(existedUser));
+                    this.userSubject.next(loggedUser);
+                    return true;
+                }
+                return false;
             }));
     }
 
@@ -43,6 +57,7 @@ export class AccountService {
     }
 
     register(user: User): Observable<User> {
+        console.log('user: ', user);
         return this.http.post<User>(`${environment.apiUrl}/users`, user);
     }
 
