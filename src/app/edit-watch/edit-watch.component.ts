@@ -4,6 +4,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 import { ActivatedRoute, Router } from '@angular/router';
 import { WatchItem } from '../models/IWatch';
 import { WatchService } from '../services/watch.service';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -19,12 +20,15 @@ export class EditWatchComponent implements OnInit {
   formSubmitted: boolean;
   isAddWatchPage: boolean;
   saveActionButton: boolean;
+  uploadedImage;
+  selectedFile: File = null;
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private watchService: WatchService,
-    private fb: FormBuilder) {
+    private fb: FormBuilder,
+    private httpClient: HttpClient) {
     this.getSingleWatchFromDB()
     this.addNewWatchForm();
   }
@@ -40,11 +44,11 @@ export class EditWatchComponent implements OnInit {
       country: ['', [Validators.required, Validators.minLength(3)]],
       description: ['', [Validators.required, Validators.minLength(5)]],
       price: ['', [Validators.required, Validators.min(2)]],
+      image: ['']
     })
   }
 
   private addNewWatchForm() {
-    console.log();
     this.activatedRoute.url.subscribe(val => {
       if (val[1].path === 'add') {
         this.isAddWatchPage = true
@@ -54,14 +58,30 @@ export class EditWatchComponent implements OnInit {
 
   private getSingleWatchFromDB() {
     this.activatedRoute.params
-      .subscribe(params =>
+    .subscribe(params =>
         this.watchService.getSingleWatch(params.id)
           .subscribe(value => this.watchForm.patchValue(value))
       );
   }
 
-  progressFile(imageInput: any){
+  onFileSelected(e){
+    // if(e.target.files){
+    //   let reader= new FileReader();
+    //   reader.readAsDataURL(e.target.files[0]);
+    //   reader.onload = (event: any) => {
+    //     this.uploadedImage = event.target.result;
+    //   }
+    // }
+    this.selectedFile = e.target.files[0];
+  }
 
+  onUpload(){
+    const fd = new FormData();
+    fd.append('image', this.selectedFile, this.selectedFile.name);
+    this.httpClient.post('http://localhost:3000/watches', fd)
+      .subscribe(res => {
+        console.log(res);
+      })
   }
 
   addNewWatch() {
@@ -75,7 +95,6 @@ export class EditWatchComponent implements OnInit {
 
   saveEditWatch() {
     const formValue = this.watchForm.value
-    console.log(formValue);
     this.activatedRoute.params
       .subscribe(params =>
         this.watchService.editWatch(params.id, formValue).subscribe((editedWatch: WatchItem) => {

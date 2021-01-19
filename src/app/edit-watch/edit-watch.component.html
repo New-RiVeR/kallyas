@@ -65,10 +65,13 @@
         <app-inputs-errors [showErrors]="showErrors(watchForm.controls.price)"></app-inputs-errors>
       </div>
     </div>
-    <div class="button-container"></div>
   </div>
   <div>
-    <input #imageInput type="file" accept="image/*" (change)="progressFile(imageInput)">
+
+    <!-- <img [src]="uploadedImage" height="200"> -->
+    <input #imageInput type="file" (change)="onFileSelected($event)" formControlName="image">
+    <button (click)="onUpload()">Upload</button>
+
   </div>
   <div>
     <button *ngIf="isAddWatchPage" (click)="addNewWatch()">Add Watch</button>

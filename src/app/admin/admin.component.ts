@@ -14,11 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-  watchForm: FormGroup;
   watchesArray: WatchItem[] = [];
-  buttonEdit: boolean;
-  formSubmitted: boolean;
-  public showError;
 
   displayedColumns: string[] = ['name', 'description', 'price', 'country', 'year', 'edit', '$$delete'];
   dataSource = new MatTableDataSource<WatchItem>(this.watchesArray)
@@ -26,10 +22,8 @@ export class AdminComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   constructor(
-    private fb: FormBuilder,
     private watchService: WatchService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -46,21 +40,11 @@ export class AdminComponent implements OnInit {
     this.router.navigate(['admin','add'])
   }
 
-  addNewWatch(): void {
-    const newWatch = { id: uuid.v4(), ...this.watchForm.value };
-    this.watchService.addWatch(newWatch).subscribe((watch: WatchItem) => {
-      this.watchesArray = [...this.watchesArray, watch];
-    });
-    this.watchForm.reset();
-    console.log(this.dataSource.data);
-  }
-
   editCurrentWatch(element) {
     this.router.navigate(['admin', element.id])
   }
 
   removeWatch(element): void {
-    console.log(element.id);
     this.watchService.removeWatch(element.id).subscribe(() => {
       this.loadWatches()
     })
