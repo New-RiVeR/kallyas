@@ -66,7 +66,7 @@ export class LoginComponent implements OnInit {
       .pipe(take(1))
       .subscribe(
         (userExist) => {
-          console.log('userExist: ', userExist);
+          
           if (userExist) {
             this.router.navigate([this.returnUrl]);
           } else {

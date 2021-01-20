@@ -36,7 +36,7 @@ export class AccountService {
     // }
 
     login(loggedUser) {
-        console.log('loggedUser: ', loggedUser);
+        
         return this.http.get<User[]>(`${environment.apiUrl}/users`)
             .pipe(map(users => {
                 const existedUser = users.find(user => user.email === loggedUser.email && user.password === loggedUser.password);
@@ -57,7 +57,7 @@ export class AccountService {
     }
 
     register(user: User): Observable<User> {
-        console.log('user: ', user);
+       
         return this.http.post<User>(`${environment.apiUrl}/users`, user);
     }
 

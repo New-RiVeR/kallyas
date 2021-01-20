@@ -30,7 +30,7 @@
                 Password
                 <em *ngIf="!isAddMode">(Leave blank to keep the same password)</em>
             </label>
-            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && controls.password.errors }" />
+            <input type="text" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && controls.password.errors }" />
             <div *ngIf="submitted && controls.password.errors" class="invalid-feedback">
                 <div *ngIf="controls.password.errors.required">Password is required</div>
                 <div *ngIf="controls.password.errors.minlength">Password must be at least 6 characters</div>
