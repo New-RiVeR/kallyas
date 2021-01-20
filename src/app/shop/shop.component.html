@@ -8,24 +8,10 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="fill" class="sort-items">
-      <mat-label class="mat-label--title">Filter</mat-label>
-      <mat-select (selectionChange)="filterItemsBy()">
-        <mat-option *ngFor="let filter_item of filter_items" [value]="filter_item.value">
-          {{filter_item.title}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
   </div>
-  
-  <!-- <select (click)="sortItemsBy($event)">
-    <option *ngFor="let sort_item of sort_items" [value]="sort_item.value">
-      {{sort_item.title}}
-    </option>
-  </select> -->
 
   <div class="watches-container">
-    <div class="watches" *ngFor="let watch of watches">
+    <div class="watches" *ngFor="let watch of (watches | slice: lowValue : highValue )">
       <img class="clock-image" [src]="watch.image" alt="clock image{{watch.id}}">
       <p class="watch-title">{{ watch.name }}</p>
       <p class="watch-descr">{{ watch.description }}</p>
@@ -36,4 +22,7 @@
       </div>
     </div>
   </div>
-</div>  
+  <mat-paginator [length]="watches.length" [pageSize]="currentQuantity" [pageSizeOptions]="pageSizeOptions"
+    (page)="showDataPage($event)">
+  </mat-paginator>
+</div>
