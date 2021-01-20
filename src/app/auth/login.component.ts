@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -22,7 +23,8 @@ export class LoginComponent implements OnInit {
     private router: Router,
     private accountService: AccountService,
     private alertService: AlertService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private ToastrService: ToastrService
   ) {
     // redirect to home if already logged in
     if (this.accountService.userValue) {
@@ -59,22 +61,21 @@ export class LoginComponent implements OnInit {
     this.loading = true;
     const user = {
       email: this.loginForm.value.email,
-      password: this.loginForm.value.password
-    }
+      password: this.loginForm.value.password,
+    };
     this.accountService
       .login(user)
       .pipe(take(1))
       .subscribe(
         (userExist) => {
-          
           if (userExist) {
             this.router.navigate([this.returnUrl]);
           } else {
-            this.alertService.error(`User doesn't exist`);
+            this.ToastrService.error(`User doesn't exist`,'', {progressBar: true, timeOut: 1500});
           }
         },
         (error) => {
-          this.alertService.error(error);
+          this.ToastrService.info(`server doesn't work`, '', {timeOut: 1500, progressAnimation:'decreasing'});
           this.loading = false;
         }
       );
@@ -89,7 +90,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     setTimeout(() => {
-    this.dialog.closeAll();
-  },1500);
+      this.dialog.closeAll();
+    }, 1500);
   }
 }

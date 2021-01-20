@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { User } from './../models/user';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -19,7 +20,8 @@ export class AddEditComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private accountService: AccountService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private ToastrService: ToastrService
   ) {}
 
   ngOnInit() {
@@ -79,13 +81,12 @@ export class AddEditComponent implements OnInit {
       .pipe(first())
       .subscribe(
         (data) => {
-          this.alertService.success('User added successfully', {
-            keepAfterRouteChange: true,
-          });
-          this.router.navigate(['.', { relativeTo: this.route }]);
+          this.ToastrService.success('User added successfully'
+          );
+          this.router.navigate(['./shop', { relativeTo: this.route }]);
         },
         (error) => {
-          this.alertService.error(error);
+          this.ToastrService.error('somethings go wrong');
           this.loading = false;
         }
       );
@@ -97,13 +98,11 @@ export class AddEditComponent implements OnInit {
       .pipe(first())
       .subscribe(
         (data) => {
-          this.alertService.success('Update successful', {
-            keepAfterRouteChange: true,
-          });
+          this.ToastrService.success('Update successful');
           this.router.navigate(['..', { relativeTo: this.route }]);
         },
         (error) => {
-          this.alertService.error(error);
+          this.ToastrService.error('somethings go wrong');
           this.loading = false;
         }
       );

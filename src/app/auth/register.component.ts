@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -21,6 +22,7 @@ export class RegisterComponent implements OnInit {
         private accountService: AccountService,
         private alertService: AlertService,
         public dialog: MatDialog,
+        private ToastrService : ToastrService
     ) {
         // redirect to home if already logged in
         if (this.accountService.userValue) {
@@ -56,11 +58,11 @@ export class RegisterComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    this.alertService.success('Registration successful', { keepAfterRouteChange: true });
-                    this.router.navigate(['../login'], { relativeTo: this.route });
+                    this.ToastrService.success('Registration successful');
+                    this.router.navigate(['../shop']);
                 },
                 error => {
-                    this.alertService.error(error);
+                    this.ToastrService.info(`server doesn't work`);
                     this.loading = false;
                 });
     }

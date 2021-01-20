@@ -10,7 +10,7 @@ import { User } from '../models';
 @Injectable({ providedIn: 'root' })
 export class AccountService {
     users: User[];
-    private userSubject: BehaviorSubject<User>;
+    userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
     
 

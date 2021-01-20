@@ -18,18 +18,21 @@ export class HeaderComponent implements OnInit {
   items = ITEMS_HEADER;
   photos = PHOTOS;
   cartItemsLength: number;
-  
 
   constructor(
-    private router: Router, 
+    private router: Router,
     private cartService: CartService,
     private dialog: MatDialog,
-    // private userSubject: BehaviorSubject<User>,
-    // public user: Observable<User>,
-    ) {}
+    private accountService: AccountService
+  ) // private userSubject: BehaviorSubject<User>,
+  // public user: Observable<User>,
+  {}
 
   ngOnInit(): void {
     this.getCartItemsLength();
+    this.accountService.userSubject.subscribe((User) => {
+      console.log('show: ', User);
+    });
   }
 
   private getCartItemsLength(): void {
@@ -43,11 +46,10 @@ export class HeaderComponent implements OnInit {
     item.active = true;
   }
 
-  openLogDialog(name: string){
+  openLogDialog(name: string) {
     if (name === 'login') {
       const dialogRef = this.dialog.open(LoginComponent);
       dialogRef.afterClosed().subscribe((result) => {});
     }
   }
-
 }

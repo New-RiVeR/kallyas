@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     if (cartItems) {
       this.cartService.cartItemsLength$.next(cartItems.length);
     }
-    this.ToastrService.success('Hello world');
+    
   }
 
   user: User;
