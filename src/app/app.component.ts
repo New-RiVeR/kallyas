@@ -1,3 +1,4 @@
+import {  ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from './services/cart.service';
 import { AccountService } from './services';
@@ -11,7 +12,8 @@ import { User } from './models';
 export class AppComponent implements OnInit {
   constructor(
     private cartService: CartService,
-    private accountService: AccountService
+    private accountService: AccountService,
+    private ToastrService: ToastrService
   ) {
     this.accountService.user.subscribe((x) => (this.user = x));
   }
@@ -21,6 +23,7 @@ export class AppComponent implements OnInit {
     if (cartItems) {
       this.cartService.cartItemsLength$.next(cartItems.length);
     }
+    this.ToastrService.success('Hello world');
   }
 
   user: User;
