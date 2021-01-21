@@ -46,6 +46,7 @@ export class HeaderComponent implements OnInit {
   }
 
   openLogDialog() {
+    this.isUserLoggedIn = true;
       const dialogRef = this.dialog.open(LoginComponent);
       dialogRef.afterClosed().subscribe((result) => {});
     }
@@ -61,6 +62,7 @@ export class HeaderComponent implements OnInit {
   user: User;
   logOut() {
     this.accountService.logout();
+    this.isUserLoggedIn = false;
   }
 }
 
