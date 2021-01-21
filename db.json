@@ -162,46 +162,11 @@
       "email": "marshmccall@ultrimax.com"
     },
     {
-      "firstName": "1qa",
-      "lastName": "1qa",
-      "email": "q1a@1qa",
-      "password": "1qa1qa",
-      "id": 6
-    },
-    {
       "firstName": "admin",
       "lastName": "admin",
       "email": "admin@asd",
       "password": "admin1",
       "id": 7
-    },
-    {
-      "firstName": "12",
-      "lastName": "12",
-      "email": "12",
-      "password": "121212",
-      "id": 8
-    },
-    {
-      "firstName": "123",
-      "lastName": "123",
-      "email": "123@123",
-      "password": "123123",
-      "id": 9
-    },
-    {
-      "firstName": "qwe",
-      "lastName": "qwe",
-      "email": "qwe@qwe",
-      "password": "qweqwe",
-      "id": 10
-    },
-    {
-      "firstName": "123",
-      "lastName": "123",
-      "email": "123@123",
-      "password": "123123",
-      "id": 11
     },
     {
       "firstName": "azazaz",
@@ -211,39 +176,11 @@
       "id": 12
     },
     {
-      "firstName": "zzz",
-      "lastName": "zzz",
-      "email": "zzz@zz",
-      "password": "zzzzzz",
-      "id": 13
-    },
-    {
-      "firstName": "123123",
-      "lastName": "123123",
-      "email": "123@rwerer",
-      "password": "123123",
-      "id": 14
-    },
-    {
-      "firstName": "ф",
-      "lastName": "ф",
-      "email": "asas@s.com",
-      "password": "фффффф",
-      "id": 15
-    },
-    {
       "firstName": "qweqwe",
       "lastName": "qewqwe",
       "email": "qwewe@qwe",
       "password": "qweqeqwe",
       "id": 16
-    },
-    {
-      "firstName": "1",
-      "lastName": "1",
-      "email": "1@1",
-      "password": "111111",
-      "id": 17
     },
     {
       "firstName": "1",
@@ -258,6 +195,13 @@
       "email": "vasakuk03@gmail.com",
       "password": "qwerty12",
       "id": 19
+    },
+    {
+      "firstName": "123",
+      "lastName": "q3e3e",
+      "email": "13ee3@qeqwr",
+      "password": "wefwefwef",
+      "id": 20
     }
   ]
 }

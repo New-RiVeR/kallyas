@@ -21,29 +21,6 @@ export const NAV_MENU = [
     },
 ]
 
-export const ITEMS_HEADER = [
-    {
-        title: 'Customer support',
-        name: 'customer support',
-        active: false
-    },
-    {
-        title: 'Shipping',
-        name: 'shipping',
-        active: false
-    },
-    {
-        title: 'LogIn',
-        name: 'login',
-        active: false
-    },
-    {
-        title: 'Info',
-        name: 'info',
-        active: false
-    }
-]
-
 export const PHOTOS = [
     {
         path: '../../assets/image/facebook.svg'

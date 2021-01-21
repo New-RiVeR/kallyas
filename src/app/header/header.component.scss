@@ -46,11 +46,14 @@
     align-items: center;
     padding-left: 25px;
     cursor: pointer;
+    width: 340px;
+    justify-content: space-between;
 }
 
 .header li{
     color: whitesmoke;
     font-size: 14px;
+    
 }
 
 .header li:hover{

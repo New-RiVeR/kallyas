@@ -4,7 +4,7 @@ import { User } from './../models/user';
 import { AccountService } from './../services/account.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ITEMS_HEADER, NAV_MENU, PHOTOS } from './header.constants';
+import {  NAV_MENU, PHOTOS } from './header.constants';
 import { CartService } from '../services/cart.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
@@ -15,10 +15,9 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class HeaderComponent implements OnInit {
   navMenu = NAV_MENU;
-  items = ITEMS_HEADER;
   photos = PHOTOS;
   cartItemsLength: number;
-
+  isUserLoggedIn: boolean;
   constructor(
     private router: Router,
     private cartService: CartService,
@@ -46,10 +45,22 @@ export class HeaderComponent implements OnInit {
     item.active = true;
   }
 
-  openLogDialog(name: string) {
-    if (name === 'login') {
+  openLogDialog() {
       const dialogRef = this.dialog.open(LoginComponent);
       dialogRef.afterClosed().subscribe((result) => {});
     }
+
+
+  isAdminLogIn() {
+    if (this.accountService.userValue) {
+      this.router.navigate(['../users']);
+  }
+  }
+  // isUserLoggedIn() {
+  //   if () {}}
+  user: User;
+  logOut() {
+    this.accountService.logout();
   }
 }
+

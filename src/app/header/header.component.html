@@ -6,8 +6,11 @@
       </div>
     </div>
     <div class="header-top--right">
-      <ul *ngFor="let i of items">
-        <li (click)='openLogDialog(i.name)'>{{i.title}}</li>
+      <ul>
+        <li>Customer support</li>
+        <li>Shipping</li>
+        <li (click)="isUserLoggedIn ? logOut() : openLogDialog()" >{{ isUserLoggedIn ? 'Logout' : 'Login' }}</li>
+        <li (click)= 'isAdminLogIn()'>Users info</li> 
       </ul>
     </div>
   </div>
