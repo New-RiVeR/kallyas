@@ -62,6 +62,30 @@
       "year": 2016,
       "image": "../../assets/image/clock-8.jpg",
       "qnt": 1
+    },
+    {
+      "id": "1d83835b-597c-47f6-94cf-de51f626ad9b",
+      "name": "q",
+      "year": 2222,
+      "country": null,
+      "description": "2",
+      "price": 222
+    },
+    {
+      "id": "c9f1f82b-2928-405e-9e11-7f6bf2165671",
+      "name": null,
+      "year": -4,
+      "country": null,
+      "description": null,
+      "price": -5
+    },
+    {
+      "id": "f3381347-a3fb-4bba-913e-e07a8dceed84",
+      "name": "qwe123",
+      "year": 12312,
+      "country": "12313",
+      "description": "1231313",
+      "price": 123123
     }
   ],
   "contact_page_data": [
@@ -92,6 +116,99 @@
       "email": "qwewqe@qwewe.com",
       "message": "qweqwe",
       "checkbox": false
+    },
+    {
+      "id": "45fb41fa-6c00-4cf1-b7a4-36391eb53d0e",
+      "name": "123",
+      "email": "123@gmail.com",
+      "message": "123123",
+      "checkbox": true
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "lastName": "Leather Strap",
+      "firstName": "Bird Ramsey",
+      "password": "NIMON23",
+      "email": "birdramsey@nimon.com"
+    },
+    {
+      "id": 2,
+      "lastName": "Leather Watch",
+      "firstName": "Lillian Burgess",
+      "password": "LUXURIA",
+      "email": "lillianburgess@luxuria.com"
+    },
+    {
+      "id": 3,
+      "lastName": "Leather",
+      "firstName": "Kristie Cole",
+      "password": "QUADEEBO",
+      "email": "kristiecole@quadeebo.com"
+    },
+    {
+      "id": 4,
+      "lastName": "Leattrap",
+      "firstName": "Leonor Cross",
+      "password": "GRONKwe",
+      "email": "leonorcross@gronk.com"
+    },
+    {
+      "id": 5,
+      "lastName": "Leathatch",
+      "firstName": "Marsh Mccall",
+      "password": "ULTRIMAX",
+      "email": "marshmccall@ultrimax.com"
+    },
+    {
+      "firstName": "admin",
+      "lastName": "admin",
+      "email": "admin@asd",
+      "password": "admin1",
+      "id": 7
+    },
+    {
+      "firstName": "azazaz",
+      "lastName": "azazaz",
+      "email": "azazaz@az",
+      "password": "azazaz",
+      "id": 12
+    },
+    {
+      "firstName": "1",
+      "lastName": "1",
+      "email": "11@1",
+      "password": "111111",
+      "id": 18
+    },
+    {
+      "firstName": "Vasyl",
+      "lastName": "Kukurudz",
+      "email": "vasakuk03@gmail.com",
+      "password": "qwerty12",
+      "id": 19
+    },
+    {
+      "firstName": "123",
+      "lastName": "q3e3e",
+      "email": "13ee3@qeqwr",
+      "password": "wefwefwef",
+      "id": 20
+    },
+    {
+      "firstName": "test1",
+      "lastName": "test1",
+      "email": "test@test",
+      "password": "test123",
+      "id": 21
+    },
+    {
+      "firstName": "qqq",
+      "lastName": "qqq",
+      "email": "qqq@qqq",
+      "password": "qqqqqq",
+      "id": 22
     }
   ]
 }

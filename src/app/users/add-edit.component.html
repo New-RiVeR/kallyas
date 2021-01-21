@@ -1,0 +1,47 @@
+<h1 *ngIf="isAddMode">Add User</h1>
+<h1 *ngIf="!isAddMode">Edit User</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="firstName">User Name</label>
+            <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && controls.firstName.errors }" />
+            <div *ngIf="submitted && controls.firstName.errors" class="invalid-feedback">
+                <div *ngIf="controls.firstName.errors.required">First Name is required</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label for="lastName">Last Name</label>
+            <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && controls.lastName.errors }" />
+            <div *ngIf="submitted && controls.lastName.errors" class="invalid-feedback">
+                <div *ngIf="controls.lastName.errors.required">Last Name is required</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col">
+            <label for="email">Email</label>
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && controls.email.errors }" />
+            <div *ngIf="submitted && controls.email.errors" class="invalid-feedback">
+                <div *ngIf="controls.email.errors.required">Email is required</div>
+            </div>
+        </div>
+        <div class="form-group col">
+            <label for="password">
+                Password
+                <em *ngIf="!isAddMode">(Leave blank to keep the same password)</em>
+            </label>
+            <input type="text" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && controls.password.errors }" />
+            <div *ngIf="submitted && controls.password.errors" class="invalid-feedback">
+                <div *ngIf="controls.password.errors.required">Password is required</div>
+                <div *ngIf="controls.password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button [disabled]="loading" class="btn btn-primary">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Save
+        </button>
+        <a routerLink="/users" class="btn btn-link">Cancel</a>
+    </div>
+</form>

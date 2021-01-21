@@ -33,7 +33,6 @@ export class ContactComponent implements OnInit {
   }
 
   sendFormData(): void {
-    console.log(this.form.value);
     const newFormData = {id: uuid.v4(), ...this.form.value}
     this.contactData.populateUserDataArray(newFormData).subscribe((value: IContactPage) => {
       this.contactPage = [...this.contactPage, value]

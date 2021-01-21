@@ -6,8 +6,12 @@
       </div>
     </div>
     <div class="header-top--right">
-      <ul *ngFor="let i of items">
-        <li>{{i.title}}</li>
+      <ul>
+        <li>Customer support</li>
+        <li>Shipping</li>
+        <li (click)="isUserLoggedIn ? logOut() : openLogDialog()" >{{ isUserLoggedIn ? 'Logout' : 'Login' }}</li>
+        <!-- <li (click)="isUserLoggedIn ? logOut() : openLogDialog()" >{{ isUserLoggedIn ? 'Logout' : 'Login' }}</li> -->
+        <li (click)= 'isAdminLogIn()'>Users info</li> 
       </ul>
     </div>
   </div>
@@ -25,7 +29,7 @@
           <a [routerLink]="item.link" routerLinkActive="active">{{item.active? item.title : item.title}}</a>
         </div>
       </nav>
-      <button class="admin-button"> 
+      <button class="admin-button" > 
         <a routerLink="/admin">Admin</a>
       </button>
     </div>
@@ -39,5 +43,4 @@
 </div>
 </div>
 
-<router-outlet></router-outlet>
 

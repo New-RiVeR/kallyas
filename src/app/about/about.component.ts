@@ -14,7 +14,6 @@ export class AboutComponent implements OnInit {
   constructor() { 
     this.main_block.find((obj) => {
       if (obj.id % 2){
-        console.log(obj);
         this.changeBlockDirection = true;
       }
     })
