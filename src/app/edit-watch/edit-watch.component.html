@@ -66,15 +66,18 @@
       </div>
     </div>
   </div>
-  <div>
+  
+  <input type="file" (change)="fileChangeEvent($event)" formControlName="image">
+  <image-cropper
+  [imageChangedEvent]="imageChangedEvent"
+  [maintainAspectRatio]="true"
+  format="png"
+  (imageCropped)="imageCropped($event)"
+  ></image-cropper>
+  <img [src]="croppedImage" />
 
-    <!-- <img [src]="uploadedImage" height="200"> -->
-    <input #imageInput type="file" (change)="onFileSelected($event)" formControlName="image">
-    <button (click)="onUpload()">Upload</button>
-
-  </div>
   <div>
-    <button *ngIf="isAddWatchPage" (click)="addNewWatch()">Add Watch</button>
+    <button *ngIf="isAddWatchPage" (click)="addNewWatch()" [disabled]="watchForm.invalid">Add Watch</button>
     <button *ngIf="!isAddWatchPage" (click)="saveEditWatch()">Save</button>
     <button *ngIf="saveActionButton" (click)="navigateToAdminPage()">Back Home</button>
     <button *ngIf="!saveActionButton" (click)="navigateBack()">Cancel</button>

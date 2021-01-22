@@ -1,11 +1,11 @@
 import * as uuid from 'uuid';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WatchItem } from '../models/IWatch';
 import { WatchService } from '../services/watch.service';
 import { HttpClient } from '@angular/common/http';
-
+import { ImageCroppedEvent } from 'ngx-image-cropper';
 
 
 @Component({
@@ -20,15 +20,15 @@ export class EditWatchComponent implements OnInit {
   formSubmitted: boolean;
   isAddWatchPage: boolean;
   saveActionButton: boolean;
-  uploadedImage;
-  selectedFile: File = null;
+  imageChangedEvent: any = '';
+  croppedImage: any = '';
 
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private watchService: WatchService,
     private fb: FormBuilder,
-    private httpClient: HttpClient) {
+    private cd: ChangeDetectorRef) {
     this.getSingleWatchFromDB()
     this.addNewWatchForm();
   }
@@ -39,12 +39,12 @@ export class EditWatchComponent implements OnInit {
 
   private initForm() {
     this.watchForm = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(5)]],
-      year: ['', [Validators.required, Validators.min(1000)]],
-      country: ['', [Validators.required, Validators.minLength(3)]],
-      description: ['', [Validators.required, Validators.minLength(5)]],
-      price: ['', [Validators.required, Validators.min(2)]],
-      image: ['']
+      name: ['ttttt', [Validators.required, Validators.minLength(5)]],
+      year: ['22222', [Validators.required, Validators.min(1000)]],
+      country: ['uuu', [Validators.required, Validators.minLength(3)]],
+      description: ['yyyyy', [Validators.required, Validators.minLength(5)]],
+      price: ['34333', [Validators.required, Validators.min(2)]],
+      image: [null, Validators.required]
     })
   }
 
@@ -58,38 +58,19 @@ export class EditWatchComponent implements OnInit {
 
   private getSingleWatchFromDB() {
     this.activatedRoute.params
-    .subscribe(params =>
+      .subscribe(params =>
         this.watchService.getSingleWatch(params.id)
           .subscribe(value => this.watchForm.patchValue(value))
       );
   }
 
-  onFileSelected(e){
-    // if(e.target.files){
-    //   let reader= new FileReader();
-    //   reader.readAsDataURL(e.target.files[0]);
-    //   reader.onload = (event: any) => {
-    //     this.uploadedImage = event.target.result;
-    //   }
-    // }
-    this.selectedFile = e.target.files[0];
-  }
-
-  onUpload(){
-    const fd = new FormData();
-    fd.append('image', this.selectedFile, this.selectedFile.name);
-    this.httpClient.post('http://localhost:3000/watches', fd)
-      .subscribe(res => {
-        console.log(res);
-      })
-  }
-
   addNewWatch() {
+    console.log(this.imageChangedEvent);
     let formValue = this.watchForm.value;
-    const newWatch = {id: uuid.v4(), ...formValue}
+    const newWatch = { id: uuid.v4(), ...formValue }
     this.watchService.addWatch(newWatch).subscribe((watch) => {
       this.watch = watch;
-    })    
+    })
     this.watchForm.reset();
   }
 
@@ -101,6 +82,15 @@ export class EditWatchComponent implements OnInit {
           this.watch = editedWatch;
         }))
     this.saveActionButton = true;
+  }
+
+  fileChangeEvent(event: any): void {
+    console.log('asd' ,event);
+    this.imageChangedEvent = event;
+  }
+
+  imageCropped(event: ImageCroppedEvent) {
+    this.croppedImage = event.base64;
   }
 
   navigateBack() {

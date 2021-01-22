@@ -91,6 +91,33 @@
       "description": "qweqweqwe",
       "price": 11111,
       "image": ""
+    },
+    {
+      "id": "6c467715-2c91-4cbd-8be0-bf350c1b5364",
+      "name": "ttttt",
+      "year": "22222",
+      "country": "uuu",
+      "description": "yyyyy",
+      "price": "34333",
+      "image": "C:\\fakepath\\clock-1.jpg"
+    },
+    {
+      "id": "8228eb30-7666-4c6b-984e-55329423ae31",
+      "name": "tttttTEST",
+      "year": "22222",
+      "country": "uuu",
+      "description": "yyyyy",
+      "price": "34333",
+      "image": "C:\\fakepath\\clock-2.jpg"
+    },
+    {
+      "id": "42d58241-b693-4c24-bd8f-b8c40e72da04",
+      "name": "ttttt",
+      "year": "22222",
+      "country": "uuu",
+      "description": "yyyyy",
+      "price": "34333",
+      "image": "C:\\fakepath\\clock-4.jpg"
     }
   ],
   "contact_page_data": [

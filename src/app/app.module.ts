@@ -27,6 +27,7 @@ import { MoreInfoDialog } from './more-info--dialog/more-info--dialog';
 import { InputsErrorsComponent } from './admin/inputs-errors/inputs-errors.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { EditWatchComponent } from './edit-watch/edit-watch.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 const appRoutes: Routes = [
 
@@ -72,6 +73,7 @@ const appRoutes: Routes = [
     MatPaginatorModule,
     MatButtonModule,
     HttpClientModule,
+    ImageCropperModule,
     BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     NgbModule,

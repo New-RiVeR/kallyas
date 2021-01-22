@@ -2,24 +2,25 @@
   <div class="add-button--wrapper">
     <button (click)="addWatch()">Add Clock</button>
   </div>
-  <table mat-table [dataSource]="dataSource" matSort>
-    <ng-container matColumnDef="{{col}}" *ngFor="let col of displayedColumns">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> {{col}} </th>
-      <td mat-cell *matCellDef="let element">
-        <div>
-          <div class="btn-edit" *ngIf="col === 'edit'; spanHeader">
-            <button (click)="editCurrentWatch(element)">Edit</button>
+    <table mat-table [dataSource]="dataSource" matSort>
+      <ng-container matColumnDef="{{col}}" *ngFor="let col of displayedColumns">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> {{col}} </th>
+        <td mat-cell *matCellDef="let element">
+          <div>
+            <div class="btn-edit" *ngIf="col === 'edit'; spanHeader">
+              <button (click)="editCurrentWatch(element)">Edit</button>
+            </div>
+            <div class="btn-delete" *ngIf="col === '$$delete'; spanHeader">
+              <button mat-raised-button color="warn" (click)="removeWatch(element)">Delete</button>
+            </div>
+            <span #spanHeader>
+              {{element[col]}}
+            </span>
           </div>
-          <div class="btn-delete" *ngIf="col === '$$delete'; spanHeader">
-            <button mat-raised-button color="warn" (click)="removeWatch(element)">Delete</button>
-          </div>
-          <span #spanHeader>
-            {{element[col]}}
-          </span>
-        </div>
-      </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons ></mat-paginator>
 </div>
